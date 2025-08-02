@@ -280,8 +280,8 @@ const Navbar = () => {
               How It Works
             </Button>
             {howItWorksOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
-                <Link
+  <div className="pl-4 flex flex-col space-y-2 mt-2">
+<Link
                   to="/how-it-works#steps"
                   className="block px-4 py-2 hover:bg-gray-100"
                 >
