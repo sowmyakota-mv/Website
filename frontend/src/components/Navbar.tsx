@@ -239,7 +239,7 @@ const Navbar = () => {
               About
             </Button>
             {aboutOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
+              <div className="pl-4 flex flex-col space-y-2 mt-2">
                 <Link
                   to="/about#who-we-are"
                   className="block px-4 py-2 hover:bg-gray-100"
