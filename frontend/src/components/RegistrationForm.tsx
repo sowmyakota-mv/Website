@@ -1,0 +1,189 @@
+import { useState } from "react";
+import { Button } from "./ui/button";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+function RegistrationForm() {
+  const [fullContact, setFullContact] = useState("");
+  const [phone, setPhone] = useState("");
+  const [dialCode, setDialCode] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [formError, setFormError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [password, setPassword] = useState("");
+  const [successMessage, setSuccessMessage]=useState("")
+  const [isSubmitted, setIsSubmitted]=useState(false)
+  const navigate=useNavigate()
+
+  const handleContactChange = (value, country) => {
+    setFullContact(value);
+    setDialCode(country.dialCode);
+    const numberOnly = value.replace(`+${country.dialCode}`, "");
+    setPhone(numberOnly);
+    setPhoneError("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormError("");
+
+    if (!fullName || !email || !fullContact || !password) {
+      setFormError("Please fill the details");
+      return;
+    }
+    if (!dialCode) {
+      setPhoneError("Please enter the correct country code");
+      return;
+    }
+    if (emailError || phoneError) {
+      alert("Fix errors before submitting");
+      return;
+    }
+    setIsSubmitted(true)
+    console.log("Full Name:", fullName);
+    console.log("Country Code:", dialCode);
+    console.log("Phone Number:", phone);
+    console.log("Full Contact:", fullContact);
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    setSuccessMessage("Thank you! Your registration is successful.")
+    setTimeout(() => {
+    navigate("/");
+  }, 3000);
+  };
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(value)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handleReturnHome = () => {
+  // Reset all form fields
+  setFullContact("");
+  setPhone("");
+  setDialCode("");
+  setEmail("");
+  setEmailError("");
+  setPhoneError("");
+  setFormError("");
+  setShowPassword(false);
+  setFullName("");
+  setPassword("");
+  setSuccessMessage("");
+  setIsSubmitted(false);
+
+  // Navigate to home
+  navigate("/");
+};
+
+
+  return (
+    <div>
+        {isSubmitted?(
+            <div className="flex flex-col justify-center items-center w-full min-h-[500px] bg-white p-10 text-center rounded-xl shadow-lg">
+                <h2 className="text-4xl font-bold mb-4 text-gray-800">Thank You!</h2>
+                <p className="text-lg text-gray-600 mb-2">
+                    Your Submission has been successfully received.
+                </p>
+                <Button onClick={handleReturnHome}
+                className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+                    OK
+                </Button>
+                </div>):(
+                    <div>
+                        <h1 className="text-2xl font-bold text-center mb-6">Register Form</h1>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {formError && <p className="text-red-500 text-sm">{formError}</p>}
+      
+      {/* Full Name */}
+      <div>
+        <label className="block text-gray-600 mb-2">Full Name</label>
+        <input
+          type="text"
+          value={fullName}
+          placeholder="Enter your name"
+          onChange={(e) => setFullName(e.target.value)}
+          className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Email */}
+      <div>
+        <label className="block text-gray-600 mb-2">Email</label>
+        <input
+          type="email"
+          value={email}
+          placeholder="Enter your email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateEmail(e.target.value);
+          }}
+          className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        />
+        {emailError && (
+          <p className="text-red-500 text-sm mt-1">{emailError}</p>
+        )}
+      </div>
+
+      {/* Contact Number */}
+      <div>
+        <label className="block text-gray-600 mb-2">Contact Number</label>
+        <PhoneInput
+  country={" "} 
+  value={fullContact}
+  onChange={handleContactChange}
+  inputClass="!w-full !bg-white !px-14 !py-3 !border !rounded-lg !text-gray-700 !focus:ring-2 !focus:ring-blue-500 !outline-none"
+  containerClass="relative w-full"
+  buttonClass="!bg-white !border-none !absolute !left-3 !top-1/2 !transform !-translate-y-1/2"
+  inputProps={{
+    name: "phone",
+    required: true,
+    placeholder: "Enter your phone number",
+  }}
+  enableSearch={true}
+  separateDialCode={false} 
+/>
+
+        {phoneError && (
+          <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+        )}
+      </div>
+
+      {/* Password with Eye Icon */}
+      <div className="relative">
+        <label className="block text-gray-600 mb-2">Password</label>
+        <input
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password"
+          className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        />
+        <span
+          className="absolute right-4 top-11 cursor-pointer text-gray-600"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+        </span>
+      </div>
+      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg">
+        Register
+      </Button>
+    </form>
+    </div>
+    )}
+    </div>
+  );
+}
+
+export default RegistrationForm;
