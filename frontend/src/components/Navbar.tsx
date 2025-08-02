@@ -48,11 +48,11 @@ const Navbar = () => {
         {/* Logo and Title */}
         <div className="flex items-center space-x-2">
           <img
-            src="/Upsort-career.png"
+            src="/website.png"
             alt="logo"
             className="h-10 w-10 object-contain"
           />
-          <span className="text-xl font-bold text-blue-600">Logo</span>
+          <span className="text-xl font-bold text-blue-600">Data Artisans</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -315,7 +315,7 @@ const Navbar = () => {
               Courses
             </Button>
             {coursesOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
+              <div className="pl-4 flex flex-col space-y-2 mt-2">
                 <Link
                   to="/list"
                   className="block px-4 py-2 hover:bg-gray-100"
