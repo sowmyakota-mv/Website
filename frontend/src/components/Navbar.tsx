@@ -201,10 +201,20 @@ const Navbar = () => {
               </div>
             )}
           </div>
+<a
+  href="#footer"
+  className="flex items-center hover:text-blue-500"
+  onClick={(e) => {
+    e.preventDefault();
+    const footerSection = document.getElementById("footer");
+    if (footerSection) {
+      footerSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Support
+</a>
 
-          <a href="support" className="flex items-center hover:text-blue-500">
-            Support
-          </a>
         </nav>
 
         {/* Register Button */}
@@ -368,9 +378,21 @@ const Navbar = () => {
             )}
           </div>
 
-            <a href="support" className="hover:text-blue-500" onClick={closeAllMenus}>
-              Support
-            </a>
+            <a
+  href="#footer"
+  className="hover:text-blue-500"
+  onClick={(e) => {
+    e.preventDefault();
+    const footerSection = document.getElementById("footer");
+    if (footerSection) {
+      footerSection.scrollIntoView({ behavior: "smooth" });
+    }
+    closeAllMenus(); 
+  }}
+>
+  Support
+</a>
+
             <Button className="mt-4 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition">
               Register
             </Button>
