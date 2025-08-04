@@ -394,7 +394,7 @@ const Navbar = () => {
 >
   Support
 </a>
-<Button className="mt-4 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+<Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
 onClick={()=>navigate('/register')}>
 Register
 </Button>
