@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [howItWorksOpen, setHowItWorksOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
+  const navigate=useNavigate()
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -219,7 +220,8 @@ const Navbar = () => {
 
         {/* Register Button */}
         <div className="hidden md:flex space-x-4">
-          <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition">
+          <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition" 
+          onClick={()=>navigate('/register')}>
             Register
           </Button>
         </div>
@@ -392,14 +394,14 @@ const Navbar = () => {
 >
   Support
 </a>
-
-            <Button className="mt-4 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition">
-              Register
-            </Button>
-          </nav>
-        </div>
-      )}
-    </header>
+<Button className="mt-4 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+onClick={()=>navigate('/register')}>
+Register
+</Button>
+</nav>
+</div>
+)}
+</header>
   );
 };
 

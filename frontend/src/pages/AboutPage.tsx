@@ -132,7 +132,7 @@ const AboutPage = () => {
       </section>
 
       {/* Global Offices */}
-      <section id="golbal-offices">
+      <section id="global-offices">
         <h2 className="text-3xl font-bold text-blue-600 mb-4 text-center">Global Offices</h2>
         <p className="text-center text-gray-700 mb-6 max-w-3xl mx-auto">
           Our presence spans across multiple continents, ensuring we are always close to

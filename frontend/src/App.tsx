@@ -14,6 +14,7 @@ import AboutPage from './pages/AboutPage';
 import ServicePage from './pages/ServicePage';
 import CoursePage from './pages/CoursePage';
 import CourseDetailPage from './pages/CourseDetails';
+import RegistrationForm from './components/RegistrationForm';
 
 function App() {
   const serviceRef = useRef(null);
@@ -57,6 +58,7 @@ function App() {
         <Route path='/list' element={<CoursePage/>}/>
         <Route path="/:category" element={<CoursePage />} />
         <Route path='/course/:id' element={<CourseDetailPage/>}/>
+        <Route path='/register' element={<RegistrationForm/>}/>
       </Routes>
     </main>
 

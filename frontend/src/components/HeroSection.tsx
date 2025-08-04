@@ -75,12 +75,12 @@ function HeroSection({scrollToServices}) {
       </div>
       {showForm && (
        <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50">
-          <div className="relative bg-white rounded-xl border border-gray-300 shadow-2xl p-8 w-[90%] max-w-lg">
+          <div className="relative bg-white rounded-xl border border-gray-300 shadow-2xl p-2 w-[90%] max-w-lg">
             <Button onClick={()=>setShowForm(false)}
             className="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                 <X className="w-6 h-6"/>
             </Button>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Register With Us</h2>
+            
             <RegistrationForm/>
           </div>
         </div>

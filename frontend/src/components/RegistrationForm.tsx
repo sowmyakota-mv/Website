@@ -88,9 +88,10 @@ function RegistrationForm() {
 
 
   return (
-    <div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
         {isSubmitted?(
-            <div className="flex flex-col justify-center items-center w-full min-h-[500px] bg-white p-10 text-center rounded-xl shadow-lg">
+            <div className="flex flex-col justify-center items-center text-center">
                 <h2 className="text-4xl font-bold mb-4 text-gray-800">Thank You!</h2>
                 <p className="text-lg text-gray-600 mb-2">
                     Your Submission has been successfully received.
@@ -101,7 +102,7 @@ function RegistrationForm() {
                 </Button>
                 </div>):(
                     <div>
-                        <h1 className="text-2xl font-bold text-center mb-6">Register Form</h1>
+                        <h1 className="text-2xl font-bold text-center mb-6">Register With Us</h1>
     <form onSubmit={handleSubmit} className="space-y-4">
       {formError && <p className="text-red-500 text-sm">{formError}</p>}
       
@@ -182,6 +183,7 @@ function RegistrationForm() {
     </form>
     </div>
     )}
+    </div>
     </div>
   );
 }
