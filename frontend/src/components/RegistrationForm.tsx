@@ -20,6 +20,16 @@ function RegistrationForm() {
   const [isSubmitted, setIsSubmitted]=useState(false)
   const navigate=useNavigate()
 
+  const [formData, setFormData]=useState({
+    name: "",
+    email: "",
+    phone: "",
+  })
+
+  const handleChange=(e)=>{
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
+
   const handleContactChange = (value, country) => {
     setFullContact(value);
     setDialCode(country.dialCode);
@@ -28,35 +38,55 @@ function RegistrationForm() {
     setPhoneError("");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormError("");
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setFormError("");
 
-    if (!fullName || !email || !fullContact || !password) {
-      setFormError("Please fill the details");
-      return;
-    }
-    if (!dialCode) {
-      setPhoneError("Please enter the correct country code");
-      return;
-    }
-    if (emailError || phoneError) {
-      alert("Fix errors before submitting");
-      return;
-    }
-    setIsSubmitted(true)
-    console.log("Full Name:", fullName);
-    console.log("Country Code:", dialCode);
-    console.log("Phone Number:", phone);
-    console.log("Full Contact:", fullContact);
-    console.log("Email:", email);
-    console.log("Password:", password);
+  if (!fullName || !email || !fullContact || !password) {
+    setFormError("Please fill the details");
+    return;
+  }
+  if (!dialCode) {
+    setPhoneError("Please enter the correct country code");
+    return;
+  }
+  if (emailError || phoneError) {
+    alert("Fix errors before submitting");
+    return;
+  }
 
-    setSuccessMessage("Thank you! Your registration is successful.")
+  const formPayload = {
+  fullName: fullName,
+  email: email,
+  phone: `+${dialCode} ${phone}`,
+  password: password,
+  timestamp: new Date().toLocaleString(), 
+};
+
+  try {
+    const response = await fetch("http://localhost:5000/api/register", {
+
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formPayload),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
+
+    setIsSubmitted(true);
+    setSuccessMessage("Thank you! Your registration is successful.");
     setTimeout(() => {
-    navigate("/");
-  }, 3000);
-  };
+      navigate("/");
+    }, 3000);
+  } catch (error) {
+    console.error("Error:", error);
+    setFormError("Something went wrong. Please try again later.");
+  }
+};
 
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;

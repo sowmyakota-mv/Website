@@ -1,50 +1,133 @@
-import { ArrowRight } from "lucide-react"
-import { Link } from "react-router-dom"
+import { CheckCircle } from "lucide-react";
 
-const services=[
-    {
-        title: "Enroll in 3-Month Program",
-        description: "Start Your journey with industry-relevant courses tailored for career growth.",
-        link:"/how-it-works#steps"
-    },
-    {
-        title: "Get Hands-on Training",
-        description: "Gain real-world experience with practical projects and expert guidance.",
-        link:"/how-it-works#support"
-    },
-    {
-        title: "Apply & Get Placed",
-        description: "We assist in placements and connect you with top recruiters for your domain.",
-        link:"/how-it-works#hiring"
-    },
-]
-function ServicesSection(){
-    return(
-        <section id="how-it-works" className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-6 text-center">
-                <h2 className="text-3xl font-bold text-blue-800 mb-4">Our Services</h2>
-                <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-                    we Offer end-to-end support from enrollment to placement, empowering
-                     students with practical skills and career guidance.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {services.map((service, index)=>(
-                        <div key={index}
-                        className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200
-                        flex flex-col justify-between text-left">
-                            <div>
-                                <h3 className="text-xl font-semibold text-blue-800 mb-3">{service.title}</h3>
-                                <p className="text-gray-600">{service.description}</p>
-                                </div>
-                                <div className="mt-6 flex justify-end">
-                                    <Link to={service.link}>
-                                    <ArrowRight className="text-blue-600 w-6 h-6"/></Link>
-                                    </div>
-                                    </div>
-                    ))}
-                </div>
+const stories = [
+  {
+    name: "John Doe",
+    degree: "Master in Data Science",
+    university: "University of London",
+    course: "Data Engineering",
+    company: "Amazon",
+    review:
+      "It was the perfect place to join for the course, and they helped me throughout the entire process. I joined for Data Engineering and got placed at Amazon.",
+    rating: 4.8,
+  },
+  {
+    name: "David Brown",
+    degree: "Master in Cloud Computing",
+    university: "King's College London",
+    course: "Cloud Computing",
+    company: "Microsoft",
+    review:
+      "The team was extremely supportive and guided me through every step. I joined for Cloud Computing and secured a position at Microsoft.",
+    rating: 4.7,
+  },
+  {
+    name: "Arjun Kumar",
+    degree: "Master in AI & ML",
+    university: "Imperial College London",
+    course: "Machine Learning",
+    company: "Google",
+    review:
+      "Excellent experience! They provided hands-on training and placement assistance. I joined for Machine Learning and landed a role at Google.",
+    rating: 4.9,
+  },
+];
+
+function PlacementsSection() {
+  return (
+    <section className="bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Heading */}
+        <h2 className="text-4xl font-bold text-gray-800 mb-6">
+          Your Gateway to Top Careers in the UK
+        </h2>
+        <p className="text-lg text-gray-600 mb-10">
+          350+ successful placements with leading companies and across multiple
+          sectors.
+        </p>
+
+        {/* Logos Row */}
+        <div className="flex flex-wrap justify-center gap-8 mb-10">
+          <img
+            src="/images/amazon-logo.png"
+            alt="Amazon"
+            className="h-12 object-contain"
+          />
+          <img
+            src="/images/barclays-logo.png"
+            alt="Barclays"
+            className="h-12 object-contain"
+          />
+          <img
+            src="/images/lloyds-logo.png"
+            alt="Lloyds Bank"
+            className="h-12 object-contain"
+          />
+        </div>
+
+        {/* Sectors */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {["Health", "Banking", "Insurance", "Fashion"].map((sector) => (
+            <div
+              key={sector}
+              className="bg-white shadow-md rounded-xl p-4 text-gray-800 font-semibold"
+            >
+              {sector}
             </div>
-        </section>
-    )
+          ))}
+        </div>
+
+        {/* Student Success Section */}
+        <section id="success" className="py-10 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
+          Our Success Stories
+        </h2>
+
+        {/* ✅ Side by Side using Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {stories.map((story, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between"
+            >
+              {/* Student Info */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800">{story.name}</h3>
+                <p className="text-blue-600 font-medium">{story.degree}</p>
+                <p className="text-gray-600">{story.university}</p>
+
+                {/* Review */}
+                <div className="mt-4">
+                  <p className="text-gray-700 italic">“{story.review}”</p>
+                </div>
+              </div>
+
+              {/* Rating with Progress Bar */}
+              <div className="mt-4">
+                <p className="text-gray-700 font-semibold">
+                  Rating: {story.rating.toFixed(1)} / 5
+                </p>
+                <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                  <div
+                    className="bg-blue-600 h-2 rounded-full"
+                    style={{ width: `${(story.rating / 5) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+        {/* Trust Statement */}
+        <div className="bg-blue-600 text-white py-6 rounded-xl shadow-lg">
+          <h3 className="text-2xl font-bold">Trust Us! Get settled in the United Kingdom.</h3>
+        </div>
+      </div>
+    </section>
+  );
 }
-export default ServicesSection
+
+export default PlacementsSection;

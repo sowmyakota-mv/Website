@@ -76,34 +76,35 @@ const Navbar = () => {
             {aboutOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
                 <Link
-                  to="/about#who-we-are"
+                  to="/about#training"
                   className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
-                  Who we are?
+                  Expert Course Training
                 </Link>
                 <Link
-                  to="/about#why-choose-us"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#cv-writing"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Why Choose Us?
+                  CV Writing & Guaranteed Picks
                 </Link>
                 <Link
-                  to="/about#testimonials"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#mock"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Testimonials
+                  Mock Interviews
                 </Link>
                 <Link
-                  to="/about#global-offices"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#team"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Global Offices
+                  Dedicated Marketing Team
                 </Link>
               </div>
             )}
           </div>
 
-          <div className="relative group" ref={howItWorksRef}>
+          {/* <div className="relative group" ref={howItWorksRef}>
             <Button
               className="flex items-center hover:text-blue-500"
               onClick={() => {
@@ -136,7 +137,7 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-          </div>
+          </div> */}
 
           <div className="relative group" ref={coursesRef}>
             <Button
@@ -153,49 +154,49 @@ const Navbar = () => {
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
                 <Link
                   to="/list"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
                 >
                   List of Courses
                 </Link>
                 <Link
                   to="/backend"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Backend Development
                 </Link>
                 <Link
                   to="/data"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Data Analytics
                 </Link>
                 <Link
                   to="/frontend"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Frontend Development
                 </Link>
                 <Link
                   to="/uiux"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   UI/UX developer
                 </Link>
                 <Link
                   to="/android"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Android Development
                 </Link>
                 <Link
                   to="/java"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Java Developer
                 </Link>
                 <Link
                   to="/more"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   More courses
                 </Link>
@@ -203,26 +204,40 @@ const Navbar = () => {
             )}
           </div>
 <a
-  href="#footer"
+  href="#success"
   className="flex items-center hover:text-blue-500"
   onClick={(e) => {
     e.preventDefault();
-    const footerSection = document.getElementById("footer");
-    if (footerSection) {
-      footerSection.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById("success");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
+    closeAllMenus();
   }}
 >
-  Support
+  Success Stories
 </a>
 
+          <a
+            href="#footer"
+            className="flex items-center hover:text-blue-500"
+            onClick={(e) => {
+              e.preventDefault();
+              const footerSection = document.getElementById("footer");
+              if (footerSection) {
+                footerSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            Location
+          </a>
         </nav>
 
         {/* Register Button */}
         <div className="hidden md:flex space-x-4">
           <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition" 
           onClick={()=>navigate('/register')}>
-            Register
+            Get in Touch
           </Button>
         </div>
 
@@ -236,10 +251,10 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col space-y-2 p-4">
-            <Link to="/" className="hover:text-blue-500" onClick={closeAllMenus}>
+            <Link to="/" className="px-4 hover:text-blue-500" onClick={closeAllMenus}>
               Home
             </Link>
-            <div className="relative group" ref={aboutRef}>
+            <div className="relative" ref={aboutRef}>
             <Button
               className="flex items-center hover:text-blue-500"
               onClick={() => {
@@ -251,36 +266,37 @@ const Navbar = () => {
               About
             </Button>
             {aboutOpen && (
-              <div className="pl-4 flex flex-col space-y-2 mt-2">
+              <div className="flex flex-col space-y-2 mt-2">
                 <Link
-                  to="/about#who-we-are"
+                  to="/about#training"
                   className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
-                  Who we are?
+                  Expert Course Training
                 </Link>
                 <Link
-                  to="/about#why-choose-us"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#cv-writing"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Why Choose Us?
+                  CV Writing & Guaranteed Picks
                 </Link>
                 <Link
-                  to="/about#testimonials"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#mock"
+                  className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
                 >
-                  Testimonials
+                  Mock Interviews
                 </Link>
                 <Link
-                  to="/about#global-offices"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  to="/about#marketing"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Global Offices
+                  Dedicated Marketing Team
                 </Link>
               </div>
             )}
           </div>
 
-            <div className="relative group" ref={howItWorksRef}>
+            {/* <div className="relative group" ref={howItWorksRef}>
             <Button
               className="flex items-center hover:text-blue-500"
               onClick={() => {
@@ -313,9 +329,9 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-          </div>
+          </div> */}
 
-            <div className="relative group" ref={coursesRef}>
+            <div className="relative" ref={coursesRef}>
             <Button
               className="flex items-center hover:text-blue-500"
               onClick={() => {
@@ -327,76 +343,92 @@ const Navbar = () => {
               Courses
             </Button>
             {coursesOpen && (
-              <div className="pl-4 flex flex-col space-y-2 mt-2">
+              <div className="flex flex-col space-y-2 mt-2">
                 <Link
                   to="/list"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   List of Courses
                 </Link>
                 <Link
                   to="/backend"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Backend Development
                 </Link>
                 <Link
                   to="/data"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Data Analytics
                 </Link>
                 <Link
                   to="/frontend"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Frontend Development
                 </Link>
                 <Link
                   to="/uiux"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   UI/UX developer
                 </Link>
                 <Link
                   to="/android"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Android Development
                 </Link>
                 <Link
                   to="/java"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Java Developer
                 </Link>
                 <Link
                   to="/more"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   More courses
                 </Link>
               </div>
             )}
           </div>
-
-            <a
-  href="#footer"
-  className="hover:text-blue-500"
+<a
+  href="#success"
+  className="px-4 p-4 flex items-center hover:text-blue-500"
   onClick={(e) => {
     e.preventDefault();
-    const footerSection = document.getElementById("footer");
-    if (footerSection) {
-      footerSection.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById("success");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
-    closeAllMenus(); 
+    closeAllMenus();
   }}
 >
-  Support
+  Success Stories
 </a>
+
+          <a
+            href="#footer"
+            className="px-4 flex items-center hover:text-blue-500"
+            onClick={(e) => {
+              e.preventDefault();
+              const footerSection = document.getElementById("footer");
+              if (footerSection) {
+                footerSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            Location
+          </a>
+
 <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
-onClick={()=>navigate('/register')}>
-Register
+onClick={()=>{
+  closeAllMenus()
+  navigate('/register')}}>
+Get in Touch
 </Button>
 </nav>
 </div>

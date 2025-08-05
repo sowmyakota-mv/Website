@@ -3,85 +3,63 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import RegistrationForm from "./RegistrationForm";
 
-function HeroSection({scrollToServices}) {
-    const [showForm, setShowForm]=useState(false)
+function HeroSection({ scrollToServices }) {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <>
-      <section
-        className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"style={{
-          backgroundImage: "url('/background-img.jpg')",
-        }}
-      >
-       
+      <section className="relative flex flex-col lg:flex-row h-screen w-full">
+        {/* Left Side - Text Content with background */}
         <div
-          className="absolute inset-0"
+          className="lg:w-1/2 w-full flex flex-col justify-center px-6 py-12 text-center lg:text-left text-white"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.3) 100%)",
+              "linear-gradient(135deg, #99b0f1ff 0%, #a7bef0ff 50%, #3b82f6 100%)", // Blue gradient
           }}
-        ></div>
-
-        <div className="relative z-10 max-w-4xl text-gray-800 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Get Your Dream Job After{" "}
-            <span className="text-blue-500">Masters Abroad!</span>
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Get Placed in <span className="text-yellow-300">UK Top Companies</span>
           </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Enroll in our 3 Month job readiness program and land your ideal role
-            faster
+          <p className="text-lg md:text-xl mb-8 opacity-90">
+            Guidance for job placements, CV marketing, and professional training.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button onClick={()=>setShowForm(true)} className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-lg">
-              Register with us <ArrowRight className="text-white-600 w-8 h-8"/>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Button
+              onClick={() => setShowForm(true)}
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg flex items-center gap-2 text-lg font-semibold"
+            >
+              Register with us <ArrowRight className="w-6 h-6" />
             </Button>
-            <Button onClick={scrollToServices} className="bg-white text-blue-600 border border-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg">
-              <a href="#services">Learn More </a>
+            <Button
+              onClick={scrollToServices}
+              className="bg-white text-blue-600 border border-white hover:bg-gray-100 px-6 py-4 rounded-lg text-lg"
+            >
+              Learn More
             </Button>
           </div>
         </div>
+
+        {/* Right Side - Full Image */}
+        <div className="lg:w-1/2 w-full h-64 lg:h-auto">
+          <img
+            src="/background.jpg"
+            alt="Hero"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </section>
 
-      <div className="relative z-20 flex justify-center -mt-10">
-        <div className="flex bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full mx-4">
-          <input
-            type="text"
-            placeholder="What do you want to study?"
-            className="flex-1 px-4 py-4 text-gray-700 focus:outline-none font-semibold placeholder-gray-400"
-          />
-
-          <select className="border-l border-gray-300 px-4 py-4 text-gray-700 focus:outline-none font-semibold"
-          defaultValue="">
-            <option>Courses</option>
-            <option value="" disabled>Search...</option>
-            <option>Backend Development</option>
-            <option>Data Analytics</option>
-            <option>Frontend Development</option>
-            <option>UI/UX developer</option>
-            <option>Android Development</option>
-            <option>Java Developer</option>
-          </select>
-
-          <select className="border-l border-gray-300 px-4 py-4 text-gray-700 focus:outline-none font-semibold"
-          defaultValue="">
-            <option value="" disabled>Level</option>
-            <option>Beginner</option>
-            <option>Intermediate</option>
-            <option>Advanced</option>
-          </select>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 font-semibold">
-            Search
-          </button>
-        </div>
-      </div>
+      {/* Registration Modal */}
       {showForm && (
-       <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50">
-          <div className="relative bg-white rounded-xl border border-gray-300 shadow-2xl p-2 w-[90%] max-w-lg">
-            <Button onClick={()=>setShowForm(false)}
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                <X className="w-6 h-6"/>
+        <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50">
+          <div className="relative bg-white rounded-xl border border-gray-300 shadow-2xl p-4 w-[90%] max-w-lg">
+            <Button
+              onClick={() => setShowForm(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              <X className="w-6 h-6" />
             </Button>
-            
-            <RegistrationForm/>
+            <RegistrationForm />
           </div>
         </div>
       )}

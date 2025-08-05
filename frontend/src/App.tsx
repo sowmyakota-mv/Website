@@ -1,8 +1,6 @@
 
 import './App.css';
 import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
 import StatsSection from './components/StatsSection';
 import SuccessStories from './components/SuccessStories';
@@ -15,6 +13,8 @@ import ServicePage from './pages/ServicePage';
 import CoursePage from './pages/CoursePage';
 import CourseDetailPage from './pages/CourseDetails';
 import RegistrationForm from './components/RegistrationForm';
+import WhyDataArtisan from './components/AboutSection';
+import PlacementsSection from './components/ServicesSection';
 
 function App() {
   const serviceRef = useRef(null);
@@ -42,12 +42,13 @@ function App() {
           element={
             <>
               <HeroSection scrollToServices={scrollToServices} />
-              <AboutSection />
-              <div ref={serviceRef}></div>
-              <ServicesSection />
-              <ContactSection />
               <StatsSection />
-              <SuccessStories />
+              <WhyDataArtisan/>
+              <div ref={serviceRef}></div>
+              {/* <ServicesSection /> */}
+              <ContactSection />
+              <PlacementsSection/>
+              {/* <SuccessStories /> */}
             </>
           }
         />

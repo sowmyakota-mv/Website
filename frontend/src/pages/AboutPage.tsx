@@ -1,52 +1,58 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => {
-    const {hash}=useLocation()
+  const { hash } = useLocation();
 
-    useEffect(()=>{
-        if(hash){
-            const element=document.querySelector(hash)
-            if(element){
-                const headerOffset=80
-                const elementPosition=element.getBoundingClientRect().top
-                const offsetPosition=window.scrollY + elementPosition -headerOffset
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                })
-            }
-        }
-    }, [hash])
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = window.scrollY + elementPosition - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [hash]);
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-16">
       {/* Who We Are */}
-      <section id="who-we-are" className="grid md:grid-cols-2 gap-8 items-center">
+      <section id="training" className="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-blue-600 mb-4">Who We Are</h2>
+          <h2 className="text-3xl font-bold text-blue-600 mb-4">Expert Course Training</h2>
           <p className="text-gray-700 mb-4">
-            Data Artisans Limited, incorporated in London in 2021, is a boutique 
-            data consultancy focused on providing expert support in data science, 
-            machine Learning, and data architecture solutions. From strategy to 
-            implementation, the team helps clients unlock actionable insights and 
-            modernize their data infrastructure.</p>
-
-            <p className="text-gray-700 mb-4">With a strong presence in London's tech ecosystem, Data Artisans works 
-            closely with businesses and educational institutions to build scalable 
-            analytics platforms, cloud pipelines, and ML-powered applications. Their 
-            mission is to make complex data accessible and impactful for decision-makers 
-            across industries.We are a passionate team dedicated to empowering students and
-            professionals with the right skills to excel in today's
-            competitive job market.
+            At Data Artisans Limited, we specialize in providing hands-on, industry-focused training that equips learners
+            with the most in-demand technical skills. Our programs go beyond theory, offering practical projects that mirror
+            real-world scenarios.
           </p>
           <p className="text-gray-700 mb-4">
-            Our mission is to provide comprehensive, industry-focused courses
-            that bridge the gap between theoretical knowledge and practical application.
+            Whether you're starting your career or upgrading your skills, our curriculum is designed to make you job-ready. 
+            Learn from experienced trainers who bring years of industry expertise to every session.
           </p>
-          <p className="text-gray-700">
-            With years of experience in education and technology, we pride ourselves on
-            creating programs that deliver real results.
+          <p className="text-gray-700 mb-6">
+            We ensure your learning journey is smooth, personalized, and outcome-driven. Our mission is simple—turn your potential 
+            into a thriving tech career.
           </p>
+          <ul className="text-gray-700 text-lg space-y-2">
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Industry-relevant courses: SQL, Power BI, Azure, and more.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Live interactive sessions with real-time doubt solving.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Access to case studies and hands-on labs.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Certifications to validate your skills.
+            </li>
+          </ul>
         </div>
         <img
           src="/who-we-are.jpg"
@@ -56,110 +62,84 @@ const AboutPage = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section id="why-choose-us" className="grid md:grid-cols-2 gap-8 items-center">
+      <section id="cv-writing" className="grid md:grid-cols-2 gap-8 items-center">
         <img
           src="/why-choose-us.jpg"
           alt="Why Choose Us"
           className="rounded-lg shadow-lg w-full"
         />
         <div>
-          <h2 className="text-3xl font-bold text-blue-600 mb-4">Why Choose Us</h2>
+          <h2 className="text-3xl font-bold text-blue-600 mb-4">CV Writing & Guaranteed Picks</h2>
           <p className="text-gray-700 mb-4">
-            Choosing the right platform for your career growth can be challenging.
-            Here's why thousands of learners trust us:
+            A great CV is your first step to landing the perfect job. Our CV writing services ensure that your resume 
+            stands out among thousands of applicants. We tailor your CV to highlight your strengths and align with job market trends.
           </p>
-          <ul className="list-disc pl-5 mb-4 text-gray-700">
-            <li>Industry-relevant curriculum curated by experts</li>
-            <li>Flexible learning options tailored to your schedule</li>
-            <li>Dedicated placement support and career guidance</li>
+          <p className="text-gray-700 mb-4">
+            But we don’t stop there. With our guaranteed interview calls, we take an extra step to connect you with the 
+            best recruiters in the industry. This means you not only learn with us, but also secure a job with confidence.
+          </p>
+          <p className="text-gray-700 mb-6">
+            Combined with our networking strategies and job marketing support, your career growth becomes unstoppable.
+          </p>
+          <ul className="text-gray-700 text-lg space-y-2">
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Professionally crafted, ATS-compliant CV.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Guaranteed job interview calls from top employers.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> Personal branding strategies to boost visibility.
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="text-blue-600 w-5 h-5" /> LinkedIn optimization for maximum recruiter reach.
+            </li>
           </ul>
-          <p className="text-gray-700">
-            Our holistic approach ensures that you not only learn but also gain the
-            confidence to succeed in real-world scenarios.
-          </p>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials">
-        <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">Testimonials</h2>
-        <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-          Don't just take our word for it - hear what our students have to say about
-          their journey with us.
+      {/* Mock Interviews */}
+      <section id="mock" className="text-center">
+        <h2 className="text-3xl font-bold text-blue-600 mb-6">
+          Mock Interviews That Build Confidence
+        </h2>
+        <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+          Our mock interview sessions simulate real-world interview experiences, helping you overcome anxiety and 
+          present yourself confidently in front of hiring managers.
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Card 1 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center w-80">
-            <img
-              src="/user1.jpg"
-              alt="user1"
-              className="w-16 h-16 rounded-full mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-4">
-              "The courses are well-structured and practical. The placement support
-              helped me land my dream job!"
-            </p>
-            <h4 className="font-semibold">John Doe</h4>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center w-80">
-            <img
-              src="/user2.jpg"
-              alt="user2"
-              className="w-16 h-16 rounded-full mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-4">
-              "Amazing Learning experience! The mentors are very supportive and knowledgeable."
-            </p>
-            <h4 className="font-semibold">Sarah Smith</h4>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center w-80">
-            <img
-              src="/user3.jpg"
-              alt="user3"
-              className="w-16 h-16 rounded-full mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-4">
-              "I highly recommend these courses for anyone looking to upgrade their
-              skills and get hired."
-            </p>
-            <h4 className="font-semibold">Alex Johnson</h4>
-          </div>
-        </div>
+        <ul className="text-gray-700 text-lg space-y-2 max-w-xl mx-auto text-left">
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Realistic interview simulations with industry experts.
+          </li>
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Detailed feedback to improve your responses and body language.
+          </li>
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Focus on technical and behavioral questions.
+          </li>
+        </ul>
       </section>
 
-      {/* Global Offices */}
-      <section id="global-offices">
-        <h2 className="text-3xl font-bold text-blue-600 mb-4 text-center">Global Offices</h2>
-        <p className="text-center text-gray-700 mb-6 max-w-3xl mx-auto">
-          Our presence spans across multiple continents, ensuring we are always close to
-          our learners and industry partners. Explore our global offices below.
+      {/* Marketing Team */}
+      <section id="team" className="text-center">
+        <h2 className="text-3xl font-bold text-blue-600 mb-4">
+          Dedicated Marketing Team For Your Success
+        </h2>
+        <p className="text-gray-700 mb-6 max-w-3xl mx-auto">
+          We don’t just train you; we market your profile aggressively so you stand out to employers. Our dedicated team 
+          ensures that your skills reach the right audience, giving you a competitive edge in the job market.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <img
-            src="/office1.jpg"
-            alt="office 1"
-            className="rounded-lg shadow-md w-64 h-40 object-cover"
-          />
-          <img
-            src="/office2.jpg"
-            alt="office 2"
-            className="rounded-lg shadow-md w-64 h-40 object-cover"
-          />
-          <img
-            src="/office3.jpg"
-            alt="office 3"
-            className="rounded-lg shadow-md w-64 h-40 object-cover"
-          />
-          <img
-            src="/office4.jpg"
-            alt="office 4"
-            className="rounded-lg shadow-md w-64 h-40 object-cover"
-          />
-        </div>
+        <ul className="text-gray-700 text-lg space-y-2 max-w-xl mx-auto text-left">
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Active job marketing to top recruiters and companies.
+          </li>
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Personalized job search assistance.
+          </li>
+          <li className="flex items-center gap-2">
+            <CheckCircle className="text-blue-600 w-5 h-5" /> Networking support and exclusive hiring events.
+          </li>
+        </ul>
       </section>
     </div>
   );
