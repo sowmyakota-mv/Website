@@ -18,6 +18,7 @@ function RegistrationForm() {
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage]=useState("")
   const [isSubmitted, setIsSubmitted]=useState(false)
+  const [loading, setLoading]=useState(false)
   const navigate=useNavigate()
 
   const [formData, setFormData]=useState({
@@ -54,6 +55,7 @@ function RegistrationForm() {
     alert("Fix errors before submitting");
     return;
   }
+  setLoading(true)
 
   const formPayload = {
   fullName: fullName,
@@ -85,6 +87,9 @@ function RegistrationForm() {
   } catch (error) {
     console.error("Error:", error);
     setFormError("Something went wrong. Please try again later.");
+  }
+  finally{
+    setLoading(false)
   }
 };
 
@@ -207,8 +212,8 @@ function RegistrationForm() {
           {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
         </span>
       </div>
-      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg">
-        Register
+      <Button disabled={loading} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg">
+        {loading ? "Registering..." : "Register"}
       </Button>
     </form>
     </div>
