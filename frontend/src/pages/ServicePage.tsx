@@ -9,12 +9,11 @@ const ServicePage=()=>{
       const sectionId = location.hash.replace("#", "");
       const section = document.getElementById(sectionId);
       if (section) {
-        const navbarHeight = 80; // Adjust to your navbar height
+        const navbarHeight = 80;
         const offsetTop = section.offsetTop - navbarHeight;
         window.scrollTo({ top: offsetTop, behavior: "smooth" });
       }
     } else {
-      // Scroll to top when no hash
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
@@ -30,7 +29,6 @@ const ServicePage=()=>{
     
 
     return(
-        // steps by steps process
         <div>
         <section id="steps" className="py-16 px-6 max-w-6xl mx-auto">
             <h1 className="text-4xl font-bold text-blue-700 mb-6 text-center">Detailed Step-by-Step Process</h1>
@@ -52,8 +50,7 @@ const ServicePage=()=>{
                 <li>Placement support including mock interviews & resume preparation.</li>
             </ul>
         </section>
-        
-        {/* support */}
+
         <section id="support" className="py-16 px-6 max-w-6xl mx-auto">
             <h1 className="text-4xl font-bold text-blue-700 mb-6 text-center">
                 Placement Support
@@ -77,7 +74,6 @@ const ServicePage=()=>{
             </ul>
         </section>
 
-        {/* hiring */}
         <section id="hiring" className="py-16 px-6 max-w-6xl mx-auto">
             <h1 className="test-4xl font-bold text-blue-700 mb-6 text-center">
                 Companies Hiring Our Graduates

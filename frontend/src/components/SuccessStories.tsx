@@ -39,26 +39,22 @@ function SuccessStories() {
           Our Success Stories
         </h2>
 
-        {/* ✅ Side by Side using Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stories.map((story, index) => (
             <div
               key={index}
               className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between"
             >
-              {/* Student Info */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-800">{story.name}</h3>
                 <p className="text-blue-600 font-medium">{story.degree}</p>
                 <p className="text-gray-600">{story.university}</p>
 
-                {/* Review */}
                 <div className="mt-4">
                   <p className="text-gray-700 italic">“{story.review}”</p>
                 </div>
               </div>
 
-              {/* Rating with Progress Bar */}
               <div className="mt-4">
                 <p className="text-gray-700 font-semibold">
                   Rating: {story.rating.toFixed(1)} / 5

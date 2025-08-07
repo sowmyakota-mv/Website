@@ -8,7 +8,6 @@ const CoursePage = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(category || "list");
 
-  // Extract categories dynamically
   const categoriesMap = {
     backend: courses.filter((c) =>
       ["Node.js", "Express", "Django"].some((kw) =>
@@ -44,7 +43,6 @@ const CoursePage = () => {
         {selectedCategory === "list" ? "All Courses" : "Our Courses"}
       </h1>
 
-      {/* Category Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
         <button
           onClick={() => handleCategoryChange("list")}
@@ -76,7 +74,6 @@ const CoursePage = () => {
         ))}
       </div>
 
-      {/* Courses Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {coursesToShow.map((course) => (
           <CourseCard key={course.id} course={course} />

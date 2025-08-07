@@ -16,7 +16,6 @@ const Navbar = () => {
   const howItWorksRef = useRef(null);
   const coursesRef = useRef(null);
 
-  // ✅ Helper to close all menus
   const closeAllMenus = () => {
     setIsOpen(false);
     setAboutOpen(false);
@@ -76,26 +75,26 @@ const Navbar = () => {
             {aboutOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
                 <Link
-                  to="/about#training"
+                  to="training"
                   className="block px-4 py-2 hover:bg-gray-100"
                   onClick={closeAllMenus}
                 >
                   Expert Course Training
                 </Link>
                 <Link
-                  to="/about#cv-writing"
+                  to="cv-writing"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   CV Writing & Guaranteed Picks
                 </Link>
                 <Link
-                  to="/about#mock"
+                  to="mock-interviews"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Mock Interviews
                 </Link>
                 <Link
-                  to="/about#team"
+                  to="marketing-team"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   Dedicated Marketing Team
@@ -233,7 +232,6 @@ const Navbar = () => {
           </a>
         </nav>
 
-        {/* Register Button */}
         <div className="hidden md:flex space-x-4">
           <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition" 
           onClick={()=>navigate('/register')}>

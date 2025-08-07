@@ -20,13 +20,12 @@ function RegistrationForm() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Format phone as +91 9876543210
   const formattedPhone = dialCode
     ? `+${dialCode} ${fullContact.replace(dialCode, "").trim()}`
     : fullContact;
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ✅ Prevent page refresh
+    e.preventDefault(); 
     setFormError("");
 
     if (!fullName || !email || !fullContact || !password) {
@@ -129,7 +128,6 @@ function RegistrationForm() {
             <form onSubmit={handleSubmit} className="space-y-4">
               {formError && <p className="text-red-500 text-sm">{formError}</p>}
 
-              {/* Full Name */}
               <div>
                 <label className="block text-gray-600 mb-2">Full Name</label>
                 <input
@@ -141,7 +139,6 @@ function RegistrationForm() {
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block text-gray-600 mb-2">Email</label>
                 <input
@@ -159,13 +156,12 @@ function RegistrationForm() {
                 )}
               </div>
 
-              {/* Contact Number */}
               <div>
                 <label className="block text-gray-600 mb-2">
                   Contact Number
                 </label>
                 <PhoneInput
-                  country={" "} // ✅ Default to India
+                  country={" "} 
                   value={fullContact}
                   onChange={(value, country) => {
                     setFullContact(value);
@@ -184,7 +180,6 @@ function RegistrationForm() {
                 {phoneError && (
                   <p className="text-red-500 text-sm mt-1">{phoneError}</p>
                 )}
-                {/* ✅ Show formatted phone number below input */}
                 {dialCode && fullContact && (
                   <p className="text-green-600 text-sm mt-1">
                     Formatted: {formattedPhone}
@@ -192,7 +187,6 @@ function RegistrationForm() {
                 )}
               </div>
 
-              {/* Password with Eye Icon */}
               <div className="relative">
                 <label className="block text-gray-600 mb-2">Password</label>
                 <input

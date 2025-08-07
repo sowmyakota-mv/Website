@@ -1,40 +1,65 @@
-import RegistrationForm from "./RegistrationForm";
-import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-function ContactSection(){
-    return(
-        <section className="py-16 bg-gray-50">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center shadow-lg rounded-xl overflow-hidden" >
-                <div className="relative h-full">
-                    <img src="/Contact-background-img.jpg"
-                    alt="future"
-                    className="w-full h-full object-cover"/>
-                    <div className="absolute inset-0 bg-white/60"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 space-y-4" >
-                    <h2 className="text-3xl font-bold text-gray-800 leading-snug" 
-                    >
-                        Are you ready to start building your future?
-                    </h2>
-                    <p className="text-gray-600 text-lg">
-                        Contact Us and get a free consultation.
-                        Take your first step toward success today!
-                    </p>
-                    {/* <Button asChild>
-                        <a href="#contact" className="text-white bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-                            Contact Now
-                        </a>
-                    </Button> */}
-                </div>
-                </div>
-                <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200 flex flex-col items-center">
-         
-          <div className="w-full max-w-md">
-            <RegistrationForm />
-          </div>
-        </div>
-            </div>
-        </section>
-    )
+function ContactSection() {
+  const [activeLink, setActiveLink] = useState(null);
+
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setActiveLink(targetId);
+    }
+  };
+
+  return (
+    <section className="w-full py-10">
+      <div
+        className="w-full max-w-5xl mx-auto rounded-lg shadow-lg p-8 text-center text-white"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1a46 0%, #0f3078 50%, #3b82f6 100%)",
+        }}
+      >
+
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          How can we help you?
+        </h2>
+
+        <p className="text-lg md:text-xl font-medium">
+          <Link
+            to="/register"
+            className={`underline decoration-blue-400 underline-offset-4 transition ${
+              activeLink === "register" ? "decoration-yellow-400" : ""
+            }`}
+            onClick={() => setActiveLink("register")}
+          >
+            Get in touch
+          </Link>{" "}
+          with us or{" "}
+          <a
+            href="#services"
+            className={`underline decoration-blue-400 underline-offset-4 transition ${
+              activeLink === "services" ? "decoration-yellow-400" : ""
+            }`}
+            onClick={(e) => handleScroll(e, "services")}
+          >
+            explore our services
+          </a>{" "}
+          tailored for you.
+        </p>
+      </div>
+    </section>
+  );
 }
 
-export default ContactSection
+export default ContactSection;

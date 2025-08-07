@@ -8,20 +8,24 @@ import FooterSection from './components/FooterSection';
 import Navbar from './components/Navbar';
 import { useRef } from 'react';
 import { Route,BrowserRouter as Router, Routes } from 'react-router-dom';
-import AboutPage from './pages/AboutPage';
 import ServicePage from './pages/ServicePage';
 import CoursePage from './pages/CoursePage';
 import CourseDetailPage from './pages/CourseDetails';
 import RegistrationForm from './components/RegistrationForm';
 import WhyDataArtisan from './components/AboutSection';
+import ScrollHandler from './ScrollToTop';
 import PlacementsSection from './components/ServicesSection';
+import Training from './pages/TrainingPage';
+import CvWritingPage from './pages/CvWritingPage';
+import MockInterviewPage from './pages/MockInterviewPage';
+import MarketingTeamPage from './pages/MarketingTeamPage';
 
 function App() {
   const serviceRef = useRef(null);
 
   const scrollToServices = () => {
     const element = serviceRef.current;
-    const navbarHeight = 80; // Adjust based on your navbar height
+    const navbarHeight = 80; 
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - navbarHeight;
 
@@ -33,10 +37,10 @@ function App() {
 
   return (
   <Router>
+    <ScrollHandler/>
     <Navbar />
     <main className="pt-20">
       <Routes>
-        {/* Home Page Route */}
         <Route
           path="/"
           element={
@@ -45,17 +49,15 @@ function App() {
               <StatsSection />
               <WhyDataArtisan/>
               <div ref={serviceRef}></div>
-              {/* <ServicesSection /> */}
               <ContactSection />
               <PlacementsSection/>
-              {/* <SuccessStories /> */}
             </>
           }
         />
-
-        {/* About Page Route */}
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/how-it-works" element={<ServicePage/>}/>
+        <Route path='training' element={<Training/>}/>
+        <Route path='cv-writing' element={<CvWritingPage/>}/>
+        <Route path='mock-interviews' element={<MockInterviewPage/>}/>
+        <Route path='marketing-team' element={<MarketingTeamPage/>}/>
         <Route path='/list' element={<CoursePage/>}/>
         <Route path="/:category" element={<CoursePage />} />
         <Route path='/course/:id' element={<CourseDetailPage/>}/>
