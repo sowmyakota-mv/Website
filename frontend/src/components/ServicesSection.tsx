@@ -123,13 +123,14 @@ function PlacementsSection() {
         </div>
 
         <div
-          className="w-155 h-[150px] rounded-lg shadow-md px-2 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
-          style={{ backgroundColor: "#1e156bff" }} 
-        >
+  className="w-155 h-[150px] rounded-lg shadow-md px-2 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
+  style={{ backgroundColor: "#1e156bff" }} 
+>
           <div
-            ref={chartRef}
-            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 justify-items-center"
-          >
+  ref={chartRef}
+  className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center w-full"
+>
+
             {sectors.map((sector, index) => {
               const radius = 60;
               return (
