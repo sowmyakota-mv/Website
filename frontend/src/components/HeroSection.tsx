@@ -11,7 +11,7 @@ function HeroSection({ scrollToServices }) {
       <section className="relative flex flex-col lg:flex-row h-screen w-full">
         
         <div
-          className="lg:w-1/2 w-full flex flex-col justify-center px-6 py-12 text-center lg:text-left text-white"
+          className="lg:w-1/2 w-full flex flex-col justify-center px-6 py-8 text-center lg:text-left text-white"
           style={{
             background:
               "linear-gradient(135deg, #99b0f1ff 0%, #a7bef0ff 50%, #3b82f6 100%)", 

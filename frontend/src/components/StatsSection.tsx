@@ -13,7 +13,7 @@ function StatsSection() {
           setIsVisible(false);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (statsRef.current) {
@@ -51,7 +51,7 @@ function StatBox({ title, targetNumber, isVisible, suffix }) {
     if (isVisible) {
       setCount(0); 
       let start = 0;
-      const duration = 1500;
+      const duration = 1000;
       const startTime = performance.now();
 
       const animate = (time) => {

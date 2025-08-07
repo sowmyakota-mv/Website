@@ -61,47 +61,56 @@ const Navbar = () => {
             Home
           </Link>
 
-          <div className="relative group" ref={aboutRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
-              onClick={() => {
-                setAboutOpen(!aboutOpen);
-                setHowItWorksOpen(false);
-                setCoursesOpen(false);
-              }}
-            >
-              About
-            </Button>
-            {aboutOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
-                <Link
-                  to="training"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={closeAllMenus}
-                >
-                  Expert Course Training
-                </Link>
-                <Link
-                  to="cv-writing"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  CV Writing & Guaranteed Picks
-                </Link>
-                <Link
-                  to="mock-interviews"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Mock Interviews
-                </Link>
-                <Link
-                  to="marketing-team"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Dedicated Marketing Team
-                </Link>
-              </div>
-            )}
-          </div>
+          <div
+  className="relative"
+  ref={aboutRef}
+  onMouseEnter={() => {
+    setAboutOpen(true);
+    setHowItWorksOpen(false);
+    setCoursesOpen(false);
+  }}
+  onMouseLeave={() => {
+    setAboutOpen(false);
+  }}
+>
+  <Button className="flex items-center hover:text-blue-500">
+    About
+  </Button>
+
+  {aboutOpen && (
+    <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50">
+      <Link
+        to="/training"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={closeAllMenus}
+      >
+        Expert Course Training
+      </Link>
+      <Link
+        to="/cv-writing"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={closeAllMenus}
+      >
+        CV Writing & Guaranteed Picks
+      </Link>
+      <Link
+        to="/mock-interviews"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={closeAllMenus}
+      >
+        Mock Interviews
+      </Link>
+      <Link
+        to="/marketing-team"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={closeAllMenus}
+      >
+        Dedicated Marketing Team
+      </Link>
+    </div>
+  )}
+</div>
+
 
           {/* <div className="relative group" ref={howItWorksRef}>
             <Button
@@ -138,15 +147,19 @@ const Navbar = () => {
             )}
           </div> */}
 
-          <div className="relative group" ref={coursesRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
-              onClick={() => {
-                setAboutOpen(false);
-                setHowItWorksOpen(false);
-                setCoursesOpen(!coursesOpen);
-              }}
-            >
+          <div
+  className="relative"
+  ref={coursesRef}
+  onMouseEnter={() => {
+    setAboutOpen(false);
+    setHowItWorksOpen(false);
+    setCoursesOpen(true);
+  }}
+  onMouseLeave={() => {
+    setCoursesOpen(false);
+  }}
+>
+  <Button className="flex items-center hover:text-blue-500">
               Courses
             </Button>
             {coursesOpen && (
@@ -336,6 +349,7 @@ const Navbar = () => {
                 setAboutOpen(false);
                 setHowItWorksOpen(false);
                 setCoursesOpen(!coursesOpen);
+                closeAllMenus
               }}
             >
               Courses

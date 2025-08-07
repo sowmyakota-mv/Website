@@ -19,7 +19,7 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'OPTIONS'], // Include OPTIONS for preflight
+  methods: ['GET', 'POST', 'OPTIONS'], 
   allowedHeaders: ['Content-Type'],
   credentials: true
 }));
@@ -32,14 +32,20 @@ app.get('/', (req, res) => {
 
 app.post('/api/register', async (req, res) => {
   console.log('Request received at /api/register:', req.body);
-  const { fullName, email, phone, password } = req.body;
+  const { fullName, email, phone, location } = req.body;
 
   try {
-    const response = await axios.post(
-      'https://script.google.com/macros/s/AKfycbyvT7IytUQDRWylohhoixpZiilmxluTIDllk9enLgewH2BkX0GIOrwemZ0qrgW6qyfBGw/exec',
-      { fullName, email, phone, password },
-      { headers: { 'Content-Type': 'application/json' } }
-    );
+    const response = await fetch(
+  "https://script.google.com/macros/s/AKfycbwfemK1cz_qaI4ojvurHsMppPUewuipSjGTBdK7mqW-5eEBJksGtp1iTIat5zQq8sMW4Q/exec", 
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formPayload),
+  }
+);
+
 
     console.log('Registration submitted:', response.data);
     res.status(200).json({ message: 'Registration form submitted successfully', data: response.data });

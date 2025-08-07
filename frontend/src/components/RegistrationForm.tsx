@@ -14,7 +14,7 @@ function RegistrationForm() {
   const [formError, setFormError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [fullName, setFullName] = useState("");
-  const [password, setPassword] = useState("");
+  const [location, setLocation] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ function RegistrationForm() {
     e.preventDefault(); 
     setFormError("");
 
-    if (!fullName || !email || !fullContact || !password) {
+    if (!fullName || !email || !fullContact || !location) {
       setFormError("Please fill in all details");
       return;
     }
@@ -47,13 +47,13 @@ function RegistrationForm() {
       fullName,
       email,
       phone: formattedPhone,
-      password,
+      location,
       timestamp: new Date().toLocaleString(),
     };
 
     try {
       const response = await fetch(
-        "https://website-backend-o72e.onrender.com/api/register",
+        "http://localhost:5000/api/register",
         {
           method: "POST",
           headers: {
@@ -98,7 +98,7 @@ function RegistrationForm() {
     setFormError("");
     setShowPassword(false);
     setFullName("");
-    setPassword("");
+    setLocation("");
     setSuccessMessage("");
     setIsSubmitted(false);
     navigate("/");
@@ -182,26 +182,26 @@ function RegistrationForm() {
                 )}
                 {dialCode && fullContact && (
                   <p className="text-green-600 text-sm mt-1">
-                    Formatted: {formattedPhone}
+                    {/* Formatted: {formattedPhone} */}
                   </p>
                 )}
               </div>
 
               <div className="relative">
-                <label className="block text-gray-600 mb-2">Password</label>
+                <label className="block text-gray-600 mb-2">Location</label>
                 <input
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Enter Location"
                   className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
-                <span
+                {/* <span
                   className="absolute right-4 top-11 cursor-pointer text-gray-600"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
-                </span>
+                </span> */}
               </div>
               <Button
                 type="submit"
