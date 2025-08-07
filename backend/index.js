@@ -32,23 +32,33 @@ app.get('/', (req, res) => {
 
 app.post('/api/register', async (req, res) => {
   console.log('Request received at /api/register:', req.body);
-  const { fullName, email, phone, location } = req.body;
+
+  const { fullName, email, phone, location, timestamp } = req.body;
+
+  // ✅ FIX: define formPayload before sending
+  const formPayload = {
+    fullName,
+    email,
+    phone,
+    location,
+    timestamp
+  };
 
   try {
     const response = await fetch(
-  "https://script.google.com/macros/s/AKfycbwfemK1cz_qaI4ojvurHsMppPUewuipSjGTBdK7mqW-5eEBJksGtp1iTIat5zQq8sMW4Q/exec", 
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formPayload),
-  }
-);
+      "https://script.google.com/macros/s/AKfycbwfemK1cz_qaI4ojvurHsMppPUewuipSjGTBdK7mqW-5eEBJksGtp1iTIat5zQq8sMW4Q/exec", 
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formPayload), // ✅ now this is correct
+      }
+    );
 
-
-    console.log('Registration submitted:', response.data);
-    res.status(200).json({ message: 'Registration form submitted successfully', data: response.data });
+    const data = await response.json();
+    console.log('Registration submitted:', data);
+    res.status(200).json({ message: 'Registration form submitted successfully', data });
   } catch (error) {
     console.error('Error submitting registration form:', error.message);
     res.status(500).json({ message: 'Failed to submit registration form', error: error.message });
