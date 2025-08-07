@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 // Allowed origins
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://websites-qjlp.onrender.com'
+  'https://websitefrontend-7s05.onrender.com/'
 ];
 
 app.use(cors({
