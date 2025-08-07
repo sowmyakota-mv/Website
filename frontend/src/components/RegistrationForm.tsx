@@ -53,7 +53,7 @@ function RegistrationForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/register",
+        "https://backend-website-pkm7.onrender.com/api/register",
         {
           method: "POST",
           headers: {
