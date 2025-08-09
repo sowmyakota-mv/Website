@@ -12,21 +12,18 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
   credentials: true
 }));
 
 app.use(express.json());
 
-// ✅ Explicitly handle OPTIONS requests
+// ✅ Explicitly handle OPTIONS preflight requests
 app.options('*', cors());
 
 app.get('/', (req, res) => {
@@ -36,11 +33,12 @@ app.get('/', (req, res) => {
 app.post('/api/register', async (req, res) => {
   console.log('Request received at /api/register:', req.body);
 
-  const { fullName, email, phone, location, timestamp } = req.body;
+  const { fullName, email, phone, location } = req.body;
+  const timestamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwNVzfhkWl4NI1u8ADODs6tuM0NE5j-gL52Ghck6zCetew-A5fHDUKQpdhbQoh9ZaqABw/exec",
+      "https://script.google.com/macros/s/AKfycbzGQKnksaGhBmT2lrHQfpoo72ayyP3SkKFcKqoYn3m6SnZLgkzlaXyb4R3tBBhmk7N3tw/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
