@@ -5,16 +5,25 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ['http://localhost:5173','https://websitefrontend-7s05.onrender.com/register'];
+// ✅ Add your actual frontend production URL here
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://websitefrontend-7s05.onrender.com' 
+];
 
 app.use(cors({
   origin: (origin, callback) => {
+    // Allow requests with no origin (like Postman or curl) or matching allowedOrigins
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log(`❌ CORS blocked for origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
-  }
+  },
+  credentials: true, // if you need cookies or auth headers
+  methods: ['GET', 'POST', 'OPTIONS'], // allow preflight methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // allow necessary headers
 }));
 
 app.use(express.json());
@@ -30,7 +39,7 @@ app.post('/api/register', async (req, res) => {
   const timestamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
 
   try {
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbzN0SYv6qO2AsyuDHlwIQUOFMoaI5C5EgkS-8ptc4fGhpHHPi2je4kHL3FidNJnsD6_yA/exec"; 
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbzN0SYv6qO2AsyuDHlwIQUOFMoaI5C5EgkS-8ptc4fGhpHHPi2je4kHL3FidNJnsD6_yA/exec";
 
     const response = await fetch(GAS_URL, {
       method: "POST",
@@ -61,13 +70,13 @@ app.post('/api/register', async (req, res) => {
     res.status(200).json({ message: 'Registration successful', data });
   } catch (error) {
     console.error('Error submitting registration form:', error);
-    res.status(500).json({ 
-      message: 'Failed to submit registration form', 
-      error: error.message 
+    res.status(500).json({
+      message: 'Failed to submit registration form',
+      error: error.message
     });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
