@@ -13,8 +13,7 @@ const allowedOrigins = [
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    const isAllowed = allowedOrigins.some(o => o.toLowerCase() === origin.toLowerCase());
-    if (isAllowed) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -27,6 +26,9 @@ app.use(cors({
 
 app.use(express.json());
 
+// ✅ Explicitly handle OPTIONS requests
+app.options('*', cors());
+
 app.get('/', (req, res) => {
   res.send('Backend is working!');
 });
@@ -38,7 +40,7 @@ app.post('/api/register', async (req, res) => {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxAEWYVvgtFJzFiVbTsPGNt3K3TabZjgXUF7Ck8SC3Ud2qFq_8kG2ZeFHUZ7I-1ybMUtA/exec",
+      "https://script.google.com/macros/s/AKfycbwNVzfhkWl4NI1u8ADODs6tuM0NE5j-gL52Ghck6zCetew-A5fHDUKQpdhbQoh9ZaqABw/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,7 +48,7 @@ app.post('/api/register', async (req, res) => {
       }
     );
 
-    const text = await response.text(); // Read as text first
+    const text = await response.text();
     console.log("Raw GAS response:", text);
 
     let data;

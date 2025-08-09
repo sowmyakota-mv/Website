@@ -52,16 +52,11 @@ function RegistrationForm() {
     };
 
     try {
-      const response = await fetch(
-        "https://websitebackend-8a3q.onrender.com/api/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formPayload),
-        }
-      );
+      const response = await fetch("https://websitebackend-8a3q.onrender.com/api/register", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formPayload),
+});
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
