@@ -136,7 +136,7 @@ function PlacementsSection() {
                   key={sector.name}
                   className="flex flex-col items-center p-1 w-full sm:w-auto"
                 >
-                  <svg className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24">
+                  <svg className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24">
                     <circle
                       cx="48"
                       cy="48"
