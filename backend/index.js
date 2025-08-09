@@ -5,17 +5,10 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = [
-<<<<<<< HEAD
-  'http://localhost:5173',
-  'https://websitefrontend-7s05.onrender.com'
-=======
-  'http://localhost:5173','https://websitefrontend-7s05.onrender.com'
->>>>>>> 6123f5258a01a3a0a8044db0aa03b6951e75d2ee
-];
+const allowedOrigins = ['http://localhost:5173'];
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -37,14 +30,13 @@ app.post('/api/register', async (req, res) => {
   const timestamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
 
   try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxOHLw2YgD2w-YZjhRk4yzVJbjR2jAFefiFymbvChLXBcC7u2hM8KbkRnJss9pzaUREDA/exec",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, phone, location, timestamp })
-      }
-    );
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbzN0SYv6qO2AsyuDHlwIQUOFMoaI5C5EgkS-8ptc4fGhpHHPi2je4kHL3FidNJnsD6_yA/exec"; 
+
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fullName, email, phone, location, timestamp })
+    });
 
     const text = await response.text();
     console.log("Raw GAS response:", text);
@@ -52,18 +44,27 @@ app.post('/api/register', async (req, res) => {
     let data;
     try {
       data = JSON.parse(text);
-    } catch (err) {
-      throw new Error(`Invalid JSON from GAS: ${text}`);
+    } catch {
+      return res.status(500).json({
+        message: "GAS returned non-JSON response",
+        raw: text
+      });
     }
 
-    if (!response.ok) {
-      throw new Error(`GAS returned ${response.status}: ${text}`);
+    if (!response.ok || data.status === 'error') {
+      return res.status(500).json({
+        message: data.message || "GAS request failed",
+        raw: data
+      });
     }
 
     res.status(200).json({ message: 'Registration successful', data });
   } catch (error) {
     console.error('Error submitting registration form:', error);
-    res.status(500).json({ message: 'Failed to submit registration form', error: error.message });
+    res.status(500).json({ 
+      message: 'Failed to submit registration form', 
+      error: error.message 
+    });
   }
 });
 
