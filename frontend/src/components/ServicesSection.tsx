@@ -123,62 +123,64 @@ function PlacementsSection() {
         </div>
 
         <div
-  className="w-full sm:w-[90%] md:w-155 h-auto sm:h-[150px] rounded-lg shadow-md px-4 py-6 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
-  style={{ backgroundColor: "#1e156bff" }}
->
-  <div
-    ref={chartRef}
-    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 place-items-center w-full"
-  >
-    {sectors.map((sector, index) => {
-      const radius = 60;
-      return (
-        <div
-          key={sector.name}
-          className="flex flex-col items-center p-2 w-full sm:w-auto"
+          className="w-full sm:w-[90%] md:w-155 h-auto sm:h-[150px] rounded-lg shadow-md px-4 py-6 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
+          style={{ backgroundColor: "#1e156bff" }}
         >
-          <svg className="w-20 h-20 sm:w-24 sm:h-24">
-            <circle
-              cx="48"
-              cy="48"
-              r="40"
-              stroke="#E5E7EB"
-              strokeWidth="8"
-              fill="transparent"
-            />
-            <circle
-              cx="48"
-              cy="48"
-              r="40"
-              stroke="#2563EB"
-              strokeWidth="8"
-              fill="transparent"
-              strokeDasharray={2 * Math.PI * 40}
-              strokeDashoffset={
-                2 * Math.PI * 40 -
-                (animatedPercentages[index] / 100) * 2 * Math.PI * 40
-              }
-              strokeLinecap="round"
-              style={{ transition: "stroke-dashoffset 0.5s ease-out" }}
-              transform="rotate(-90 48 48)"
-            />
-            <text
-              x="50%"
-              y="52%"
-              textAnchor="middle"
-              className="fill-white text-sm font-semibold"
-            >
-              {animatedPercentages[index]}%
-            </text>
-          </svg>
-          <p className="text-sm font-medium text-white mt-2">
-            {sector.name}
-          </p>
+          <div
+            ref={chartRef}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 place-items-center w-full"
+          >
+            {sectors.map((sector, index) => {
+              return (
+                <div
+                  key={sector.name}
+                  className="flex flex-col items-center p-1 w-full sm:w-auto"
+                >
+                  <svg className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="40"
+                      stroke="#E5E7EB"
+                      strokeWidth="8"
+                      fill="transparent"
+                    />
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="40"
+                      stroke="#2563EB"
+                      strokeWidth="8"
+                      fill="transparent"
+                      strokeDasharray={2 * Math.PI * 40}
+                      strokeDashoffset={
+                        2 * Math.PI * 40 -
+                        (animatedPercentages[index] / 100) *
+                          2 * Math.PI * 40
+                      }
+                      strokeLinecap="round"
+                      style={{
+                        transition: "stroke-dashoffset 0.5s ease-out",
+                      }}
+                      transform="rotate(-90 48 48)"
+                    />
+                    <text
+                      x="50%"
+                      y="52%"
+                      textAnchor="middle"
+                      className="fill-white text-xs sm:text-sm font-semibold"
+                    >
+                      {animatedPercentages[index]}%
+                    </text>
+                  </svg>
+                  <p className="text-sm font-medium text-white mt-2">
+                    {sector.name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      );
-    })}
-  </div>
-</div>
 
         <section id="success" className="bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
@@ -195,10 +197,14 @@ function PlacementsSection() {
                     <h3 className="text-xl font-semibold text-gray-800">
                       {story.name}
                     </h3>
-                    <p className="text-blue-600 font-medium">{story.degree}</p>
+                    <p className="text-blue-600 font-medium">
+                      {story.degree}
+                    </p>
                     <p className="text-gray-600">{story.university}</p>
                     <div className="mt-4">
-                      <p className="text-gray-700 italic">“{story.review}”</p>
+                      <p className="text-gray-700 italic">
+                        “{story.review}”
+                      </p>
                     </div>
                   </div>
                   <div className="mt-4">
@@ -220,7 +226,13 @@ function PlacementsSection() {
           </div>
         </section>
 
-        <div className="text-white py-6 rounded-xl shadow-lg mt-12" style={{background: "#0b282cdd", fontWeight: "600"}}>
+        <div
+          className="text-white py-6 rounded-xl shadow-lg mt-12"
+          style={{
+            background: "#0b282cdd",
+            fontWeight: "600",
+          }}
+        >
           <h3 className="text-2xl font-bold">
             Trust Us! Get settled in the United Kingdom.
           </h3>
