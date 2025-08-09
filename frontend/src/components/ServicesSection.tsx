@@ -123,60 +123,62 @@ function PlacementsSection() {
         </div>
 
         <div
-  className="w-155 h-[150px] rounded-lg shadow-md px-2 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
-  style={{ backgroundColor: "#1e156bff" }} 
+  className="w-full sm:w-[90%] md:w-155 h-auto sm:h-[150px] rounded-lg shadow-md px-4 py-6 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
+  style={{ backgroundColor: "#1e156bff" }}
 >
-          <div
-  ref={chartRef}
-  className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center w-full"
->
-
-            {sectors.map((sector, index) => {
-              const radius = 60;
-              return (
-                <div key={sector.name} className="flex flex-col items-center p-2">
-                  <svg className="w-24 h-24">
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="#E5E7EB"
-                      strokeWidth="8"
-                      fill="transparent"
-                    />
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="#2563EB"
-                      strokeWidth="8"
-                      fill="transparent"
-                      strokeDasharray={2 * Math.PI * 40}
-                      strokeDashoffset={
-                        2 * Math.PI * 40 -
-                        (animatedPercentages[index] / 100) * 2 * Math.PI * 40
-                      }
-                      strokeLinecap="round"
-                      style={{ transition: "stroke-dashoffset 0.5s ease-out" }}
-                      transform="rotate(-90 48 48)"
-                    />
-                    <text
-                      x="50%"
-                      y="52%"
-                      textAnchor="middle"
-                      className="fill-white text-sm font-semibold"
-                    >
-                      {animatedPercentages[index]}%
-                    </text>
-                  </svg>
-                  <p className="text-sm font-medium text-white">
-                    {sector.name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+  <div
+    ref={chartRef}
+    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 place-items-center w-full"
+  >
+    {sectors.map((sector, index) => {
+      const radius = 60;
+      return (
+        <div
+          key={sector.name}
+          className="flex flex-col items-center p-2 w-full sm:w-auto"
+        >
+          <svg className="w-20 h-20 sm:w-24 sm:h-24">
+            <circle
+              cx="48"
+              cy="48"
+              r="40"
+              stroke="#E5E7EB"
+              strokeWidth="8"
+              fill="transparent"
+            />
+            <circle
+              cx="48"
+              cy="48"
+              r="40"
+              stroke="#2563EB"
+              strokeWidth="8"
+              fill="transparent"
+              strokeDasharray={2 * Math.PI * 40}
+              strokeDashoffset={
+                2 * Math.PI * 40 -
+                (animatedPercentages[index] / 100) * 2 * Math.PI * 40
+              }
+              strokeLinecap="round"
+              style={{ transition: "stroke-dashoffset 0.5s ease-out" }}
+              transform="rotate(-90 48 48)"
+            />
+            <text
+              x="50%"
+              y="52%"
+              textAnchor="middle"
+              className="fill-white text-sm font-semibold"
+            >
+              {animatedPercentages[index]}%
+            </text>
+          </svg>
+          <p className="text-sm font-medium text-white mt-2">
+            {sector.name}
+          </p>
         </div>
+      );
+    })}
+  </div>
+</div>
 
         <section id="success" className="bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
