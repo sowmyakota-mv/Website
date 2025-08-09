@@ -46,7 +46,7 @@ app.post('/api/register', async (req, res) => {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwfemK1cz_qaI4ojvurHsMppPUewuipSjGTBdK7mqW-5eEBJksGtp1iTIat5zQq8sMW4Q/exec", 
+      "https://script.google.com/macros/s/AKfycbxCNVI0aDlpqygkqDLjm36lGiHqh5Te9WPaIwndg1Zd0nAgdOyXaLhHSzmdmBSDWMZbDQ/exec", 
       {
         method: "POST",
         headers: {
