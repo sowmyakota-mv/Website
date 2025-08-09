@@ -1,7 +1,7 @@
-// backend/index.js
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch'); 
+const fetch = require('node-fetch');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -12,7 +12,7 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true); 
+    if (!origin) return callback(null, true);
     const isAllowed = allowedOrigins.some(o => o.toLowerCase() === origin.toLowerCase());
     if (isAllowed) {
       callback(null, true);
@@ -35,34 +35,37 @@ app.post('/api/register', async (req, res) => {
   console.log('Request received at /api/register:', req.body);
 
   const { fullName, email, phone, location, timestamp } = req.body;
-  const formPayload = { fullName, email, phone, location, timestamp };
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxCNVI0aDlpqygkqDLjm36lGiHqh5Te9WPaIwndg1Zd0nAgdOyXaLhHSzmdmBSDWMZbDQ/exec",
+      "https://script.google.com/macros/s/AKfycbxAEWYVvgtFJzFiVbTsPGNt3K3TabZjgXUF7Ck8SC3Ud2qFq_8kG2ZeFHUZ7I-1ybMUtA/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formPayload)
+        body: JSON.stringify({ fullName, email, phone, location, timestamp })
       }
     );
 
-    const data = await response.json();
-    console.log('Registration submitted:', data);
-    res.status(200).json({ message: 'Registration form submitted successfully', data });
+    const text = await response.text(); // Read as text first
+    console.log("Raw GAS response:", text);
 
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (err) {
+      throw new Error(`Invalid JSON from GAS: ${text}`);
+    }
+
+    if (!response.ok) {
+      throw new Error(`GAS returned ${response.status}: ${text}`);
+    }
+
+    res.status(200).json({ message: 'Registration successful', data });
   } catch (error) {
-    console.error('Error submitting registration form:', error.message);
+    console.error('Error submitting registration form:', error);
     res.status(500).json({ message: 'Failed to submit registration form', error: error.message });
   }
 });
-
-app.options('/api/register', cors({
-  origin: allowedOrigins,
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
-  credentials: true
-}));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
