@@ -6,8 +6,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
+<<<<<<< HEAD
   'http://localhost:5173',
   'https://websitefrontend-7s05.onrender.com'
+=======
+  'http://localhost:5173','https://websitefrontend-7s05.onrender.com'
+>>>>>>> 6123f5258a01a3a0a8044db0aa03b6951e75d2ee
 ];
 
 app.use(cors({
