@@ -32,8 +32,6 @@ function StatsSection() {
           <StatBox title="Sponsored Jobs" targetNumber={250} isVisible={isVisible} suffix="+" />
           <Divider />
           <StatBox title="Interviews" targetNumber={600} isVisible={isVisible} suffix="+" />
-          <Divider />
-          <StatBox title="Success Rate" targetNumber={100} isVisible={isVisible} suffix="%" />
         </div>
       </div>
     </section>
@@ -49,7 +47,7 @@ function StatBox({ title, targetNumber, isVisible, suffix }) {
 
   useEffect(() => {
     if (isVisible) {
-      setCount(0); 
+      setCount(0);
       let start = 0;
       const duration = 1000;
       const startTime = performance.now();

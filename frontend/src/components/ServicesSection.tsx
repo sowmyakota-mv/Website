@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const stories = [
   {
@@ -49,58 +50,12 @@ const companyLogos = [
 
 function PlacementsSection() {
   const [currentLogo, setCurrentLogo] = useState(0);
-  const [animatedPercentages, setAnimatedPercentages] = useState(
-    sectors.map(() => 0)
-  );
-  const chartRef = useRef(null);
-  const observerRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLogo((prev) => (prev + 1) % companyLogos.length);
-    }, 1000);
+    }, 1500);
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          sectors.forEach((sector, index) => {
-            let start = 0;
-            const end = sector.percentage;
-            const duration = 1500;
-            const stepTime = Math.floor(duration / end);
-
-            const counter = setInterval(() => {
-              start += 1;
-              setAnimatedPercentages((prev) => {
-                const updated = [...prev];
-                updated[index] = start;
-                return updated;
-              });
-
-              if (start === end) clearInterval(counter);
-            }, stepTime);
-          });
-        } else {
-          setAnimatedPercentages(sectors.map(() => 0));
-        }
-      },
-      {
-        threshold: 0.6,
-      }
-    );
-
-    if (chartRef.current) {
-      observerRef.current.observe(chartRef.current);
-    }
-
-    return () => {
-      if (chartRef.current) {
-        observerRef.current.unobserve(chartRef.current);
-      }
-    };
   }, []);
 
   return (
@@ -114,74 +69,41 @@ function PlacementsSection() {
           sectors.
         </p>
 
-        <div className="flex justify-center items-center mb-10 h-24 py-45">
-          <img
-            src={companyLogos[currentLogo]}
-            alt="Company Logo"
-            className="h-100 w-160 object-contain transition-all duration-1000"
-          />
-        </div>
-
+        {/* Stats section - Left text / Right logo */}
         <div
-          className="w-full sm:w-[90%] md:w-155 h-auto sm:h-[150px] rounded-lg shadow-md px-4 py-6 border border-gray-200 mx-auto mb-12 flex items-center justify-center"
-          style={{ backgroundColor: "#1e156bff" }}
-        >
-          <div
-            ref={chartRef}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 place-items-center w-full"
-          >
-            {sectors.map((sector, index) => {
-              return (
-                <div
-                  key={sector.name}
-                  className="flex flex-col items-center p-1 w-full sm:w-auto"
-                >
-                  <svg className="w-22 h-22 sm:w-20 sm:h-20 md:w-24 md:h-24">
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="#E5E7EB"
-                      strokeWidth="8"
-                      fill="transparent"
-                    />
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="#2563EB"
-                      strokeWidth="8"
-                      fill="transparent"
-                      strokeDasharray={2 * Math.PI * 40}
-                      strokeDashoffset={
-                        2 * Math.PI * 40 -
-                        (animatedPercentages[index] / 100) *
-                          2 * Math.PI * 40
-                      }
-                      strokeLinecap="round"
-                      style={{
-                        transition: "stroke-dashoffset 0.5s ease-out",
-                      }}
-                      transform="rotate(-90 48 48)"
-                    />
-                    <text
-                      x="50%"
-                      y="52%"
-                      textAnchor="middle"
-                      className="fill-white text-xs sm:text-sm font-semibold"
-                    >
-                      {animatedPercentages[index]}%
-                    </text>
-                  </svg>
-                  <p className="text-sm font-medium text-white mt-2">
-                    {sector.name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+  className="w-full sm:w-[90%] md:w-full h-auto rounded-lg shadow-md px-2 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center"
+  style={{ backgroundColor: "#1e156bff" }}
+>
+  {/* Left - Sector info with heading + paragraph + check icons */}
+  <div className="flex-1 text-left text-white space-y-4">
+    <p className="text-xl font-semibold">
+      We have successfully placed our students across multiple sectors in the UK.
+    </p>
+    <p className="text-base text-gray-200">
+      Our industry connections and tailored training ensure that students find    rewarding careers in their chosen fields.
+    </p>
 
+    {sectors.map((sector) => (
+      <p key={sector.name} className="text-lg flex items-start gap-2">
+        <FaCheckCircle className="text-green-400 mt-1 flex-shrink-0" />
+        <span>
+          {sector.name} Sector – {sector.percentage}% of our students are placed in this field.
+        </span>
+      </p>
+    ))}
+  </div>
+
+  {/* Right - Logo full width/height */}
+  <div className="flex-1 flex justify-center items-center mt-6 md:mt-0 w-full h-full">
+    <img
+      src={companyLogos[currentLogo]}
+      alt="Company Logo"
+      className="w-full h-full object-contain transition-all duration-1000"
+    />
+  </div>
+</div>
+
+        {/* Success stories */}
         <section id="success" className="bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
@@ -226,6 +148,7 @@ function PlacementsSection() {
           </div>
         </section>
 
+        {/* Trust tag */}
         <div
           className="text-white py-6 rounded-xl shadow-lg mt-12"
           style={{
