@@ -69,50 +69,51 @@ function PlacementsSection() {
           sectors.
         </p>
 
-        {/* Stats section - Left text / Right logo */}
+        {/* Stats section */}
         <div
-  className="w-full sm:w-[90%] md:w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center gap-8"
-  style={{
-    background: "linear-gradient(135deg, #1e156b, #2d1f83)"
-  }}
->
-  {/* Left - Sector cards */}
-  <div className="flex-1 text-left text-white">
-    <p className="text-2xl font-bold mb-4">
-      We have successfully placed our students across multiple sectors in the UK.
-    </p>
-    <p className="text-base text-gray-200 mb-8">
-      Our industry connections and tailored training ensure that students find rewarding careers in their chosen fields.
-    </p>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {sectors.map((sector) => (
-        <div
-          key={sector.name}
-          className="bg-white text-gray-800 rounded-lg p-4 shadow-md flex items-center gap-3 hover:shadow-lg transition-shadow"
+          className="w-full sm:w-[90%] md:w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
+          style={{
+            background: "linear-gradient(135deg, #1e156b, #2d1f83)",
+          }}
         >
-          <FaCheckCircle className="text-green-500 text-2xl flex-shrink-0" />
-          <div>
-            <p className="font-semibold">{sector.name} Sector</p>
-            <p className="text-sm text-gray-600">
-              {sector.percentage}% of our students are placed here.
+          {/* Left - Sector cards */}
+          <div className="flex-1 text-left text-white">
+            <p className="text-2xl font-bold mb-4">
+              We have successfully placed our students across multiple sectors
+              in the UK.
             </p>
+            <p className="text-base text-gray-200 mb-8">
+              Our industry connections and tailored training ensure that
+              students find rewarding careers in their chosen fields.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {sectors.map((sector) => (
+                <div
+                  key={sector.name}
+                  className="bg-white text-gray-800 rounded-lg p-4 shadow-md flex items-center gap-3 hover:shadow-lg transition-shadow"
+                >
+                  <FaCheckCircle className="text-green-500 text-2xl flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">{sector.name} Sector</p>
+                    <p className="text-sm text-gray-600">
+                      {sector.percentage}% of our students are placed here.
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right - Rotating logo */}
+          <div className="flex-1 flex justify-center items-center">
+            <img
+              src={companyLogos[currentLogo]}
+              alt="Company Logo"
+              className="w-full max-w-[200px] md:max-w-sm h-auto object-cover rounded-lg shadow-lg transition-all duration-1000 mx-auto"
+            />
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Right - Rotating logo */}
-  <div className="flex-1 flex justify-center items-center">
-    <img
-      src={companyLogos[currentLogo]}
-      alt="Company Logo"
-      className="w-auto h-auto max-w-sm object-cover rounded-lg shadow-lg transition-all duration-1000"
-    />
-  </div>
-</div>
-
 
         {/* Success stories */}
         <section id="success" className="bg-gray-50">
