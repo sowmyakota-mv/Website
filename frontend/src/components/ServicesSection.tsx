@@ -71,37 +71,48 @@ function PlacementsSection() {
 
         {/* Stats section - Left text / Right logo */}
         <div
-  className="w-full sm:w-[90%] md:w-full h-auto rounded-lg shadow-md px-2 py-10 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center"
-  style={{ backgroundColor: "#1e156bff" }}
+  className="w-full sm:w-[90%] md:w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center gap-8"
+  style={{
+    background: "linear-gradient(135deg, #1e156b, #2d1f83)"
+  }}
 >
-  {/* Left - Sector info with heading + paragraph + check icons */}
-  <div className="flex-1 text-left text-white space-y-4">
-    <p className="text-xl font-semibold">
+  {/* Left - Sector cards */}
+  <div className="flex-1 text-left text-white">
+    <p className="text-2xl font-bold mb-4">
       We have successfully placed our students across multiple sectors in the UK.
     </p>
-    <p className="text-base text-gray-200">
-      Our industry connections and tailored training ensure that students find    rewarding careers in their chosen fields.
+    <p className="text-base text-gray-200 mb-8">
+      Our industry connections and tailored training ensure that students find rewarding careers in their chosen fields.
     </p>
 
-    {sectors.map((sector) => (
-      <p key={sector.name} className="text-lg flex items-start gap-2">
-        <FaCheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-        <span>
-          {sector.name} Sector – {sector.percentage}% of our students are placed in this field.
-        </span>
-      </p>
-    ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {sectors.map((sector) => (
+        <div
+          key={sector.name}
+          className="bg-white text-gray-800 rounded-lg p-4 shadow-md flex items-center gap-3 hover:shadow-lg transition-shadow"
+        >
+          <FaCheckCircle className="text-green-500 text-2xl flex-shrink-0" />
+          <div>
+            <p className="font-semibold">{sector.name} Sector</p>
+            <p className="text-sm text-gray-600">
+              {sector.percentage}% of our students are placed here.
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 
-  {/* Right - Logo full width/height */}
-  <div className="flex-1 flex justify-center items-center mt-6 md:mt-0 w-full h-full">
+  {/* Right - Rotating logo */}
+  <div className="flex-1 flex justify-center items-center">
     <img
       src={companyLogos[currentLogo]}
       alt="Company Logo"
-      className="w-full h-full object-contain transition-all duration-1000"
+      className="w-100 h-100 max-w-sm object-cover rounded-lg shadow-lg transition-all duration-1000"
     />
   </div>
 </div>
+
 
         {/* Success stories */}
         <section id="success" className="bg-gray-50">
