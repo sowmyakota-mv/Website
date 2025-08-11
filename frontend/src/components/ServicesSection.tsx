@@ -71,7 +71,7 @@ function PlacementsSection() {
 
         {/* Stats section - Left text / Right logo */}
         <div
-  className="w-full sm:w-[90%] md:w-full h-auto rounded-lg shadow-md px-2 py-5 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center"
+  className="w-full sm:w-[90%] md:w-full h-auto rounded-lg shadow-md px-2 py-10 border border-gray-200 mx-auto mb-12 flex flex-col md:flex-row items-center"
   style={{ backgroundColor: "#1e156bff" }}
 >
   {/* Left - Sector info with heading + paragraph + check icons */}
