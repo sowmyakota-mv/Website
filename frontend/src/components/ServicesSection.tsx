@@ -108,7 +108,7 @@ function PlacementsSection() {
     <img
       src={companyLogos[currentLogo]}
       alt="Company Logo"
-      className="w-100 h-100 max-w-sm object-cover rounded-lg shadow-lg transition-all duration-1000"
+      className="w-auto h-100 max-w-sm object-cover rounded-lg shadow-lg transition-all duration-1000"
     />
   </div>
 </div>
