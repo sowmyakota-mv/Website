@@ -25,8 +25,9 @@ function StatsSection() {
 
   return (
     <section className="bg-gray-50" ref={statsRef}>
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center">
+      <div className="max-w-6xl mx-auto px-15">
+        {/* Removed rounded-xl for square edges */}
+        <div className="bg-white shadow-lg p-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center">
           <StatBox title="Placement" targetNumber={400} isVisible={isVisible} suffix="+" />
           <Divider />
           <StatBox title="Sponsored Jobs" targetNumber={250} isVisible={isVisible} suffix="+" />
@@ -48,7 +49,6 @@ function StatBox({ title, targetNumber, isVisible, suffix }) {
   useEffect(() => {
     if (isVisible) {
       setCount(0);
-      let start = 0;
       const duration = 1000;
       const startTime = performance.now();
 

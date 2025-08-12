@@ -11,3 +11,23 @@
   background-color: white !important;
   border-right: 1px solid #151617 !important;
 }
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.5), 0 0 20px rgba(37, 99, 235, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.7), 0 0 30px rgba(37, 99, 235, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.5), 0 0 20px rgba(37, 99, 235, 0.4); }
+}
+
+.glow-card {
+  animation: glowPulse 2s infinite;
+  border-radius: 8px;
+}
+
+@keyframes bounceButton {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.bounce-btn {
+  animation: bounceButton 1.5s infinite;
+}

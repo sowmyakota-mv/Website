@@ -94,7 +94,7 @@ const Navbar = () => {
         Professional CV Development
       </Link>
       <Link
-        to="/cv-promotion"
+        to="/cv-marketing"
         className="block px-4 py-2 hover:bg-gray-100"
         onClick={closeAllMenus}
       >
@@ -167,7 +167,7 @@ const Navbar = () => {
   }}
 >
   <Button className="flex items-center hover:text-blue-500">
-              Courses
+              Job Roles
             </Button>
             {coursesOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
@@ -175,33 +175,33 @@ const Navbar = () => {
                   to="/list"
                   className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
                 >
-                  List of Courses
+                  List of Job Roles
                 </Link>
                 <Link
-                  to="/backend"
+                  to="/engineer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Backend Development
+                  Data Engineer
                 </Link>
                 <Link
-                  to="/data"
+                  to="/developer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Data Analytics
+                  BI Developer
                 </Link>
                 <Link
-                  to="/frontend"
+                  to="/analyst"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Frontend Development
+                  Data Analyst
                 </Link>
                 <Link
-                  to="/uiux"
+                  to="/developer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  UI/UX developer
+                  Database Developer
                 </Link>
-                <Link
+                {/* <Link
                   to="/android"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
@@ -218,7 +218,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   More courses
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
@@ -365,7 +365,7 @@ const Navbar = () => {
                 closeAllMenus
               }}
             >
-              Courses
+              Job Roles
             </Button>
             {coursesOpen && (
               <div className="flex flex-col space-y-2 mt-2">
@@ -373,33 +373,33 @@ const Navbar = () => {
                   to="/list"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  List of Courses
+                  List of Job Roles
                 </Link>
                 <Link
-                  to="/backend"
+                  to="/engineer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Backend Development
+                  Data Engineer
                 </Link>
                 <Link
-                  to="/data"
+                  to="/developer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Data Analytics
+                  BI Developer
                 </Link>
                 <Link
-                  to="/frontend"
+                  to="/analyst"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Frontend Development
+                  Data Analyst
                 </Link>
                 <Link
-                  to="/uiux"
+                  to="/developer"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  UI/UX developer
+                  Database Developer
                 </Link>
-                <Link
+                {/* <Link
                   to="/android"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
@@ -416,7 +416,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
                   More courses
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>

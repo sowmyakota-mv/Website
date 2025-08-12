@@ -1,12 +1,13 @@
+// src/components/CourseCard.js
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
   return (
-    <div className="bg-white rounded-lg shadow p-4">
+    <div className="bg-white rounded-lg shadow p-4 flex flex-col">
       <img
         src={course.previewImage}
         alt={course.title}
-        className="rounded-lg mb-4"
+        className="w-full h-48 object-cover rounded-lg mb-4"
       />
       <h3 className="text-lg font-bold">{course.title}</h3>
       <p className="text-gray-600 mb-2">{course.shortDescription}</p>
@@ -15,10 +16,10 @@ const CourseCard = ({ course }) => {
         <span className="text-gray-500">{course.reviews.toLocaleString()}</span>
       </div>
       <Link
-        to={`/course/${course.id}`}
+        to="/register"
         className="mt-4 block bg-purple-600 text-white text-center py-2 rounded hover:bg-purple-700"
       >
-        View Details
+        Apply Now
       </Link>
     </div>
   );
