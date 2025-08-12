@@ -40,6 +40,40 @@ const sectors = [
   { name: "Fashion", percentage: 50 },
 ];
 
+// Transparent PNG filenames
+const companyLogos = [
+  "yash-removebg-preview.png",
+  "yahoo-removebg-preview.png",
+  "tcs-removebg-preview.png",
+  "tata-removebg-preview.png",
+  "sony-removebg-preview.png",
+  "shieldon-removebg-preview.png",
+  "samsung-removebg-preview.png",
+  "rolex-removebg-preview.png",
+  "puma-removebg-preview.png",
+  "p_g-removebg-preview.png",
+  "microsoft-removebg-preview.png",
+  "meta-removebg-preview.png",
+  "mastercard-removebg-preview.png",
+  "lloyds-removebg-preview.png",
+  "lg-removebg-preview.png",
+  "lacoste-removebg-preview.png",
+  "intel-removebg-preview.png",
+  "infosys-removebg-preview.png",
+  "ibm-removebg-preview.png",
+  "hp-removebg-preview.png",
+  "harvey-removebg-preview.png",
+  "google-removebg-preview.png",
+  "goodbox-removebg-preview.png",
+  "deloitte-removebg-preview.png",
+  "dell-removebg-preview.png",
+  "cisco-removebg-preview.png",
+  "blackberry-removebg-preview.png",
+  "accenture-removebg-preview.png",
+  "amazon-logo.png",
+  "apple.png",
+];
+
 function PlacementsSection() {
   return (
     <section className="bg-gray-50">
@@ -54,9 +88,9 @@ function PlacementsSection() {
 
         {/* Stats section */}
         <div
-          className="w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
+          className="w-full rounded-lg shadow-md px-6 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
           style={{
-            background: "linear-gradient(135deg, #9bf0efff, #92eff3ff)",
+            background: "linear-gradient(135deg, #9bf0ef, #92eff3)",
           }}
         >
           {/* Left - Sector cards */}
@@ -65,7 +99,7 @@ function PlacementsSection() {
               We have successfully placed our students across multiple sectors
               in the UK.
             </p>
-            <p className="text-base text-black-200 mb-8">
+            <p className="text-base mb-8">
               Our industry connections and tailored training ensure that
               students find rewarding careers in their chosen fields.
             </p>
@@ -88,13 +122,21 @@ function PlacementsSection() {
             </div>
           </div>
 
-          {/* Right - Full image in equal half */}
-          <div className="flex-1 flex justify-center items-center h-full">
-            <img
-              src="/company-logo.png"
-              alt="Company Logos"
-              className="w-full h-full object-contain rounded-lg shadow-lg"
-            />
+          {/* Right - Company Logos Grid */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6  items-center">
+            {companyLogos.map((logo, idx) => (
+              <div
+                key={idx}
+                className="flex justify-center items-center p-2 rounded-lg hover:shadow-lg transition-shadow"
+                style={{ backgroundColor: "transparent" }}
+              >
+                <img
+                  src={`/${logo}`}
+                  alt={`Company Logo ${idx}`}
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
