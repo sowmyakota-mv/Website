@@ -49,7 +49,7 @@ function WhyDataArtisan() {
         </h2>
 
         {/* Flowchart Section */}
-        <div className="mb-12">
+        <div className="mb-12 py-5">
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
             <FlowStep text="Student Consultation" />
             <FlowArrow direction="down" mobile />

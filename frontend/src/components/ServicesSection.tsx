@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const stories = [
@@ -41,23 +40,7 @@ const sectors = [
   { name: "Fashion", percentage: 50 },
 ];
 
-const companyLogos = [
-  "/amazon.jpg",
-  "/barclays-bank.jpg",
-  "/lloyds-bank.jpg",
-  "/harvey-nichols.jpg",
-];
-
 function PlacementsSection() {
-  const [currentLogo, setCurrentLogo] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentLogo((prev) => (prev + 1) % companyLogos.length);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -71,9 +54,9 @@ function PlacementsSection() {
 
         {/* Stats section */}
         <div
-          className="w-full sm:w-[90%] md:w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
+          className="w-full rounded-lg shadow-md px-6 py-10 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
           style={{
-            background: "linear-gradient(135deg, #1e156b, #2d1f83)",
+            background: "linear-gradient(135deg, #9bf0efff, #92eff3ff)",
           }}
         >
           {/* Left - Sector cards */}
@@ -105,12 +88,12 @@ function PlacementsSection() {
             </div>
           </div>
 
-          {/* Right - Rotating logo */}
-          <div className="flex-1 flex justify-center items-center">
+          {/* Right - Full image in equal half */}
+          <div className="flex-1 flex justify-center items-center h-full">
             <img
-              src={companyLogos[currentLogo]}
-              alt="Company Logo"
-              className="w-full max-w-[200px] md:max-w-sm h-auto object-cover rounded-lg shadow-lg transition-all duration-1000 mx-auto"
+              src="/company-logo.png"
+              alt="Company Logos"
+              className="w-full h-full object-contain rounded-lg shadow-lg"
             />
           </div>
         </div>
