@@ -60,12 +60,12 @@ function PlacementsSection() {
           }}
         >
           {/* Left - Sector cards */}
-          <div className="flex-1 text-left text-white">
+          <div className="flex-1 text-left text-black">
             <p className="text-2xl font-bold mb-4">
               We have successfully placed our students across multiple sectors
               in the UK.
             </p>
-            <p className="text-base text-gray-200 mb-8">
+            <p className="text-base text-black-200 mb-8">
               Our industry connections and tailored training ensure that
               students find rewarding careers in their chosen fields.
             </p>
