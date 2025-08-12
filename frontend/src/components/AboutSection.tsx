@@ -67,6 +67,9 @@ function WhyDataArtisan() {
 
         {/* Flowchart Section */}
         <div className="mb-12 py-5">
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+            Step-by-Step Path to Your Career Success
+          </h2>
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
             <FlowStep text="Course Training" targetId="training" />
             <FlowArrow direction="down" mobile />
