@@ -1,4 +1,9 @@
-import { FaCheckCircle } from "react-icons/fa";
+import {
+  FaStethoscope, // Health
+  FaUniversity,  // Banking
+  FaShieldAlt,   // Insurance
+  FaTshirt,      // Fashion
+} from "react-icons/fa";
 
 const stories = [
   {
@@ -33,6 +38,14 @@ const stories = [
   },
 ];
 
+// Map sector names to their icons
+const sectorIcons = {
+  Health: <FaStethoscope className="text-blue-500 text-2xl flex-shrink-0" />,
+  Banking: <FaUniversity className="text-green-500 text-2xl flex-shrink-0" />,
+  Insurance: <FaShieldAlt className="text-purple-500 text-2xl flex-shrink-0" />,
+  Fashion: <FaTshirt className="text-pink-500 text-2xl flex-shrink-0" />,
+};
+
 const sectors = [
   { name: "Health", percentage: 45 },
   { name: "Banking", percentage: 55 },
@@ -40,36 +53,36 @@ const sectors = [
   { name: "Fashion", percentage: 50 },
 ];
 
-// Transparent PNG filenames
+// Company logos with white background images
 const companyLogos = [
-  "yash-removebg-preview.png",
-  "yahoo-removebg-preview.png",
-  "tcs-removebg-preview.png",
-  "tata-removebg-preview.png",
-  "sony-removebg-preview.png",
-  "shieldon-removebg-preview.png",
-  "samsung-removebg-preview.png",
-  "rolex-removebg-preview.png",
-  "puma-removebg-preview.png",
-  "p_g-removebg-preview.png",
-  "microsoft-removebg-preview.png",
-  "meta-removebg-preview.png",
-  "mastercard-removebg-preview.png",
-  "lloyds-removebg-preview.png",
-  "lg-removebg-preview.png",
-  "lacoste-removebg-preview.png",
-  "intel-removebg-preview.png",
-  "infosys-removebg-preview.png",
-  "ibm-removebg-preview.png",
-  "hp-removebg-preview.png",
-  "harvey-removebg-preview.png",
-  "google-removebg-preview.png",
-  "goodbox-removebg-preview.png",
-  "deloitte-removebg-preview.png",
-  "dell-removebg-preview.png",
-  "cisco-removebg-preview.png",
-  "blackberry-removebg-preview.png",
-  "accenture-removebg-preview.png",
+  "yash.png",
+  "yahoo.png",
+  "tcs.png",
+  "tata.png",
+  "sony.png",
+  "shieldon.png",
+  "samsung.png",
+  "rolex.png",
+  "puma.png",
+  "pg.png",
+  "microsoft.png",
+  "meta.png",
+  "mastercard.png",
+  "lloyds.png",
+  "lg.png",
+  "lacoste.png",
+  "intel.png",
+  "infosys.png",
+  "ibm.png",
+  "hp.png",
+  "harvey.png",
+  "google.png",
+  "goodbox.png",
+  "deloitte.png",
+  "dell.png",
+  "cisco.png",
+  "blackberry.png",
+  "accenture.png",
   "amazon-logo.png",
   "apple.png",
 ];
@@ -86,7 +99,7 @@ function PlacementsSection() {
           sectors.
         </p>
 
-        {/* Stats section */}
+        {/* Stats + Logos section */}
         <div
           className="w-full rounded-lg shadow-md px-6 py-4 border border-gray-200 mx-auto mb-12 flex flex-col-reverse md:flex-row items-center gap-8"
           style={{
@@ -110,7 +123,7 @@ function PlacementsSection() {
                   key={sector.name}
                   className="bg-white text-gray-800 rounded-lg p-4 shadow-md flex items-center gap-3 hover:shadow-lg transition-shadow"
                 >
-                  <FaCheckCircle className="text-green-500 text-2xl flex-shrink-0" />
+                  {sectorIcons[sector.name]}
                   <div>
                     <p className="font-semibold">{sector.name} Sector</p>
                     <p className="text-sm text-gray-600">
@@ -123,17 +136,16 @@ function PlacementsSection() {
           </div>
 
           {/* Right - Company Logos Grid */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6  items-center">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {companyLogos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex justify-center items-center p-2 rounded-lg hover:shadow-lg transition-shadow"
-                style={{ backgroundColor: "transparent" }}
+                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 flex justify-center items-center hover:shadow-md transition-shadow"
               >
                 <img
                   src={`/${logo}`}
                   alt={`Company Logo ${idx}`}
-                  className="w-20 h-20 object-contain"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
             ))}
@@ -156,9 +168,7 @@ function PlacementsSection() {
                     <h3 className="text-xl font-semibold text-gray-800">
                       {story.name}
                     </h3>
-                    <p className="text-blue-600 font-medium">
-                      {story.degree}
-                    </p>
+                    <p className="text-blue-600 font-medium">{story.degree}</p>
                     <p className="text-gray-600">{story.university}</p>
                     <div className="mt-4">
                       <p className="text-gray-700 italic">
