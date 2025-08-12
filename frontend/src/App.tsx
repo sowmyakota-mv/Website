@@ -55,9 +55,9 @@ function App() {
           }
         />
         <Route path='training' element={<Training/>}/>
-        <Route path='cv-writing' element={<CvWritingPage/>}/>
+        <Route path='cv-preparation' element={<CvWritingPage/>}/>
         <Route path='mock-interviews' element={<MockInterviewPage/>}/>
-        <Route path='marketing-team' element={<MarketingTeamPage/>}/>
+        <Route path='cv-marketing' element={<MarketingTeamPage/>}/>
         <Route path='/list' element={<CoursePage/>}/>
         <Route path="/:category" element={<CoursePage />} />
         <Route path='/course/:id' element={<CourseDetailPage/>}/>

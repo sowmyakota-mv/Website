@@ -4,84 +4,104 @@ import { Link } from "react-router-dom";
 function WhyDataArtisan() {
   const cards = [
     {
+      id: "training",
       img: "/training.jpg",
-      title: "Expert Course Training",
-      description: "Gain in-demand skills with our industry-oriented curriculum:",
+      title: "Hands-On Course Training",
+      description: "Master practical, job-ready skills through immersive learning in:",
       listItems: ["SQL", "Power BI", "Azure", "and more..."],
       link: "training",
     },
     {
+      id: "cv-preparation",
       img: "/cv-writing.jpg",
-      title: "CV Writing & Guaranteed Picks",
-      description: "Stand out from the competition with:",
-      listItems: ["Professionally crafted CVs", "Guaranteed job Interview calls"],
-      link: "cv-writing",
+      title: "Professional CV Development",
+      description: "Craft a strong first impression with:",
+      listItems: [
+        "Tailored CVs for your target roles",
+        "ATS-optimized formatting",
+        "Highlighting your unique strengths",
+      ],
+      link: "cv-preparation",
     },
     {
-      img: "/interview.jpg",
-      title: "Mock Interviews",
-      description: "Prepare like a pro with our expert-driven mock sessions.",
+      id: "cv-marketing",
+      img: "/marketing.jpg",
+      title: "Strategic CV Promotion",
+      description: "Get noticed by the right employers through:",
       listItems: [
-        "Real interview scenarios",
-        "Feedback from industry experts",
-        "Confidence building",
+        "Targeted recruiter outreach",
+        "Active networking campaigns",
+        "Personalized job alerts",
+      ],
+      link: "cv-marketing",
+    },
+    {
+      id: "mock-interviews",
+      img: "/interview.jpg",
+      title: "Mock Interviews & Feedback",
+      description: "Boost your confidence with:",
+      listItems: [
+        "Simulated interview sessions",
+        "Detailed performance reviews",
+        "Actionable improvement tips",
       ],
       link: "mock-interviews",
     },
     {
-      img: "/marketing.jpg",
-      title: "Dedicated Marketing Team",
-      description: "Our team ensures your CV reaches the right recruiters.",
+      id: "job-placement",
+      img: "/job-placement.jpg",
+      title: "Job Placement Assistance",
+      description: "Secure your ideal role with:",
       listItems: [
-        "Active job Marketing",
-        "Network with top employers",
-        "Personalized support",
+        "One-on-one placement guidance",
+        "Exclusive job openings",
+        "Continuous career support",
       ],
-      link: "marketing-team",
+      link: "job-placement",
     },
   ];
 
   return (
     <section id="services" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
-          Why <span className="text-blue-700">Data Artisans</span>?
-        </h2>
 
         {/* Flowchart Section */}
         <div className="mb-12 py-5">
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
-            <FlowStep text="Student Consultation" />
+            <FlowStep text="Course Training" targetId="training" />
             <FlowArrow direction="down" mobile />
             <FlowArrow direction="right" desktop />
-            <FlowStep text="Abroad Planning & University Selection" />
+            <FlowStep text="CV Preparation" targetId="cv-preparation" />
             <FlowArrow direction="down" mobile />
             <FlowArrow direction="right" desktop />
-            <FlowStep text="Master's Completion Abroad" />
+            <FlowStep text="CV Marketing" targetId="cv-marketing" />
             <FlowArrow direction="down" mobile />
             <FlowArrow direction="right" desktop />
-            <FlowStep text="3-Month Tech Training" />
+            <FlowStep text="Mock Interviews" targetId="mock-interviews" />
             <FlowArrow direction="down" mobile />
             <FlowArrow direction="right" desktop />
-            <FlowStep text="High-Quality CV Preparation" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
-            <FlowStep text="Job Applications & Placement Support" />
+            <FlowStep text="Job Placement" targetId="job-placement" />
           </div>
         </div>
+
+        {/* Heading after flowchart */}
+        <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
+          Why <span className="text-blue-700">Data Artisans</span>?
+        </h2>
 
         {/* Cards Section */}
         <div className="space-y-12">
           {cards.map((card, index) => (
-            <Card
-              key={index}
-              img={card.img}
-              title={card.title}
-              description={card.description}
-              listItems={card.listItems}
-              link={card.link}
-              reverse={index % 2 !== 0}
-            />
+            <div key={index} id={card.id}>
+              <Card
+                img={card.img}
+                title={card.title}
+                description={card.description}
+                listItems={card.listItems}
+                link={card.link}
+                reverse={index % 2 !== 0}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -89,11 +109,28 @@ function WhyDataArtisan() {
   );
 }
 
-function FlowStep({ text }) {
+function FlowStep({ text, targetId }) {
+  const scrollToSection = () => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 100; 
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="bg-blue-50 border border-blue-300 rounded-xl px-4 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px]">
+    <button
+      onClick={scrollToSection}
+      className="bg-blue-50 border border-blue-300 rounded-xl px-4 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition"
+    >
       {text}
-    </div>
+    </button>
   );
 }
 

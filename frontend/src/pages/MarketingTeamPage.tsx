@@ -1,7 +1,7 @@
 import { CheckCircle } from "lucide-react";
 
 const MarketingTeamPage=()=>(
-    <section id="team" className="text-center">
+    <section id="cv-marketing" className="text-center">
         <h2 className="text-3xl font-bold text-blue-600 mb-4">
           Dedicated Marketing Team For Your Success
         </h2>

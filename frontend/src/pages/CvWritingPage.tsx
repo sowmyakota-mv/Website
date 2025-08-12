@@ -1,14 +1,14 @@
 import { CheckCircle } from "lucide-react"
 
 const CvWritingPage=()=>(
-    <section id="cv-writing" className="grid md:grid-cols-2 gap-8 items-center">
+    <section id="cv-preparation" className="grid md:grid-cols-2 gap-8 items-center">
         <img
           src="/cv-writing.jpg"
           alt="Why Choose Us"
           className="rounded-lg shadow-lg w-full"
         />
         <div>
-          <h2 className="text-3xl font-bold text-blue-600 mb-4">CV Writing & Guaranteed Picks</h2>
+          <h2 className="text-3xl font-bold text-blue-600 mb-4">Professional CV Development</h2>
           <p className="text-gray-700 mb-4">
             A great CV is your first step to landing the perfect job. Our CV writing services ensure that your resume 
             stands out among thousands of applicants. We tailor your CV to highlight your strengths and align with job market trends.

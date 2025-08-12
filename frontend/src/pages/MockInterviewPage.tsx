@@ -1,7 +1,7 @@
 import { CheckCircle } from "lucide-react";
 
 const MockInterviewPage=()=>(
-      <section id="mock" className="text-center">
+      <section id="mock-interviews" className="text-center">
         <h2 className="text-3xl font-bold text-blue-600 mb-6">
           Mock Interviews That Build Confidence
         </h2>

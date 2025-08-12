@@ -4,7 +4,7 @@ import { CheckCircle } from "lucide-react";
 const Training=()=>(
 <section id="training" className="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-blue-600 mb-4">Expert Course Training</h2>
+          <h2 className="text-3xl font-bold text-blue-600 mb-4">Hands-On Course Training</h2>
           <p className="text-gray-700 mb-4">
             At Data Artisans Limited, we specialize in providing hands-on, industry-focused training that equips learners
             with the most in-demand technical skills. Our programs go beyond theory, offering practical projects that mirror

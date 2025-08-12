@@ -84,28 +84,35 @@ const Navbar = () => {
         className="block px-4 py-2 hover:bg-gray-100"
         onClick={closeAllMenus}
       >
-        Expert Course Training
+        Hands-On Course Training
       </Link>
       <Link
-        to="/cv-writing"
+        to="/cv-preparation"
         className="block px-4 py-2 hover:bg-gray-100"
         onClick={closeAllMenus}
       >
-        CV Writing & Guaranteed Picks
+        Professional CV Development
+      </Link>
+      <Link
+        to="/cv-promotion"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={closeAllMenus}
+      >
+        Strategic CV Promotion
       </Link>
       <Link
         to="/mock-interviews"
         className="block px-4 py-2 hover:bg-gray-100"
         onClick={closeAllMenus}
       >
-        Mock Interviews
+        Mock Interviews & Feedback
       </Link>
       <Link
-        to="/marketing-team"
+        to="/job-placement"
         className="block px-4 py-2 hover:bg-gray-100"
         onClick={closeAllMenus}
       >
-        Dedicated Marketing Team
+        Job Placement Assistance
       </Link>
     </div>
   )}
@@ -279,29 +286,35 @@ const Navbar = () => {
             {aboutOpen && (
               <div className="flex flex-col space-y-2 mt-2">
                 <Link
-                  to="/about#training"
+                  to="/training"
                   className="block px-4 py-2 hover:bg-gray-100"
                   onClick={closeAllMenus}
                 >
-                  Expert Course Training
+                  Hands-On Course Training
                 </Link>
                 <Link
-                  to="/about#cv-writing"
+                  to="/cv-preparation"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  CV Writing & Guaranteed Picks
+                  Professional CV Development
                 </Link>
                 <Link
-                  to="/about#mock"
+                  to="/cv-marketing"
+                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
+                >
+                  Strategic CV Promotion
+                </Link>
+                <Link
+                  to="/mock-interviews"
                   className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
                 >
-                  Mock Interviews
+                  Mock Interviews & Feedback
                 </Link>
                 <Link
-                  to="/about#marketing"
+                  to="/job-placement"
                   className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
                 >
-                  Dedicated Marketing Team
+                  Job Placement Assistance 
                 </Link>
               </div>
             )}
