@@ -19,6 +19,7 @@ import Training from './pages/TrainingPage';
 import CvWritingPage from './pages/CvWritingPage';
 import MockInterviewPage from './pages/MockInterviewPage';
 import MarketingTeamPage from './pages/MarketingTeamPage';
+import JobPlacementPage from './pages/JobPlacementPage';
 
 function App() {
   const serviceRef = useRef(null);
@@ -58,6 +59,7 @@ function App() {
         <Route path='cv-preparation' element={<CvWritingPage/>}/>
         <Route path='mock-interviews' element={<MockInterviewPage/>}/>
         <Route path='cv-marketing' element={<MarketingTeamPage/>}/>
+        <Route path='job-placement' element={<JobPlacementPage/>}/>
         <Route path='/list' element={<CoursePage/>}/>
         <Route path="/:category" element={<CoursePage />} />
         <Route path='/course/:id' element={<CourseDetailPage/>}/>
