@@ -136,7 +136,7 @@ function PlacementsSection() {
           </div>
 
           {/* Right - Company Logos Grid */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {companyLogos.map((logo, idx) => (
               <div
                 key={idx}
