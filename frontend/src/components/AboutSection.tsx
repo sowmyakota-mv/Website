@@ -34,27 +34,27 @@ function WhyDataArtisan() {
   }, []);
 
   // Show popup only when flowchart is visible
-  useEffect(() => {
-    if (window.innerWidth >= 768) return; // Only show for mobile
+  // Show popup every time flowchart is visible on mobile
+useEffect(() => {
+  if (window.innerWidth >= 768) return; // Only for mobile
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          setShowMobilePopup(true);
-          setTimeout(() => setShowMobilePopup(false), 4000);
-          observer.disconnect(); // Show only once
-        }
-      },
-      { threshold: 0.5 }
-    );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setShowMobilePopup(true);
+        setTimeout(() => setShowMobilePopup(false), 4000);
+      }
+    },
+    { threshold: 0.5 }
+  );
 
-    if (flowchartRef.current) {
-      observer.observe(flowchartRef.current);
-    }
+  if (flowchartRef.current) {
+    observer.observe(flowchartRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
   const cards = [
     {
