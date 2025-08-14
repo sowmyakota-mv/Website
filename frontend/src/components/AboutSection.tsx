@@ -33,8 +33,7 @@ function WhyDataArtisan() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show popup only when flowchart is visible
-  // Show popup every time flowchart is visible on mobile
+  // Show popup only when flowchart is fully visible on mobile
 useEffect(() => {
   if (window.innerWidth >= 768) return; // Only for mobile
 
@@ -46,7 +45,7 @@ useEffect(() => {
         setTimeout(() => setShowMobilePopup(false), 4000);
       }
     },
-    { threshold: 0.5 }
+    { threshold: 1.0 } // Fully in view
   );
 
   if (flowchartRef.current) {
@@ -131,23 +130,28 @@ useEffect(() => {
         )}
 
         {/* Flowchart Section */}
-        <div className="mb-12 py-5" ref={flowchartRef}>
-          <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
-            <FlowStep text="Course Training" targetId="training" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
-            <FlowStep text="CV Preparation" targetId="cv-preparation" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
-            <FlowStep text="CV Marketing" targetId="cv-marketing" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
-            <FlowStep text="Mock Interviews" targetId="mock-interviews" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
-            <FlowStep text="Job Placement" targetId="job-placement" />
-          </div>
-        </div>
+<div
+  className={`mb-12 py-5 transition-all duration-500 ${
+    showMobilePopup ? "ring-4 ring-yellow-400 rounded-lg" : ""
+  }`}
+  ref={flowchartRef}
+>
+  <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
+    <FlowStep text="Course Training" targetId="training" />
+    <FlowArrow direction="down" mobile />
+    <FlowArrow direction="right" desktop />
+    <FlowStep text="CV Preparation" targetId="cv-preparation" />
+    <FlowArrow direction="down" mobile />
+    <FlowArrow direction="right" desktop />
+    <FlowStep text="CV Marketing" targetId="cv-marketing" />
+    <FlowArrow direction="down" mobile />
+    <FlowArrow direction="right" desktop />
+    <FlowStep text="Mock Interviews" targetId="mock-interviews" />
+    <FlowArrow direction="down" mobile />
+    <FlowArrow direction="right" desktop />
+    <FlowStep text="Job Placement" targetId="job-placement" />
+  </div>
+</div>
 
         {/* Highlighted Job Oriented Course Card */}
         <div className="mb-12">
