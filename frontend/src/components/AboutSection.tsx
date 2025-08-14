@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function WhyDataArtisan() {
   const [timeLeft, setTimeLeft] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   // Countdown Timer Logic
   useEffect(() => {
@@ -148,9 +148,8 @@ function WhyDataArtisan() {
                 Register Now
               </button>
             </div>
-            </div>
-            </div>
-        {/* <HighlightCourseCard/> */}
+          </div>
+        </div>
 
         {/* New Services Title */}
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
@@ -193,12 +192,19 @@ function FlowStep({ text, targetId }) {
   };
 
   return (
-    <button
-      onClick={scrollToSection}
-      className="bg-blue-50 border border-blue-300 px-4 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition"
-    >
-      {text}
-    </button>
+    <div className="relative group">
+      <button
+        onClick={scrollToSection}
+        className="bg-blue-50 border border-blue-300 px-4 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition relative"
+      >
+        {text}
+      </button>
+
+      {/* Tooltip */}
+      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap">
+        Click to view more details
+      </span>
+    </div>
   );
 }
 
