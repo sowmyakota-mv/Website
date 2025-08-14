@@ -1,12 +1,13 @@
 import HighlightCourseCard from "@/pages/HighlightCourseCard";
 import { CheckCircle, ArrowRightCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function WhyDataArtisan() {
   const [timeLeft, setTimeLeft] = useState("");
   const [showMobilePopup, setShowMobilePopup] = useState(false);
   const navigate = useNavigate();
+  const flowchartRef = useRef(null);
 
   // Countdown Timer Logic
   useEffect(() => {
@@ -32,15 +33,27 @@ function WhyDataArtisan() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show popup for mobile users
+  // Show popup only when flowchart is visible
   useEffect(() => {
-    if (window.innerWidth < 768) {
-      setShowMobilePopup(true);
-      const timer = setTimeout(() => {
-        setShowMobilePopup(false);
-      }, 4000); // hide after 4 seconds
-      return () => clearTimeout(timer);
+    if (window.innerWidth >= 768) return; // Only show for mobile
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setShowMobilePopup(true);
+          setTimeout(() => setShowMobilePopup(false), 4000);
+          observer.disconnect(); // Show only once
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (flowchartRef.current) {
+      observer.observe(flowchartRef.current);
     }
+
+    return () => observer.disconnect();
   }, []);
 
   const cards = [
@@ -106,20 +119,19 @@ function WhyDataArtisan() {
     <section id="services" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Flowchart Title */}
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           Step-by-Step Career Success Roadmap
         </h2>
 
         {/* Mobile Popup Message */}
         {showMobilePopup && (
-          <div className="md:hidden fixed top-20 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg shadow-lg animate-bounce z-50">
-            📌 Tap on a step to scroll to details!
+          <div className="md:hidden fixed top-[calc(50vh-150px)] left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg shadow-lg animate-bounce z-50">
+            📌 Tap a step to view its details below
           </div>
         )}
 
         {/* Flowchart Section */}
-        <div className="mb-12 py-5">
+        <div className="mb-12 py-5" ref={flowchartRef}>
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
             <FlowStep text="Course Training" targetId="training" />
             <FlowArrow direction="down" mobile />
@@ -140,8 +152,6 @@ function WhyDataArtisan() {
         {/* Highlighted Job Oriented Course Card */}
         <div className="mb-12">
           <div className="relative bg-[#E0F2FE] border-2 border-blue-500 shadow-lg p-6 max-w-4xl mx-auto glow-card flex flex-col md:flex-row items-center md:items-start justify-between">
-            
-            {/* Left Side - Text */}
             <div className="text-left">
               <h3 className="text-2xl font-bold text-blue-700 mb-2">
                 🚀 100% Job Oriented Course
@@ -157,7 +167,6 @@ function WhyDataArtisan() {
               </p>
             </div>
 
-            {/* Right Side - Countdown + Button */}
             <div className="flex flex-col justify-between items-center w-full md:w-auto mt-4 md:mt-0">
               <p className="text-red-600 font-bold mb-4">⏳ {timeLeft}</p>
               <button
@@ -175,7 +184,6 @@ function WhyDataArtisan() {
           Our Comprehensive Career Support Services
         </h2>
 
-        {/* Cards Section */}
         <div className="space-y-12">
           {cards.map((card, index) => (
             <div key={index} id={card.id}>
@@ -218,8 +226,6 @@ function FlowStep({ text, targetId }) {
       >
         {text}
       </button>
-
-      {/* Tooltip */}
       <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap">
         Click to view more details
       </span>
@@ -229,15 +235,10 @@ function FlowStep({ text, targetId }) {
 
 function FlowArrow({ direction, mobile, desktop }) {
   const arrowSymbol = direction === "right" ? "➡" : "⬇";
-
   return (
     <>
-      {mobile && (
-        <div className="md:hidden text-blue-500 text-lg">{arrowSymbol}</div>
-      )}
-      {desktop && (
-        <div className="hidden md:block text-blue-500 text-lg">{arrowSymbol}</div>
-      )}
+      {mobile && <div className="md:hidden text-blue-500 text-lg">{arrowSymbol}</div>}
+      {desktop && <div className="hidden md:block text-blue-500 text-lg">{arrowSymbol}</div>}
     </>
   );
 }
@@ -245,18 +246,11 @@ function FlowArrow({ direction, mobile, desktop }) {
 function Card({ img, title, description, listItems, link, reverse }) {
   return (
     <div
-      className={`flex flex-col md:flex-row ${
-        reverse ? "md:flex-row-reverse" : ""
-      } items-stretch shadow-lg overflow-hidden`}
+      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-stretch shadow-lg overflow-hidden`}
     >
       <div className="md:w-1/2">
-        <img
-          src={img}
-          alt={title}
-          className="w-full h-60 object-cover"
-        />
+        <img src={img} alt={title} className="w-full h-60 object-cover" />
       </div>
-
       <div className="md:w-1/2 bg-gray-50 p-4 relative flex flex-col justify-center">
         <h3 className="text-lg font-semibold text-gray-800 mb-4">{title}</h3>
         <p className="text-sm mb-4">{description}</p>
