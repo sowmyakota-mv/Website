@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 
 function WhyDataArtisan() {
   const [timeLeft, setTimeLeft] = useState("");
-  const [showMobilePopup, setShowMobilePopup] = useState(false);
+  const [showMobileMessage, setShowMobileMessage] = useState(false);
   const navigate = useNavigate();
   const flowchartRef = useRef(null);
 
@@ -22,8 +22,12 @@ function WhyDataArtisan() {
         setTimeLeft("Batch Started!");
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
@@ -33,27 +37,24 @@ function WhyDataArtisan() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show popup only when flowchart is fully visible on mobile
-useEffect(() => {
-  if (window.innerWidth >= 768) return; // Only for mobile
+  // Show message only when flowchart is in view on mobile
+  useEffect(() => {
+    if (window.innerWidth >= 768) return; // Only for mobile
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      if (entry.isIntersecting) {
-        setShowMobilePopup(true);
-        setTimeout(() => setShowMobilePopup(false), 4000);
-      }
-    },
-    { threshold: 1.0 } // Fully in view
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setShowMobileMessage(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // half in view
+    );
 
-  if (flowchartRef.current) {
-    observer.observe(flowchartRef.current);
-  }
+    if (flowchartRef.current) {
+      observer.observe(flowchartRef.current);
+    }
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   const cards = [
     {
@@ -117,41 +118,38 @@ useEffect(() => {
   return (
     <section id="services" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           Step-by-Step Career Success Roadmap
         </h2>
 
-        {/* Mobile Popup Message */}
-        {showMobilePopup && (
-          <div className="md:hidden fixed top-[calc(50vh-150px)] left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg shadow-lg animate-bounce z-50">
+        {/* Persistent Mobile Message */}
+        {showMobileMessage && (
+          <div className="md:hidden mb-4 text-center bg-yellow-200 text-black font-semibold py-2 px-3 rounded-lg shadow">
             📌 Tap a step to view its details below
           </div>
         )}
 
         {/* Flowchart Section */}
-<div
-  className={`mb-12 py-5 transition-all duration-500 ${
-    showMobilePopup ? "ring-4 ring-yellow-400 rounded-lg" : ""
-  }`}
-  ref={flowchartRef}
->
-  <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
-    <FlowStep text="Course Training" targetId="training" />
-    <FlowArrow direction="down" mobile />
-    <FlowArrow direction="right" desktop />
-    <FlowStep text="CV Preparation" targetId="cv-preparation" />
-    <FlowArrow direction="down" mobile />
-    <FlowArrow direction="right" desktop />
-    <FlowStep text="CV Marketing" targetId="cv-marketing" />
-    <FlowArrow direction="down" mobile />
-    <FlowArrow direction="right" desktop />
-    <FlowStep text="Mock Interviews" targetId="mock-interviews" />
-    <FlowArrow direction="down" mobile />
-    <FlowArrow direction="right" desktop />
-    <FlowStep text="Job Placement" targetId="job-placement" />
-  </div>
-</div>
+        <div
+          className="mb-12 py-5 transition-all duration-500"
+          ref={flowchartRef}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
+            <FlowStep text="Course Training" targetId="training" />
+            <FlowArrow direction="down" mobile />
+            <FlowArrow direction="right" desktop />
+            <FlowStep text="CV Preparation" targetId="cv-preparation" />
+            <FlowArrow direction="down" mobile />
+            <FlowArrow direction="right" desktop />
+            <FlowStep text="CV Marketing" targetId="cv-marketing" />
+            <FlowArrow direction="down" mobile />
+            <FlowArrow direction="right" desktop />
+            <FlowStep text="Mock Interviews" targetId="mock-interviews" />
+            <FlowArrow direction="down" mobile />
+            <FlowArrow direction="right" desktop />
+            <FlowStep text="Job Placement" targetId="job-placement" />
+          </div>
+        </div>
 
         {/* Highlighted Job Oriented Course Card */}
         <div className="mb-12">
@@ -161,7 +159,8 @@ useEffect(() => {
                 🚀 100% Job Oriented Course
               </h3>
               <p className="text-lg text-gray-700 font-medium">
-                Next Batch Starts <span className="text-blue-600 font-bold">20th August</span>
+                Next Batch Starts{" "}
+                <span className="text-blue-600 font-bold">20th August</span>
               </p>
               <p className="text-md text-gray-600 mt-1">
                 ⏰ Timings: <strong>6:45 PM – 8:15 PM</strong>
@@ -212,7 +211,8 @@ function FlowStep({ text, targetId }) {
     const element = document.getElementById(targetId);
     if (element) {
       const headerOffset = 100;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
       window.scrollTo({
@@ -241,8 +241,12 @@ function FlowArrow({ direction, mobile, desktop }) {
   const arrowSymbol = direction === "right" ? "➡" : "⬇";
   return (
     <>
-      {mobile && <div className="md:hidden text-blue-500 text-lg">{arrowSymbol}</div>}
-      {desktop && <div className="hidden md:block text-blue-500 text-lg">{arrowSymbol}</div>}
+      {mobile && (
+        <div className="md:hidden text-blue-500 text-lg">{arrowSymbol}</div>
+      )}
+      {desktop && (
+        <div className="hidden md:block text-blue-500 text-lg">{arrowSymbol}</div>
+      )}
     </>
   );
 }
@@ -250,7 +254,9 @@ function FlowArrow({ direction, mobile, desktop }) {
 function Card({ img, title, description, listItems, link, reverse }) {
   return (
     <div
-      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-stretch shadow-lg overflow-hidden`}
+      className={`flex flex-col md:flex-row ${
+        reverse ? "md:flex-row-reverse" : ""
+      } items-stretch shadow-lg overflow-hidden`}
     >
       <div className="md:w-1/2">
         <img src={img} alt={title} className="w-full h-60 object-cover" />
