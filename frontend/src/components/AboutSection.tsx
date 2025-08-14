@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 function WhyDataArtisan() {
   const [timeLeft, setTimeLeft] = useState("");
+  const [showMobilePopup, setShowMobilePopup] = useState(false);
   const navigate = useNavigate();
 
   // Countdown Timer Logic
@@ -29,6 +30,17 @@ function WhyDataArtisan() {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  // Show popup for mobile users
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setShowMobilePopup(true);
+      const timer = setTimeout(() => {
+        setShowMobilePopup(false);
+      }, 4000); // hide after 4 seconds
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const cards = [
@@ -98,6 +110,13 @@ function WhyDataArtisan() {
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           Step-by-Step Career Success Roadmap
         </h2>
+
+        {/* Mobile Popup Message */}
+        {showMobilePopup && (
+          <div className="md:hidden fixed top-20 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg shadow-lg animate-bounce z-50">
+            📌 Tap on a step to scroll to details!
+          </div>
+        )}
 
         {/* Flowchart Section */}
         <div className="mb-12 py-5">
