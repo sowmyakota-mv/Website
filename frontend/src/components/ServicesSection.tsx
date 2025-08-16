@@ -7,7 +7,7 @@ import {
 
 const stories = [
   {
-    name: "John Doe",
+    name: "Ram",
     degree: "Master in Data Science",
     university: "University of London",
     course: "Data Engineering",
@@ -17,7 +17,7 @@ const stories = [
     rating: 4.8,
   },
   {
-    name: "David Brown",
+    name: "Adithyan",
     degree: "Master in Cloud Computing",
     university: "King's College London",
     course: "Cloud Computing",
