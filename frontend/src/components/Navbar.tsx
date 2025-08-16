@@ -1,14 +1,17 @@
+// src/components/Navbar.js
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [howItWorksOpen, setHowItWorksOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
-  const navigate=useNavigate()
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -21,6 +24,24 @@ const Navbar = () => {
     setAboutOpen(false);
     setHowItWorksOpen(false);
     setCoursesOpen(false);
+  };
+
+  // Function to handle smooth scroll (works from any page)
+  const handleScrollTo = (id) => {
+    if (location.pathname !== "/") {
+      navigate("/"); // go home first
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300); // delay to wait for DOM render
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   useEffect(() => {
@@ -61,200 +82,143 @@ const Navbar = () => {
             Home
           </Link>
 
+          {/* About Dropdown */}
           <div
-  className="relative"
-  ref={aboutRef}
-  onMouseEnter={() => {
-    setAboutOpen(true);
-    setHowItWorksOpen(false);
-    setCoursesOpen(false);
-  }}
-  onMouseLeave={() => {
-    setAboutOpen(false);
-  }}
->
-  <Button className="flex items-center hover:text-blue-500">
-    About
-  </Button>
-
-  {aboutOpen && (
-    <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50">
-      <Link
-        to="/training"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={closeAllMenus}
-      >
-        Hands-On Course Training
-      </Link>
-      <Link
-        to="/cv-preparation"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={closeAllMenus}
-      >
-        Professional CV Development
-      </Link>
-      <Link
-        to="/cv-marketing"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={closeAllMenus}
-      >
-        Strategic CV Promotion
-      </Link>
-      <Link
-        to="/mock-interviews"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={closeAllMenus}
-      >
-        Mock Interviews & Feedback
-      </Link>
-      <Link
-        to="/job-placement"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={closeAllMenus}
-      >
-        Job Placement Assistance
-      </Link>
-    </div>
-  )}
-</div>
-
-
-          {/* <div className="relative group" ref={howItWorksRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
-              onClick={() => {
-                setAboutOpen(false);
-                setHowItWorksOpen(!howItWorksOpen);
-                setCoursesOpen(false);
-              }}
-            >
-              How It Works
+            className="relative"
+            ref={aboutRef}
+            onMouseEnter={() => {
+              setAboutOpen(true);
+              setHowItWorksOpen(false);
+              setCoursesOpen(false);
+            }}
+            onMouseLeave={() => setAboutOpen(false)}
+          >
+            <Button className="flex items-center hover:text-blue-500">
+              About
             </Button>
-            {howItWorksOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
+            {aboutOpen && (
+              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50">
                 <Link
-                  to="/how-it-works#steps"
+                  to="/training"
                   className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
-                  Detailed Step-by-Step Process
+                  Hands-On Course Training
                 </Link>
                 <Link
-                  to="/how-it-works#support"
+                  to="/cv-preparation"
                   className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
-                  Placement Support
+                  Professional CV Development
                 </Link>
                 <Link
-                  to="/how-it-works#hiring"
+                  to="/cv-marketing"
                   className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
-                  Companies Hiring
+                  Strategic CV Promotion
+                </Link>
+                <Link
+                  to="/mock-interviews"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
+                >
+                  Mock Interviews & Feedback
+                </Link>
+                <Link
+                  to="/job-placement"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
+                >
+                  Job Placement Assistance
                 </Link>
               </div>
             )}
-          </div> */}
+          </div>
 
+          {/* Job Roles Dropdown */}
           <div
-  className="relative"
-  ref={coursesRef}
-  onMouseEnter={() => {
-    setAboutOpen(false);
-    setHowItWorksOpen(false);
-    setCoursesOpen(true);
-  }}
-  onMouseLeave={() => {
-    setCoursesOpen(false);
-  }}
->
-  <Button className="flex items-center hover:text-blue-500">
+            className="relative"
+            ref={coursesRef}
+            onMouseEnter={() => {
+              setAboutOpen(false);
+              setHowItWorksOpen(false);
+              setCoursesOpen(true);
+            }}
+            onMouseLeave={() => setCoursesOpen(false)}
+          >
+            <Button className="flex items-center hover:text-blue-500">
               Job Roles
             </Button>
             {coursesOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
                 <Link
                   to="/list"
-                  className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
                   List of Job Roles
                 </Link>
                 <Link
                   to="/engineer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
                   Data Engineer
                 </Link>
                 <Link
                   to="/developer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
                   BI Developer
                 </Link>
                 <Link
                   to="/analyst"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
                   Data Analyst
                 </Link>
                 <Link
                   to="/developer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={closeAllMenus}
                 >
                   Database Developer
                 </Link>
-                {/* <Link
-                  to="/android"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Android Development
-                </Link>
-                <Link
-                  to="/java"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Java Developer
-                </Link>
-                <Link
-                  to="/more"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  More courses
-                </Link> */}
               </div>
             )}
           </div>
-<a
-  href="#success"
-  className="flex items-center hover:text-blue-500"
-  onClick={(e) => {
-    e.preventDefault();
-    const section = document.getElementById("success");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    closeAllMenus();
-  }}
->
-  Success Stories
-</a>
 
-          <a
-            href="#footer"
+          {/* Scroll Links */}
+          <button
             className="flex items-center hover:text-blue-500"
-            onClick={(e) => {
-              e.preventDefault();
-              const footerSection = document.getElementById("footer");
-              if (footerSection) {
-                footerSection.scrollIntoView({ behavior: "smooth" });
-              }
+            onClick={() => {
+              handleScrollTo("success");
+              closeAllMenus();
+            }}
+          >
+            Success Stories
+          </button>
+
+          <button
+            className="flex items-center hover:text-blue-500"
+            onClick={() => {
+              handleScrollTo("footer");
+              closeAllMenus();
             }}
           >
             Location
-          </a>
+          </button>
         </nav>
 
         <div className="hidden md:flex space-x-4">
-          <Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition" 
-          onClick={()=>navigate('/register')}>
+          <Button
+            className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+            onClick={() => navigate("/register")}
+          >
             Get in Touch
           </Button>
         </div>
@@ -269,196 +233,154 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col space-y-2 p-4">
-            <Link to="/" className="px-4 hover:text-blue-500" onClick={closeAllMenus}>
+            <Link
+              to="/"
+              className="px-4 hover:text-blue-500"
+              onClick={closeAllMenus}
+            >
               Home
             </Link>
+
+            {/* About Dropdown Mobile */}
             <div className="relative" ref={aboutRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
-              onClick={() => {
-                setAboutOpen(!aboutOpen);
-                setHowItWorksOpen(false);
-                setCoursesOpen(false);
-              }}
-            >
-              About
-            </Button>
-            {aboutOpen && (
-              <div className="flex flex-col space-y-2 mt-2">
-                <Link
-                  to="/training"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={closeAllMenus}
-                >
-                  Hands-On Course Training
-                </Link>
-                <Link
-                  to="/cv-preparation"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Professional CV Development
-                </Link>
-                <Link
-                  to="/cv-marketing"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Strategic CV Promotion
-                </Link>
-                <Link
-                  to="/mock-interviews"
-                  className="block px-4 py-2 hover:bg-gray-100"  onClick={closeAllMenus}
-                >
-                  Mock Interviews & Feedback
-                </Link>
-                <Link
-                  to="/job-placement"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Job Placement Assistance 
-                </Link>
-              </div>
-            )}
-          </div>
+              <Button
+                className="flex items-center hover:text-blue-500"
+                onClick={() => {
+                  setAboutOpen(!aboutOpen);
+                  setHowItWorksOpen(false);
+                  setCoursesOpen(false);
+                }}
+              >
+                About
+              </Button>
+              {aboutOpen && (
+                <div className="flex flex-col space-y-2 mt-2">
+                  <Link
+                    to="/training"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Hands-On Course Training
+                  </Link>
+                  <Link
+                    to="/cv-preparation"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Professional CV Development
+                  </Link>
+                  <Link
+                    to="/cv-marketing"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Strategic CV Promotion
+                  </Link>
+                  <Link
+                    to="/mock-interviews"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Mock Interviews & Feedback
+                  </Link>
+                  <Link
+                    to="/job-placement"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Job Placement Assistance
+                  </Link>
+                </div>
+              )}
+            </div>
 
-            {/* <div className="relative group" ref={howItWorksRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
-              onClick={() => {
-                setAboutOpen(false);
-                setHowItWorksOpen(!howItWorksOpen);
-                setCoursesOpen(false);
-              }}
-            >
-              How It Works
-            </Button>
-            {howItWorksOpen && (
-  <div className="pl-4 flex flex-col space-y-2 mt-2">
-<Link
-                  to="/how-it-works#steps"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Detailed Step-by-Step Process
-                </Link>
-                <Link
-                  to="/how-it-works#support"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Placement Support
-                </Link>
-                <Link
-                  to="/how-it-works#hiring"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Companies Hiring
-                </Link>
-              </div>
-            )}
-          </div> */}
-
+            {/* Job Roles Mobile */}
             <div className="relative" ref={coursesRef}>
-            <Button
-              className="flex items-center hover:text-blue-500"
+              <Button
+                className="flex items-center hover:text-blue-500"
+                onClick={() => {
+                  setAboutOpen(false);
+                  setHowItWorksOpen(false);
+                  setCoursesOpen(!coursesOpen);
+                }}
+              >
+                Job Roles
+              </Button>
+              {coursesOpen && (
+                <div className="flex flex-col space-y-2 mt-2">
+                  <Link
+                    to="/list"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    List of Job Roles
+                  </Link>
+                  <Link
+                    to="/engineer"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Data Engineer
+                  </Link>
+                  <Link
+                    to="/developer"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    BI Developer
+                  </Link>
+                  <Link
+                    to="/analyst"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Data Analyst
+                  </Link>
+                  <Link
+                    to="/developer"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={closeAllMenus}
+                  >
+                    Database Developer
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Scroll Links Mobile */}
+            <button
+              className="px-4 py-2 text-left hover:text-blue-500"
               onClick={() => {
-                setAboutOpen(false);
-                setHowItWorksOpen(false);
-                setCoursesOpen(!coursesOpen);
-                closeAllMenus
+                handleScrollTo("success");
+                closeAllMenus();
               }}
             >
-              Job Roles
+              Success Stories
+            </button>
+
+            <button
+              className="px-4 py-2 text-left hover:text-blue-500"
+              onClick={() => {
+                handleScrollTo("footer");
+                closeAllMenus();
+              }}
+            >
+              Location
+            </button>
+
+            <Button
+              className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+              onClick={() => {
+                closeAllMenus();
+                navigate("/register");
+              }}
+            >
+              Get in Touch
             </Button>
-            {coursesOpen && (
-              <div className="flex flex-col space-y-2 mt-2">
-                <Link
-                  to="/list"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  List of Job Roles
-                </Link>
-                <Link
-                  to="/engineer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Data Engineer
-                </Link>
-                <Link
-                  to="/developer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  BI Developer
-                </Link>
-                <Link
-                  to="/analyst"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Data Analyst
-                </Link>
-                <Link
-                  to="/developer"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Database Developer
-                </Link>
-                {/* <Link
-                  to="/android"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Android Development
-                </Link>
-                <Link
-                  to="/java"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  Java Developer
-                </Link>
-                <Link
-                  to="/more"
-                  className="block px-4 py-2 hover:bg-gray-100" onClick={closeAllMenus}
-                >
-                  More courses
-                </Link> */}
-              </div>
-            )}
-          </div>
-<a
-  href="#success"
-  className="px-4 p-4 flex items-center hover:text-blue-500"
-  onClick={(e) => {
-    e.preventDefault();
-    const section = document.getElementById("success");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    closeAllMenus();
-  }}
->
-  Success Stories
-</a>
-
-          <a
-            href="#footer"
-            className="px-4 flex items-center hover:text-blue-500"
-            onClick={(e) => {
-              e.preventDefault();
-              const footerSection = document.getElementById("footer");
-              if (footerSection) {
-                footerSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            Location
-          </a>
-
-<Button className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
-onClick={()=>{
-  closeAllMenus()
-  navigate('/register')}}>
-Get in Touch
-</Button>
-</nav>
-</div>
-)}
-</header>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 };
 
