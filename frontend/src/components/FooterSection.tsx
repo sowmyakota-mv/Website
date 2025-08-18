@@ -97,7 +97,7 @@ function FooterSection() {
               <button onClick={handleAboutClick} className="hover:underline text-left w-full">About Us</button>
             </li>
             <li>
-              <button onClick={handleCoursesClick} className="hover:underline text-left w-full">Courses</button>
+              <button onClick={handleCoursesClick} className="hover:underline text-left w-full">Job Roles</button>
             </li>
             <li>
               <button onClick={handleContactClick} className="hover:underline text-left w-full">Contact</button>
