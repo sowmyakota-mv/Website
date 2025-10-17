@@ -1,7 +1,8 @@
-import HighlightCourseCard from "@/pages/HighlightCourseCard";
-import { CheckCircle, ArrowRightCircle } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { CheckCircle } from "lucide-react"; 
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import CareerSteps from "./CareerSteps";
+import ScrollAnimation from "@/animation/ScrollAnimation";
 
 function WhyDataArtisan() {
   const [timeLeft, setTimeLeft] = useState("");
@@ -9,7 +10,6 @@ function WhyDataArtisan() {
   const navigate = useNavigate();
   const flowchartRef = useRef(null);
 
-  // Countdown Timer Logic
   useEffect(() => {
     const targetDate = new Date("2025-08-20T18:45:00").getTime();
 
@@ -37,16 +37,15 @@ function WhyDataArtisan() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show message only when flowchart is in view on mobile
   useEffect(() => {
-    if (window.innerWidth >= 768) return; // Only for mobile
+    if (window.innerWidth >= 768) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         setShowMobileMessage(entry.isIntersecting);
       },
-      { threshold: 0.5 } // half in view
+      { threshold: 0.5 }
     );
 
     if (flowchartRef.current) {
@@ -118,77 +117,44 @@ function WhyDataArtisan() {
   return (
     <section id="services" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
+        <ScrollAnimation direction="up">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           Step-by-Step Career Success Roadmap
-        </h2>
+        </h2></ScrollAnimation>
 
-        {/* Persistent Mobile Message */}
         {showMobileMessage && (
+          <ScrollAnimation direction="up">
           <div className="md:hidden mb-4 text-center bg-yellow-200 text-black font-semibold py-2 px-3 rounded-lg shadow">
             📌 Tap a step to view its details below
-          </div>
+          </div></ScrollAnimation>
         )}
 
-        {/* Flowchart Section */}
-        <div
-          className="mb-12 py-5 transition-all duration-500"
-          ref={flowchartRef}
-        >
+        {/* === FLOW SECTION === */}
+        <ScrollAnimation direction="up">
+        <div className="mb-12 py-5 transition-all duration-500" ref={flowchartRef}>
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
             <FlowStep text="Course Training" targetId="training" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
             <FlowStep text="CV Preparation" targetId="cv-preparation" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
             <FlowStep text="CV Marketing" targetId="cv-marketing" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
             <FlowStep text="Mock Interviews" targetId="mock-interviews" />
-            <FlowArrow direction="down" mobile />
-            <FlowArrow direction="right" desktop />
             <FlowStep text="Job Placement" targetId="job-placement" />
           </div>
-        </div>
+        </div></ScrollAnimation>
 
-        {/* Highlighted Job Oriented Course Card */}
-        <div className="mb-12">
-          <div className="relative bg-[#E0F2FE] border-2 border-blue-500 shadow-lg p-6 max-w-4xl mx-auto glow-card flex flex-col md:flex-row items-center md:items-start justify-between">
-            <div className="text-left">
-              <h3 className="text-2xl font-bold text-blue-700 mb-2">
-                🚀 100% Job Oriented Course
-              </h3>
-              <p className="text-lg text-gray-700 font-medium">
-                Next Batch Starts{" "}
-                <span className="text-blue-600 font-bold">20th August</span>
-              </p>
-              <p className="text-md text-gray-600 mt-1">
-                ⏰ Timings: <strong>6:45 PM – 8:15 PM</strong>
-              </p>
-              <p className="mt-2 text-green-600 font-semibold text-lg">
-                🎁 Free Classes for 15 Days
-              </p>
-            </div>
+        {/* === CAREER STEPS === */}
+        <ScrollAnimation direction="up">
+        <div className="relative z-10 mb-">
+          <CareerSteps />
+        </div></ScrollAnimation>
 
-            <div className="flex flex-col justify-between items-center w-full md:w-auto mt-4 md:mt-0">
-              <p className="text-red-600 font-bold mb-4">⏳ {timeLeft}</p>
-              <button
-                onClick={() => navigate("/register")}
-                className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded shadow-lg transition bounce-btn"
-              >
-                Register Now
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* New Services Title */}
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Our Comprehensive Career Support Services
         </h2>
 
+        {/* === CARD SECTION === */}
         <div className="space-y-12">
           {cards.map((card, index) => (
+             <ScrollAnimation key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 0.2}>
             <div key={index} id={card.id}>
               <Card
                 img={card.img}
@@ -198,7 +164,7 @@ function WhyDataArtisan() {
                 link={card.link}
                 reverse={index % 2 !== 0}
               />
-            </div>
+            </div></ScrollAnimation>
           ))}
         </div>
       </div>
@@ -206,6 +172,7 @@ function WhyDataArtisan() {
   );
 }
 
+/* --- FLOW STEP --- */
 function FlowStep({ text, targetId }) {
   const scrollToSection = () => {
     const element = document.getElementById(targetId);
@@ -215,69 +182,77 @@ function FlowStep({ text, targetId }) {
         element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="relative group">
+    <div
+      className="relative group cursor-pointer bg-blue-50 border border-blue-300 px-4 flex flex-col items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition"
+      onClick={scrollToSection}
+    >
+      <span>{text}</span>
+
+      {/* Desktop-only hover button below content */}
       <button
         onClick={scrollToSection}
-        className="bg-blue-50 border border-blue-300 px-4 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition relative"
+        className="hidden md:block mt-4 w-32 text-xs bg-blue-600 text-white px-2 py-1 rounded transition-all duration-300 opacity-0 group-hover:opacity-100"
       >
-        {text}
+        Learn More →
       </button>
-      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap">
-        Click to view more details
-      </span>
     </div>
   );
 }
 
-function FlowArrow({ direction, mobile, desktop }) {
-  const arrowSymbol = direction === "right" ? "➡" : "⬇";
-  return (
-    <>
-      {mobile && (
-        <div className="md:hidden text-blue-500 text-lg">{arrowSymbol}</div>
-      )}
-      {desktop && (
-        <div className="hidden md:block text-blue-500 text-lg">{arrowSymbol}</div>
-      )}
-    </>
-  );
-}
-
+/* --- CARD --- */
 function Card({ img, title, description, listItems, link, reverse }) {
+  const navigate = useNavigate();
+
+  const handleLearnMore = () => {
+    navigate(`/${link}`);
+  };
+
   return (
     <div
-      className={`flex flex-col md:flex-row ${
+      className={`group relative flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
-      } items-stretch shadow-lg overflow-hidden`}
+      } items-stretch shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105`}
     >
-      <div className="md:w-1/2">
-        <img src={img} alt={title} className="w-full h-60 object-cover" />
+      <div className="md:w-1/2 relative overflow-hidden">
+        <img
+          src={img}
+          alt={title}
+          className="w-full h-60 object-cover transition-transform duration-500"
+        />
       </div>
-      <div className="md:w-1/2 bg-gray-50 p-4 relative flex flex-col justify-center">
+
+      <div className="md:w-1/2 bg-gray-50 p-6 flex flex-col justify-center relative transition-transform duration-500">
         <h3 className="text-lg font-semibold text-gray-800 mb-4">{title}</h3>
+
         <p className="text-sm mb-4">{description}</p>
-        <ul className="text-gray-700 text-sm space-y-2 mb-6">
+        <ul className="text-gray-700 text-sm space-y-2 mb-4">
           {listItems.map((item, index) => (
             <li key={index} className="flex items-center gap-2">
               <CheckCircle className="text-blue-600 w-4 h-4" /> {item}
             </li>
           ))}
         </ul>
-        <Link
-          to={link}
-          className="absolute bottom-4 right-4 text-blue-600 hover:text-blue-800"
-          title="Read More"
+
+        {/* Desktop-only Learn More button below content */}
+        <button
+          onClick={handleLearnMore}
+          className="hidden md:block w-40 mt-2 bg-blue-600 text-white px-4 py-2 rounded-md transition-all duration-300 opacity-0 group-hover:opacity-100"
         >
-          <ArrowRightCircle size={20} />
-        </Link>
+          Learn More →
+        </button>
+
+        {/* Mobile-only Learn More button at the end */}
+        <button
+          onClick={handleLearnMore}
+          className="w-40 md:hidden mt-4 bg-blue-600 text-white px-4 py-2 rounded-md flex items-center gap-2 text-sm font-medium"
+        >
+          Learn More →
+        </button>
       </div>
     </div>
   );

@@ -67,17 +67,17 @@ const Navbar = () => {
     <header className="w-full shadow-md fixed top-0 bg-white z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo and Title */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1">
           <img
-            src="/website.png"
+            src="/da-logo.jpeg"
             alt="logo"
-            className="h-10 w-10 object-contain"
+            className="h-16 w-16 object-contain"
           />
-          <span className="text-xl font-bold text-blue-600">Data Artisans</span>
+          <span className="text-3xl font-bold text-blue-600">Data Artisans</span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 font-medium text-gray-700">
+        <nav className="hidden md:flex space-x-6 font-medium text-gray-700 text-lg md:text-xl">
           <Link to="/" className="flex items-center hover:text-blue-500">
             Home
           </Link>
@@ -93,11 +93,11 @@ const Navbar = () => {
             }}
             onMouseLeave={() => setAboutOpen(false)}
           >
-            <Button className="flex items-center hover:text-blue-500">
+            <Button className="flex items-center font-medium hover:text-blue-500 text-lg md:text-xl">
               About
             </Button>
             {aboutOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50">
+              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50  text-sm font-medium">
                 <Link
                   to="/training"
                   className="block px-4 py-2 hover:bg-gray-100"
@@ -148,11 +148,11 @@ const Navbar = () => {
             }}
             onMouseLeave={() => setCoursesOpen(false)}
           >
-            <Button className="flex items-center hover:text-blue-500">
+            <Button className="flex items-center font-medium hover:text-blue-500 text-lg md:text-xl">
               Job Roles
             </Button>
             {coursesOpen && (
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border">
+              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border text-sm font-medium">
                 <Link
                   to="/list"
                   className="block px-4 py-2 hover:bg-gray-100"
@@ -216,7 +216,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex space-x-4">
           <Button
-            className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+            className="px-4 py-2 border border-blue-500 font-medium text-blue-500 rounded hover:bg-blue-500 hover:text-white transition text-lg md:text-xl"
             onClick={() => navigate("/register")}
           >
             Get in Touch

@@ -1,14 +1,11 @@
-
 import './App.css';
 import HeroSection from './components/HeroSection';
 import ContactSection from './components/ContactSection';
 import StatsSection from './components/StatsSection';
-import SuccessStories from './components/SuccessStories';
 import FooterSection from './components/FooterSection';
 import Navbar from './components/Navbar';
 import { useRef } from 'react';
 import { Route,BrowserRouter as Router, Routes } from 'react-router-dom';
-import ServicePage from './pages/ServicePage';
 import CoursePage from './pages/CoursePage';
 import CourseDetailPage from './pages/CourseDetails';
 import RegistrationForm from './components/RegistrationForm';
@@ -20,14 +17,17 @@ import CvWritingPage from './pages/CvWritingPage';
 import MockInterviewPage from './pages/MockInterviewPage';
 import MarketingTeamPage from './pages/MarketingTeamPage';
 import JobPlacementPage from './pages/JobPlacementPage';
+import SuccessStories from './components/SuccessStories';
+import JobOrientedHighlight from './components/JobOrientedHighlight';
+import ContactLayout from './components/ContactLayout';
 
 function App() {
   const serviceRef = useRef(null);
 
   const scrollToServices = () => {
-    const element = serviceRef.current;
+    const elements = serviceRef.current;
     const navbarHeight = 80; 
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const elementPosition = elements.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - navbarHeight;
 
     window.scrollTo({
@@ -48,6 +48,7 @@ function App() {
             <>
               <HeroSection scrollToServices={scrollToServices} />
               <StatsSection />
+              <JobOrientedHighlight/>
               <WhyDataArtisan/>
               <div ref={serviceRef}></div>
               <ContactSection />
@@ -63,7 +64,7 @@ function App() {
         <Route path='/list' element={<CoursePage/>}/>
         <Route path="/:category" element={<CoursePage />} />
         <Route path='/course/:id' element={<CourseDetailPage/>}/>
-        <Route path='/register' element={<RegistrationForm/>}/>
+        <Route path='/register' element={<ContactLayout/>}/>
       </Routes>
     </main>
 

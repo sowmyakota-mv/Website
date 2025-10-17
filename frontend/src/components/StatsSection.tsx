@@ -1,3 +1,4 @@
+import ScrollAnimation from "@/animation/ScrollAnimation";
 import { useEffect, useState, useRef } from "react";
 
 function StatsSection() {
@@ -24,6 +25,7 @@ function StatsSection() {
   }, []);
 
   return (
+    <ScrollAnimation direction="up" delay={0.8}>
     <section className="bg-gray-50" ref={statsRef}>
       <div className="max-w-6xl mx-auto px-15">
         {/* Removed rounded-xl for square edges */}
@@ -35,7 +37,7 @@ function StatsSection() {
           <StatBox title="Interviews" targetNumber={600} isVisible={isVisible} suffix="+" />
         </div>
       </div>
-    </section>
+    </section></ScrollAnimation>
   );
 }
 

@@ -5,7 +5,6 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Add your actual frontend production URL here
 const allowedOrigins = [
   'http://localhost:5173',
   'https://websitefrontend-7s05.onrender.com' 
@@ -13,7 +12,6 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like Postman or curl) or matching allowedOrigins
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -21,9 +19,9 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // if you need cookies or auth headers
-  methods: ['GET', 'POST', 'OPTIONS'], // allow preflight methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // allow necessary headers
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 
 app.use(express.json());
