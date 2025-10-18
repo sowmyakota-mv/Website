@@ -66,15 +66,15 @@ const Navbar = () => {
   return (
     <header className="w-full shadow-md fixed top-0 bg-white z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
-        {/* Logo and Title */}
-        <div className="flex items-center space-x-1">
-          <img
-            src="/da-logo.jpeg"
-            alt="logo"
-            className="h-16 w-16 object-contain"
-          />
-          <span className="text-3xl font-bold text-blue-600">Data Artisans</span>
-        </div>
+        {/* Logo */}
+<div className="flex items-center space-x-1 cursor-pointer" onClick={() => navigate("/")}>
+  <img
+    src="/da-logo.jpeg"
+    alt="logo"
+    className="h-20 w-20 md:h-20 md:w-28 object-contain"
+  />
+</div>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 font-medium text-gray-700 text-lg md:text-xl">

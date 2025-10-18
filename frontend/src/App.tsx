@@ -5,7 +5,7 @@ import StatsSection from './components/StatsSection';
 import FooterSection from './components/FooterSection';
 import Navbar from './components/Navbar';
 import { useRef } from 'react';
-import { Route,BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import CoursePage from './pages/CoursePage';
 import CourseDetailPage from './pages/CourseDetails';
 import RegistrationForm from './components/RegistrationForm';
@@ -26,7 +26,7 @@ function App() {
 
   const scrollToServices = () => {
     const elements = serviceRef.current;
-    const navbarHeight = 80; 
+    const navbarHeight = 80;
     const elementPosition = elements.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - navbarHeight;
 
@@ -37,41 +37,40 @@ function App() {
   };
 
   return (
-  <Router>
-    <ScrollHandler/>
-    <Navbar />
-    <main className="pt-20">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroSection scrollToServices={scrollToServices} />
-              <StatsSection />
-              <JobOrientedHighlight/>
-              <WhyDataArtisan/>
-              <div ref={serviceRef}></div>
-              <ContactSection />
-              <PlacementsSection/>
-            </>
-          }
-        />
-        <Route path='training' element={<Training/>}/>
-        <Route path='cv-preparation' element={<CvWritingPage/>}/>
-        <Route path='mock-interviews' element={<MockInterviewPage/>}/>
-        <Route path='cv-marketing' element={<MarketingTeamPage/>}/>
-        <Route path='job-placement' element={<JobPlacementPage/>}/>
-        <Route path='/list' element={<CoursePage/>}/>
-        <Route path="/:category" element={<CoursePage />} />
-        <Route path='/course/:id' element={<CourseDetailPage/>}/>
-        <Route path='/register' element={<ContactLayout/>}/>
-      </Routes>
-    </main>
-
-   
-    <FooterSection />
-  </Router>
-);
+    <Router>
+      <div className='overflow-x-hidden'>
+      <ScrollHandler />
+      <Navbar />
+      <main className="pt-20">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection scrollToServices={scrollToServices} />
+                <StatsSection />
+                <JobOrientedHighlight />
+                <WhyDataArtisan />
+                <div ref={serviceRef}></div>
+                <ContactSection />
+                <PlacementsSection />
+              </>
+            }
+          />
+          <Route path='training' element={<Training />} />
+          <Route path='cv-preparation' element={<CvWritingPage />} />
+          <Route path='mock-interviews' element={<MockInterviewPage />} />
+          <Route path='cv-marketing' element={<MarketingTeamPage />} />
+          <Route path='job-placement' element={<JobPlacementPage />} />
+          <Route path='/list' element={<CoursePage />} />
+          <Route path="/:category" element={<CoursePage />} />
+          <Route path='/course/:id' element={<CourseDetailPage />} />
+          <Route path='/register' element={<ContactLayout />} />
+        </Routes>
+      </main>
+      <FooterSection /></div>
+    </Router>
+  );
 }
 
 export default App;
