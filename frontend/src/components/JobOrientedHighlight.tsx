@@ -1,6 +1,8 @@
 import ScrollAnimation from "@/animation/ScrollAnimation";
+import { useNavigate } from "react-router-dom";
 
 export default function JobOrientedHighlight() {
+    const navigate=useNavigate()
   return (
     <>
       <style>
@@ -22,7 +24,7 @@ export default function JobOrientedHighlight() {
           {/* Outer Card Container */}
           <ScrollAnimation direction="up" delay={0.4}>
             <div className="relative w-full max-w-lg overflow-visible">
-              <div className="bg-gradient-to-tr from-sky-200 via-pink-100 to-yellow-100 text-gray-900 rounded-[1.5rem] px-8 py-12 shadow-xl text-center w-full h-90 overflow-visible relative">
+              <div className="bg-gradient-to-tr from-sky-200 via-pink-100 to-yellow-100 text-gray-900 rounded-[1.5rem] px-8 py-12 shadow-xl text-center w-full md:h-90 overflow-visible relative">
 
                 {/* Calendar Animation */}
                 <ScrollAnimation direction="left" delay={0.5}>
@@ -47,7 +49,7 @@ export default function JobOrientedHighlight() {
 
                 {/* Title */}
                 <ScrollAnimation direction="up" delay={0.6}>
-                  <h2 className="font-extrabold text-3xl mb-6 ml-28">100% Job Oriented Course</h2>
+                  <h2 className="font-extrabold text-3xl mb-6 ml-36">100% Job Oriented Course</h2>
                 </ScrollAnimation>
 
                 {/* Description */}
@@ -68,7 +70,7 @@ export default function JobOrientedHighlight() {
 
                 {/* Button */}
                 <ScrollAnimation direction="up" delay={1.2}>
-                  <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-10 rounded-full shadow-md transition duration-300">
+                  <button onClick={()=>navigate("/register")} className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-10 rounded-full shadow-md transition duration-300">
                     Register Now
                   </button>
                 </ScrollAnimation>

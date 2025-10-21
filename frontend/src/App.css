@@ -1,3 +1,21 @@
 html {
   scroll-behavior: smooth;
 }
+/* Remove horizontal scroll from entire site */
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
+/* Ensure only one vertical scrollbar is visible */
+/* body {
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Prevent accidental width overflow from animations or transforms */
+/* * {
+  box-sizing: border-box;
+  max-width: 100%;
+} */
