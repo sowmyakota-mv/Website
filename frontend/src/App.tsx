@@ -40,6 +40,7 @@ import DevOpsSRE from './pages/Our Trainings/DevOps&SRE';
 import UXUIDesign from './pages/Our Trainings/UXUIDesign';
 import MobileAppDevelopment from './pages/Our Trainings/MobileAppDevelopment';
 import FullStackJS from './pages/Our Trainings/FullStackJS';
+import Career from './pages/Career';
 
 function App() {
   const serviceRef = useRef(null);
@@ -109,6 +110,7 @@ function App() {
             <Route path='/our-services/ux-ui' element={<UXUIDesign/>}/>
             <Route path='/our-services/mobile-app' element={<MobileAppDevelopment/>}/>
             <Route path='/our-services/full-stack-js' element={<FullStackJS/>}/>
+            <Route path='/career' element={<Career/>}/>
           </Routes>
         </main>
 

@@ -131,8 +131,8 @@ function WhyDataArtisan() {
 
         {/* === FLOW SECTION === */}
         <ScrollAnimation direction="up">
-        <div className="mb-12 py-5 transition-all duration-500" ref={flowchartRef}>
-          <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4">
+        <div className="mb-8 py-5 transition-all duration-500" ref={flowchartRef}>
+          <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4 ">
             <FlowStep text="Course Training" targetId="training" />
             <FlowStep text="CV Preparation" targetId="cv-preparation" />
             <FlowStep text="CV Marketing" targetId="cv-marketing" />
@@ -181,25 +181,36 @@ function FlowStep({ text, targetId }) {
       const elementPosition =
         element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
-
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
 
   return (
     <div
-      className="relative group cursor-pointer bg-blue-50 border border-blue-300 px-4 flex flex-col items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 min-h-[80px] hover:bg-blue-100 transition"
       onClick={scrollToSection}
+      className="relative group cursor-pointer bg-blue-50 border border-blue-300 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 h-[100px] hover:bg-blue-100 transition-all duration-300"
     >
-      <span>{text}</span>
+      {/* Wrapper for centering title and hover movement */}
+      <div className="flex flex-col items-center justify-center transition-all duration-300 transform md:group-hover:-translate-y-4">
+        {/* Title - perfectly centered initially */}
+        <span className="block mt-2 mb-1.2">{text}</span>
 
-      {/* Desktop-only hover button below content */}
-      <button
-        onClick={scrollToSection}
-        className="hidden md:block mt-4 w-32 text-xs bg-blue-600 text-white px-2 py-1 rounded transition-all duration-300 opacity-0 group-hover:opacity-100"
-      >
-        Learn More →
-      </button>
+        {/* Desktop-only hover button */}
+        <button
+          onClick={scrollToSection}
+          className="hidden md:block text-xs bg-blue-600 text-white px-3 py-1 rounded transition-all duration-300 opacity-0 group-hover:opacity-100"
+        >
+          Click Here →
+        </button>
+
+        {/* Mobile: button always visible */}
+        <button
+          onClick={scrollToSection}
+          className="md:hidden mt-3 text-xs bg-blue-600 text-white px-3 py-1 rounded"
+        >
+          Click Here →
+        </button>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function DataScienceBootcamp() {
   return (
-    <section id="our-services/data-science" className="w-full bg-white text-gray-900">
+    <section id="our-services/data-science" className="w-full bg-white text-gray-900 -mb-12">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-indigo-50 via-blue-50 to-white py-20 text-center">
         <h1 className="text-5xl font-extrabold text-slate-900 mb-4">
@@ -51,17 +51,23 @@ export default function DataScienceBootcamp() {
             <h2 className="text-3xl font-bold mb-8 text-slate-900">
               What You’ll Learn
             </h2>
-            <ul className="space-y-4 text-slate-700 text-lg">
-              <li>• Python programming for data analysis and automation</li>
-              <li>• Statistics, probability, and hypothesis testing for insights</li>
-              <li>• Data wrangling and cleaning using Pandas & NumPy</li>
-              <li>• Data visualization using Matplotlib, Seaborn, and Plotly</li>
-              <li>• Machine learning algorithms — supervised & unsupervised</li>
-              <li>• Model evaluation, optimization, and tuning</li>
-              <li>• Feature engineering and dimensionality reduction</li>
-              <li>• End-to-end ML project pipeline and MLOps concepts</li>
-              <li>• Deployment using Flask, FastAPI, and cloud platforms</li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-lg text-blue-700">
+                {[
+              "Python programming for data analysis and automation",
+              "Statistics, probability, and hypothesis testing for insights",
+              "Data wrangling and cleaning using Pandas & NumPy",
+              "Data visualization using Matplotlib, Seaborn, and Plotly",
+               "Machine learning algorithms — supervised & unsupervised",
+              "Model evaluation, optimization, and tuning",
+              "Feature engineering and dimensionality reduction",
+            "End-to-end ML project pipeline and MLOps concepts",
+              "Deployment using Flask, FastAPI, and cloud platforms",
+            ].map((item, i) => (<div key={i} className="flex items-start space-x-2 hover:text-blue-900 transition-colors">
+            <span className="text-blue-900 font-bold">•</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
           </div>
         </div>
       </ScrollAnimation>

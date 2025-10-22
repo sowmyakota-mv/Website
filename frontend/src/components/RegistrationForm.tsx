@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
@@ -100,8 +99,8 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
+    <div className="w-full bg-white shadow-lg">
+      <div className="w-full p-8">
         {isSubmitted ? (
           <div className="flex flex-col justify-center items-center text-center">
             <h2 className="text-4xl font-bold mb-4 text-gray-800">Thank You!</h2>
@@ -120,7 +119,7 @@ function RegistrationForm() {
             <h1 className="text-2xl font-bold text-center mb-6">
               Register With Us
             </h1>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {formError && <p className="text-red-500 text-sm">{formError}</p>}
 
               <div>
@@ -198,6 +197,17 @@ function RegistrationForm() {
                   {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
                 </span> */}
               </div>
+              {/* Message Field */}
+              {/* <div>
+                <label className="block text-gray-600 mb-2">Message</label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Enter your message"
+                  rows="4"
+                  className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div> */}
               <Button
                 type="submit"
                 disabled={loading}

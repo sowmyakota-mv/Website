@@ -12,7 +12,7 @@ const stories = [
   { name: "Karan Mehta", degree: "Master in AI & Data Science", university: "University of London", review: "Career guidance gave me confidence to get placed at Amazon successfully.", rating: 4.8 },
   { name: "Isha Patel", degree: "MSc in Cloud Computing", university: "King's College London", review: "Great curriculum and placement support helped secure my role at Microsoft.", rating: 4.7 },
   { name: "Rahul Desai", degree: "MSc in AI & ML", university: "Imperial College London", review: "Hands-on projects and guidance helped me get placed at Google efficiently.", rating: 4.9 },
-  { name: "Neha Kapoor", degree: "Master in Data Analytics", university: "University of Edinburgh", review: "Great learning experience and strong placement support led to my role at Facebook.", rating: 4.8 },
+  { name: "Neha Kapoor", degree: "Master in Data Analytics", university: "University of Edinburgh", review: "Great learning experience & placement support led to my role at Facebook.", rating: 4.8 },
   { name: "Gautam Singh", degree: "MSc in Computer Vision", university: "University of Manchester", review: "Excellent mentorship and preparation helped me land my dream job at Adobe.", rating: 4.8 },
   { name: "Meera Joshi", degree: "Master in Business Analytics", university: "London Business School", review: "Fantastic journey and team support helped me bag a position at Deloitte.", rating: 4.8 },
   { name: "Sidharth Reddy", degree: "Master in Information Security", university: "University of Glasgow", review: "Expert instructors and practical labs made interviews easy; placed at Cisco.", rating: 4.7 },

@@ -41,7 +41,7 @@ function FooterSection() {
 
   return (
     <ScrollAnimation direction="up" delay={0.3}> {/* ✅ Base animation wrapper */}
-      <footer id="footer" className="bg-gray-900 text-white py-16 mt-10">
+      <footer id="footer" className="bg-gray-900 text-white py-16 mt-10 -mb-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
           
           {/* Company Info */}
