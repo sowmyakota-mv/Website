@@ -4,12 +4,24 @@ import { Button } from "./ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
+// src/data/courses.js
+export const courses = [
+  { id: "data-science", title: "Data Science Bootcamp" },
+  { id: "web-development", title: "Web Development" },
+  { id: "full-stack-js", title: "Full-Stack JavaScript" },
+  { id: "ai-ml", title: "AI & Machine Learning" },
+  { id: "cyber-security", title: "Cyber Security" },
+  { id: "business-intelligence", title: "Business Intelligence" },
+  { id: "devops", title: "DevOps & SRE" },
+  { id: "ux-ui", title: "UX / UI Design" },
+  { id: "mobile-app", title: "Mobile App Development" },
+  { id: "cloud-computing", title: "Cloud Computing" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [howItWorksOpen, setHowItWorksOpen] = useState(false);
-  const [coursesOpen, setCoursesOpen] = useState(false);
-  const [trainingsOpen, setTrainingsOpen] = useState(false); // new state
+  const [ourServicesOpen, setOurServicesOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,16 +29,12 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const aboutRef = useRef(null);
-  const howItWorksRef = useRef(null);
-  const coursesRef = useRef(null);
-  const trainingsRef = useRef(null); // new ref
+  const servicesRef = useRef(null);
 
   const closeAllMenus = () => {
     setIsOpen(false);
     setAboutOpen(false);
-    setHowItWorksOpen(false);
-    setCoursesOpen(false);
-    setTrainingsOpen(false); // close trainings
+    setOurServicesOpen(false);
   };
 
   const handleScrollTo = (id) => {
@@ -45,14 +53,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        aboutRef.current &&
-        !aboutRef.current.contains(event.target) &&
-        howItWorksRef.current &&
-        !howItWorksRef.current.contains(event.target) &&
-        coursesRef.current &&
-        !coursesRef.current.contains(event.target) &&
-        trainingsRef.current &&
-        !trainingsRef.current.contains(event.target)
+        aboutRef.current && !aboutRef.current.contains(event.target) &&
+        servicesRef.current && !servicesRef.current.contains(event.target)
       ) {
         closeAllMenus();
       }
@@ -81,14 +83,13 @@ const Navbar = () => {
           <div
             className="relative"
             ref={aboutRef}
-            onMouseEnter={() => { setAboutOpen(true); setCoursesOpen(false); setTrainingsOpen(false); setHowItWorksOpen(false); }}
-            onMouseLeave={(e) => { const related = e.relatedTarget; if (!aboutRef.current.contains(related)) setAboutOpen(false); }}
+            onMouseEnter={() => { setAboutOpen(true); setOurServicesOpen(false); }}
+            onMouseLeave={() => setAboutOpen(false)}
           >
             <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
-              onClick={() => { setAboutOpen(!aboutOpen); setCoursesOpen(false); setTrainingsOpen(false); setHowItWorksOpen(false); }}>
+              onClick={() => { setAboutOpen(!aboutOpen); setOurServicesOpen(false); }}>
               About DA
             </Button>
-
             {aboutOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide">
                 <Link to="/training" className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200" onClick={closeAllMenus}>Hands-On Course Training</Link>
@@ -99,13 +100,36 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          
+
+          {/* Our Services Dropdown */}
+          <div
+            className="relative"
+            ref={servicesRef}
+            onMouseEnter={() => { setOurServicesOpen(true); setAboutOpen(false); }}
+            onMouseLeave={() => setOurServicesOpen(false)}
+          >
+            <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
+              onClick={() => { setOurServicesOpen(!ourServicesOpen); setAboutOpen(false); }}>
+              Our Services <ChevronDown className="ml-1 h-5 w-5" />
+            </Button>
+            {ourServicesOpen && (
+              <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide max-h-96 overflow-y-auto">
+                {courses.map((course) => (
+                  <Link
+                    key={course.id}
+                    to={`/our-services/${course.id}`}
+                    className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                    onClick={closeAllMenus}
+                  >
+                    {course.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link to="/graduate-internship" className="flex items-center hover:text-blue-500 transition-all duration-300">Graduate Internship</Link>
-
-          <Link to="/our-services" className="flex items-center hover:text-blue-500 transition-all duration-300">Our Services</Link>
           <Link to="/career" className="flex items-center hover:text-blue-500 transition-all duration-300">Career</Link>
-
-          {/* Scroll Links */}
           <button className="flex items-center hover:text-blue-500 transition-all duration-300" onClick={() => { handleScrollTo("success"); closeAllMenus(); }}>Stories</button>
         </nav>
 
@@ -144,8 +168,27 @@ const Navbar = () => {
               </div>
             )}
 
+            {/* Our Services Mobile */}
+            <button onClick={() => setOurServicesOpen(!ourServicesOpen)}
+              className="flex justify-between items-center w-full px-2 py-2 rounded hover:bg-gray-100 transition-all duration-300">
+              Our Services <ChevronDown className={`ml-1 h-5 w-5 transition-transform ${ourServicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {ourServicesOpen && (
+              <div className="flex flex-col ml-4 space-y-1 max-h-64 overflow-y-auto">
+                {courses.map((course) => (
+                  <Link
+                    key={course.id}
+                    to={`/our-services/${course.id}`}
+                    className="px-2 py-1 rounded hover:bg-gray-100 transition-all duration-300"
+                    onClick={closeAllMenus}
+                  >
+                    {course.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             <Link to="/graduate-internship" className="block px-2 py-2 rounded hover:bg-gray-100 transition-all duration-300 text-left" onClick={closeAllMenus}>Graduate Internship</Link>
-            <Link to="/our-services" className="block px-2 py-2 rounded hover:bg-gray-100 transition-all duration-300 text-left" onClick={closeAllMenus}>Our Services</Link>
             <Link to="/career" className="block px-2 py-2 rounded hover:bg-gray-100 transition-all duration-300 text-left" onClick={closeAllMenus}>Career</Link>
 
             <button className="block px-2 py-2 rounded hover:bg-gray-100 transition-all duration-300 text-left" onClick={() => { handleScrollTo("success"); closeAllMenus(); }}>Success Stories</button>
