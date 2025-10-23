@@ -90,32 +90,32 @@ export default function AIMachineLearning() {
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {[
         {
-          title: "Module 1 — Frontend Mastery",
+          title: "Module 1 : Frontend Mastery",
           desc: "React, JSX, state management, context, hooks, SSR/SSG.",
           points: ["Components & Props","React Router & SPA","Responsive Design & CSS frameworks"]
         },
         {
-          title: "Module 2 — Backend & APIs",
+          title: "Module 2 : Backend & APIs",
           desc: "Node.js, Express, REST & GraphQL APIs, authentication.",
           points: ["Express server setup","Routing & middleware","JWT auth & OAuth"]
         },
         {
-          title: "Module 3 — Databases",
+          title: "Module 3 : Databases",
           desc: "SQL and NoSQL databases integration and CRUD operations.",
           points: ["PostgreSQL fundamentals","MongoDB & Mongoose","Schema design & indexing"]
         },
         {
-          title: "Module 4 — Testing & Deployment",
+          title: "Module 4 : Testing & Deployment",
           desc: "Unit testing, integration, containerization, and CI/CD pipelines.",
           points: ["Jest & Testing Library","Docker setup & deployment","CI/CD with GitHub Actions"]
         },
         {
-          title: "Module 5 — Advanced Topics",
+          title: "Module 5 : Advanced Topics",
           desc: "Performance optimization, security, and cloud deployment.",
           points: ["Web performance best practices","Security & HTTPS","AWS / Vercel / Netlify deployment"]
         },
         {
-          title: "Module 6 — Capstone Project",
+          title: "Module 6 : Capstone Project",
           desc: "Build a full-stack application end-to-end using learned technologies.",
           points: ["Front-end + Back-end integration","Database & Auth implementation","Deployment to cloud"]
         }

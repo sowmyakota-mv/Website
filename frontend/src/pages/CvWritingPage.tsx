@@ -62,7 +62,7 @@ const CvWritingPage = () => (
 
         <p className="text-gray-200 mb-4 leading-relaxed">
           Our expert writers and industry mentors ensure your CV doesn’t just
-          pass filters—it gets noticed. With guaranteed interview calls,
+          pass filters it gets noticed. With guaranteed interview calls,
           you’re already one step closer to your dream job.
         </p>
 

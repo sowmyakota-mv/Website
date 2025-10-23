@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function MobileAppDevelopment() {
   const modules = [
     {
-      title: "Module 1 — Mobile Architecture & Setup",
+      title: "Module 1 : Mobile Architecture & Setup",
       desc: "Learn the fundamentals of mobile app architecture and environment setup.",
       points: [
         "Mobile project structure & architecture patterns",
@@ -14,7 +14,7 @@ export default function MobileAppDevelopment() {
       ]
     },
     {
-      title: "Module 2 — UI & Navigation",
+      title: "Module 2 : UI & Navigation",
       desc: "Build user interfaces and navigation flows for mobile apps.",
       points: [
         "React Native components & Flutter widgets",
@@ -23,7 +23,7 @@ export default function MobileAppDevelopment() {
       ]
     },
     {
-      title: "Module 3 — Native Modules & APIs",
+      title: "Module 3 : Native Modules & APIs",
       desc: "Integrate device capabilities and external APIs into your apps.",
       points: [
         "Camera, GPS, notifications",
@@ -32,7 +32,7 @@ export default function MobileAppDevelopment() {
       ]
     },
     {
-      title: "Module 4 — Testing & Deployment",
+      title: "Module 4 : Testing & Deployment",
       desc: "Ensure your apps are stable, performant, and ready for the app store.",
       points: [
         "Unit, integration & end-to-end testing",

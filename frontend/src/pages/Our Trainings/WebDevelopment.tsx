@@ -35,7 +35,7 @@ export default function WebDevelopment() {
           <p className="text-orange-700 text-lg mt-6 leading-relaxed">
             You’ll gain in-depth knowledge of UI/UX design principles,
             responsive web design, REST/GraphQL APIs, authentication,
-            databases, and performance optimization — everything required to
+            databases, and performance optimization everything required to
             succeed as a modern web developer.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function WebDevelopment() {
           What You’ll Learn
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto">
-          Build modern, scalable web applications — mastering front-end, back-end, and deployment with real-world projects.
+          Build modern, scalable web applications mastering front-end, back-end, and deployment with real-world projects.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export default function WebDevelopment() {
         {[
           "HTML5, CSS3, and modern JavaScript (ES6+)",
           "Responsive and accessible web design",
-          "Frontend frameworks — React.js & Vue.js",
+          "Frontend frameworks using React.js & Vue.js",
           "Backend development using Node.js and Express",
           "Working with RESTful APIs and GraphQL",
           "Authentication and JWT Authorization",
@@ -132,7 +132,7 @@ export default function WebDevelopment() {
           Why Learn Web Development at Data Artisans
         </h2>
         <p className="text-orange-100 max-w-2xl mx-auto">
-          Learn through live projects, mentorship, and career guidance — designed to make you job-ready as a full-stack developer.
+          Learn through live projects, mentorship, and career guidance designed to make you job-ready as a full-stack developer.
         </p>
       </div>
 

@@ -77,11 +77,11 @@ export default function Career() {
             Career D
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            At <span className="font-semibold text-blue-600">Data Artisans</span>, we don’t just train — we
+            At <span className="font-semibold text-blue-600">Data Artisans</span>, we don’t just train - we
             transform your career. Our job-oriented programs are designed to
             equip you with practical skills demanded by top companies. From
             personalized training to resume building, mock interviews, and job
-            placement support — we ensure you’re ready for the industry.
+            placement support - we ensure you’re ready for the industry.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Career() {
           </h2>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
             <li>Intensive hands-on training programs led by industry experts.</li>
-            <li>Job role–specific learning paths and practical assignments.</li>
+            <li>Job-role specific learning paths and practical assignments.</li>
             <li>CV preparation, LinkedIn optimization, and mock interview sessions.</li>
             <li>Guaranteed interview opportunities with hiring partners.</li>
             <li>Career guidance and post-placement mentoring.</li>

@@ -79,22 +79,22 @@ export default function DevOpsSRE() {
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
       {[
         {
-          title: "Module 1 — DevOps Foundations",
+          title: "Module 1 : DevOps Foundations",
           desc: "DevOps culture, version control, CI/CD basics.",
           points: ["Git & Git workflows", "CI pipelines (GitHub Actions, GitLab CI)", "Automated testing strategies"]
         },
         {
-          title: "Module 2 — Containerization & Orchestration",
+          title: "Module 2 : Containerization & Orchestration",
           desc: "Docker, Kubernetes basics, deployment patterns.",
           points: ["Docker images, volumes, networking", "Kubernetes pods, services, deployments", "Helm charts & config management"]
         },
         {
-          title: "Module 3 — Infrastructure as Code",
+          title: "Module 3 : Infrastructure as Code",
           desc: "Automate provisioning and configuration.",
           points: ["Terraform basics & modules", "CloudFormation or ARM templates", "Multi-environment deployments"]
         },
         {
-          title: "Module 4 — Observability & Reliability",
+          title: "Module 4 : Observability & Reliability",
           desc: "Monitoring, metrics, alerting, and incident response.",
           points: ["Prometheus, Grafana, ELK stack", "Alerting strategies & runbooks", "SLIs, SLOs, and error budgets"]
         }

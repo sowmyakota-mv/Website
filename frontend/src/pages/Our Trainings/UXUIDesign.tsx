@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 export default function UXUIDesign() {
   const modules = [
     {
-      title: "Module 1 — UX Foundations & Research",
+      title: "Module 1 : UX Foundations & Research",
       desc: "Understand UX principles, user needs, and research techniques.",
       points: ["User interviews & surveys","Personas & user journeys","Competitor & market analysis"]
     },
     {
-      title: "Module 2 — Interaction Design & Wireframing",
+      title: "Module 2 : Interaction Design & Wireframing",
       desc: "Design interfaces and interactions for optimal user experience.",
       points: ["Low-fidelity wireframes","Information architecture","Interaction patterns & flows"]
     },
     {
-      title: "Module 3 — High-Fidelity UI & Prototyping",
+      title: "Module 3 : High-Fidelity UI & Prototyping",
       desc: "Bring designs to life with detailed UI and interactive prototypes.",
       points: ["Figma / Adobe XD / Sketch tools","Interactive prototypes","Design consistency & style guides"]
     },
     {
-      title: "Module 4 — Usability Testing & Design Systems",
+      title: "Module 4 : Usability Testing & Design Systems",
       desc: "Validate and maintain your design for long-term success.",
       points: ["User testing & feedback analysis","Accessibility compliance","Creating & managing a design system"]
     }

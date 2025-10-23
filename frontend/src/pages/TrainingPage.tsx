@@ -33,7 +33,7 @@ const Training = () => (
           our curriculum bridges the gap between classroom learning and workplace readiness.
         </p>
         <p className="text-gray-300 mb-6 leading-relaxed">
-          Our mentors are industry veterans — empowering you with modern practices, 
+          Our mentors are industry veterans empowering you with modern practices, 
           practical insights, and the confidence to excel in the fast-evolving tech landscape.
         </p>
 

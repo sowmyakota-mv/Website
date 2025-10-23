@@ -81,22 +81,22 @@ export default function BusinessIntelligence() {
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
       {[
         {
-          title: "Module 1 — Foundations & Data Modeling",
+          title: "Module 1 : Foundations & Data Modeling",
           desc: "Understand BI fundamentals, schemas, and relational modeling.",
           points: ["Dimensional modeling", "Star & snowflake schemas", "ER diagrams and relationships"]
         },
         {
-          title: "Module 2 — ETL / ELT",
+          title: "Module 2 : ETL / ELT",
           desc: "Design data pipelines for integration and transformation.",
           points: ["Data ingestion & cleaning", "Batch & real-time ETL pipelines", "Scheduling and automation tools"]
         },
         {
-          title: "Module 3 — Visualization & Dashboards",
+          title: "Module 3 : Visualization & Dashboards",
           desc: "Turn data into interactive dashboards.",
           points: ["Power BI, Tableau basics and advanced features", "Designing dashboards for executives and teams", "KPI tracking & real-time reporting"]
         },
         {
-          title: "Module 4 — Advanced Analytics",
+          title: "Module 4 : Advanced Analytics",
           desc: "Data-driven decision-making techniques.",
           points: ["Data storytelling", "Predictive analytics basics", "Performance tuning and optimization"]
         }

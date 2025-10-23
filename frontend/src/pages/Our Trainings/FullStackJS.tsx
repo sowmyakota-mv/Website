@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 export default function FullStackJS() {
   const modules = [
     {
-      title: "Module 1 — Frontend with React",
+      title: "Module 1 : Frontend with React",
       points: ["React hooks & component-driven design", "State management & context API", "SSR/SSG with Next.js or similar frameworks"]
     },
     {
-      title: "Module 2 — Backend with Node.js",
+      title: "Module 2 : Backend with Node.js",
       points: ["REST and GraphQL API development", "Express.js routing and middleware", "Authentication and JWT implementation"]
     },
     {
-      title: "Module 3 — Database Integration",
+      title: "Module 3 : Database Integration",
       points: ["Relational & non-relational databases", "Data modeling, schemas, and indexing", "Query optimization and transactions"]
     },
     {
-      title: "Module 4 — Deployment & DevOps",
+      title: "Module 4 : Deployment & DevOps",
       points: ["Containerization using Docker", "CI/CD pipeline setup and automation", "Application monitoring, logging, and security best practices"]
     }
   ];

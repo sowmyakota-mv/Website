@@ -11,8 +11,16 @@ function ScrollHandler() {
       const el = document.getElementById(location.state.scrollTo);
       if (el) {
         setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth" });
-        }, 100); 
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Optional: if you have a fixed header, offset it
+          const headerOffset = 80; // adjust according to your header height
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });}, 100); 
       }
     }
   }, [location]);

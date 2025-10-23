@@ -12,8 +12,8 @@ export default function DataScienceBootcamp() {
           Data Science Bootcamp
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-          Master the complete Data Science lifecycle — from data wrangling to
-          machine learning and deployment — through real-world projects and
+          Master the complete Data Science lifecycle from data wrangling to
+          machine learning and deployment through real-world projects and
           guided mentorship by industry experts.
         </p>
       </div>
@@ -27,7 +27,7 @@ export default function DataScienceBootcamp() {
           <p className="text-slate-700 text-lg leading-relaxed">
             The <strong>Data Artisans Data Science Bootcamp</strong> is a
             comprehensive, hands-on training program that transforms learners
-            into job-ready data professionals. It covers the full journey — from
+            into job-ready data professionals. It covers the full journey from
             understanding data to building production-ready machine learning
             models. Through interactive sessions, projects, and mentor support,
             you’ll gain both the technical expertise and analytical mindset
@@ -38,7 +38,7 @@ export default function DataScienceBootcamp() {
             This program is ideal for aspiring Data Analysts, Data Scientists,
             and ML Engineers who want to build strong foundations in Python,
             statistics, data visualization, and applied machine learning. You’ll
-            also learn model deployment and MLOps fundamentals — a rare skill
+            also learn model deployment and MLOps fundamentals a rare skill
             combination that makes you stand out in the job market.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function DataScienceBootcamp() {
           What You’ll Learn
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto">
-          Master the complete data science journey — from coding to AI deployment — 
+          Master the complete data science journey from coding to AI deployment  
           through interactive, project-driven training.
         </p>
       </div>
@@ -204,7 +204,7 @@ export default function DataScienceBootcamp() {
 </ScrollAnimation>
 
       {/* CTA */}
-      <div className="bg-indigo-200 text-white text-center py-20">
+      <div className="bg-indigo-200 text text-center py-20">
         <h3 className="text-3xl font-bold mb-4">Start Your Data Science Journey Today!</h3>
         <p className="text-lg mb-8 max-w-2xl mx-auto">
           Learn the tools, build the skills, and launch your career with confidence.

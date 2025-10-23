@@ -36,7 +36,7 @@ const MockInterviewPage = () => (
         </p>
 
         <p className="text-gray-200 mb-8 leading-relaxed">
-          Receive personalized feedback on your answers, body language, and problem-solving approach — every session is designed to transform anxiety into performance power.
+          Receive personalized feedback on your answers, body language, and problem-solving approach every session is designed to transform anxiety into performance power.
         </p>
 
         <ul className="space-y-4 text-gray-100">

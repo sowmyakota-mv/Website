@@ -27,7 +27,7 @@ export default function CyberSecurityCourse() {
             You’ll practice in controlled labs, learn secure coding practices and build detection rules.
           </p>
           <p className="text-slate-700 text-lg mt-6 leading-relaxed">
-            The course blends classroom theory with practical exercises—network labs,
+            The course blends classroom theory with practical exercises network labs,
             host hardening, SIEM configuration, and red-team style attack/defend scenarios.
           </p>
         </div>
@@ -84,22 +84,22 @@ export default function CyberSecurityCourse() {
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
       {[
         {
-          title: "Module 1 — Foundations & Networking",
+          title: "Module 1 : Foundations & Networking",
           desc: "TCP/IP, common protocols, and building secure networks.",
           points: ["Network fundamentals, firewalls, VPNs","Network scanning & reconnaissance"]
         },
         {
-          title: "Module 2 — Detection & Monitoring",
+          title: "Module 2 : Detection & Monitoring",
           desc: "SIEM basics, log analysis and alerting strategies.",
           points: ["ELK / Splunk / Managed SIEM labs","Writing detection rules and reducing false positives"]
         },
         {
-          title: "Module 3 — Offensive Security",
+          title: "Module 3 : Offensive Security",
           desc: "Ethical hacking fundamentals and pentesting workflow.",
           points: ["Reconnaissance, exploitation basics, post-exploitation","Hands-on labs using common pentest tools"]
         },
         {
-          title: "Module 4 — Incident Response & Forensics",
+          title: "Module 4 : Incident Response & Forensics",
           desc: "How to detect, triage, and investigate security incidents.",
           points: ["IR process, playbooks, and post-incident reviews","Disk & memory forensics basics and evidence handling"]
         }
@@ -149,7 +149,7 @@ export default function CyberSecurityCourse() {
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>
         <div className="bg-emerald-100 text text-center py-20 rounded-2xl shadow-lg">
-          <h3 className="text-3xl font-bold mb-4">Protect & Defend — Start Your Cybersecurity Career</h3>
+          <h3 className="text-3xl font-bold mb-4">Protect & Defend - Start Your Cybersecurity Career</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             Hands-on labs, simulated incidents, and career support to help you step into security roles.
           </p>

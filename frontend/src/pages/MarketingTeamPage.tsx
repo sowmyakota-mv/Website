@@ -27,7 +27,7 @@ const MarketingTeamPage = () => (
 
         <p className="text-gray-200 mb-4 leading-relaxed">
           At <span className="font-semibold text-cyan-300">Data Artisans Limited</span>, 
-          your success doesn’t stop at training — it begins there. Our dedicated marketing 
+          your success doesn’t stop at training, it begins there. Our dedicated marketing 
           professionals are committed to ensuring your profile reaches the right hands.
         </p>
 
@@ -38,7 +38,7 @@ const MarketingTeamPage = () => (
         </p>
 
         <p className="text-gray-200 mb-8 leading-relaxed">
-          You’re not just a candidate — you’re a brand. And we make sure your professional 
+          You’re not just a candidate, you’re a brand. And we make sure your professional 
           brand shines across digital platforms and recruiter networks globally.
         </p>
 
