@@ -87,105 +87,134 @@ export default function MobileAppDevelopment() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="bg-gradient-to-r from-cyan-50 to-slate-50 py-16 px-6 rounded-2xl">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">What you’ll learn</h2>
-            <ul className="space-y-3 text-lg text-slate-700">
-              <li>• Mobile architecture design for scalable apps</li>
-              <li>• Cross-platform development with React Native & Flutter</li>
-              <li>• Offline-first app design and caching strategies</li>
-              <li>• Native modules & platform integrations</li>
-              <li>• App performance optimization & profiling</li>
-              <li>• CI/CD pipelines and mobile deployment</li>
-              <li>• App store publishing and release management</li>
-              <li>• Unit testing, integration testing, and E2E testing</li>
+      {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
+  <section className="relative py-12 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Master mobile app development from architecture to deployment, building scalable and high-performing apps.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Mobile architecture design for scalable apps",
+          "Cross-platform development with React Native & Flutter",
+          "Offline-first app design and caching strategies",
+          "Native modules & platform integrations",
+          "App performance optimization & profiling",
+          "CI/CD pipelines and mobile deployment",
+          "App store publishing and release management",
+          "Unit, integration, and E2E testing",
+          "Collaboration & version control with Git"
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+  {i + 1}
+</div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {item}
+              </p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* COURSE MODULES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 text-center">Course Modules</h2>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+      {modules.map((mod, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.2 * i}>
+          <article className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-slate-900">{mod.title}</h3>
+            <p className="text-slate-700 mb-2">{mod.desc}</p>
+            <ul className="list-disc list-inside text-slate-700">
+              {mod.points.map((p, idx) => <li key={idx}>{p}</li>)}
             </ul>
-          </div>
-        </div>
-      </ScrollAnimation>
+          </article>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Modules */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Course Modules</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {modules.map((mod, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={0.2 * i}>
-                <article className="rounded-2xl border p-6 bg-gradient-to-tr from-white to-cyan-50 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
-                  <h3 className="text-xl font-semibold mb-2">{mod.title}</h3>
-                  <p className="text-slate-700 mb-2">{mod.desc}</p>
-                  <ul className="list-disc list-inside text-slate-700">
-                    {mod.points.map((p, idx) => <li key={idx}>{p}</li>)}
-                  </ul>
-                </article>
-              </ScrollAnimation>
-            ))}
+{/* TOOLS & TECHNOLOGIES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Tools & Frameworks</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {tools.map((t, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1 * i}>
+          <div className="rounded-2xl border p-6 text-center bg-gradient-to-tr from-white to-cyan-50 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+            {t}
           </div>
-        </div>
-      </ScrollAnimation>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Tools */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Tools & Frameworks</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {tools.map((t, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={0.1 * i}>
-                <div className="rounded-lg border p-4 text-center bg-gradient-to-tr from-white to-cyan-50 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">{t}</div>
-              </ScrollAnimation>
-            ))}
+{/* PROJECTS */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
+  <section className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-cyan-50 via-white to-cyan-50 rounded-2xl">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Hands-on Projects</h2>
+    <ul className="grid gap-6 md:grid-cols-2 text-slate-700">
+      {projects.map((p, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <li className="rounded-2xl p-6 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+            <strong>{i === projects.length-1 ? "Capstone:" : "Project:"}</strong> {p}
+          </li>
+        </ScrollAnimation>
+      ))}
+    </ul>
+  </section>
+</ScrollAnimation>
+
+{/* CAREER PATHS */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Career Paths</h2>
+    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {careers.map((role, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <div className="rounded-2xl border p-6 bg-gradient-to-tr from-white to-cyan-50 shadow-md hover:shadow-xl text-center font-semibold hover:scale-105 transition transform duration-300">
+            {role}
           </div>
-        </div>
-      </ScrollAnimation>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Projects */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
-        <div className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-cyan-50 to-white rounded-2xl">
-          <h2 className="text-3xl font-bold mb-6">Hands-on Projects</h2>
-          <ul className="grid gap-4 md:grid-cols-2 text-slate-700">
-            {projects.map((p, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
-                <li className="rounded-lg p-4 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
-                  <strong>{i === projects.length-1 ? "Capstone:" : "Project:"}</strong> {p}
-                </li>
-              </ScrollAnimation>
-            ))}
-          </ul>
-        </div>
-      </ScrollAnimation>
-
-      {/* Career Opportunities */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Career Paths</h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {careers.map((role, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
-                <div className="rounded-2xl border p-6 bg-gradient-to-tr from-white to-cyan-50 shadow-md hover:shadow-xl text-center font-semibold hover:scale-105 transition transform duration-300">{role}</div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
-
-      {/* FAQ */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>
-        <div className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-cyan-50 to-white rounded-2xl">
-          <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {faqs.map((faq, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
-                <details className="p-4 bg-white rounded border shadow-md hover:shadow-xl hover:scale-105 transition transform cursor-pointer duration-300">
-                  <summary className="font-semibold">{faq.q}</summary>
-                  <p className="mt-2 text-slate-700">{faq.a}</p>
-                </details>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* FAQ */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.2}>
+  <section className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-cyan-50 to-white rounded-2xl">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 text-center">FAQ</h2>
+    <div className="grid gap-6 md:grid-cols-3">
+      {faqs.map((faq, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <details className="p-6 bg-white rounded-2xl border shadow-md hover:shadow-xl hover:scale-105 transition transform cursor-pointer duration-300">
+            <summary className="font-semibold text-slate-900">{faq.q}</summary>
+            <p className="mt-2 text-slate-700">{faq.a}</p>
+          </details>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.2}>

@@ -11,7 +11,7 @@ function HeroSection() {
         
         {/* Left Side - Text Content */}
 <div
-  className="lg:w-1/2 w-full flex flex-col justify-center px-6 py-8 text-center lg:text-left text-white h-1/2 lg:h-full"
+  className="lg:w-1/2 w-full flex flex-col justify-center px-6 py-8 text-center lg:text-left text-white h-3/2 lg:h-full"
   style={{
     background:
       "linear-gradient(135deg, #99b0f1ff 0%, #a7bef0ff 50%, #3b82f6 100%)",}}>
@@ -51,7 +51,7 @@ function HeroSection() {
         </div>
 
         {/* Right Side - Full Video */}
-<div className="lg:w-1/2 w-full h-1/2 lg:h-full overflow-hidden">
+<div className="lg:w-1/2 w-full h-3/2 lg:h-full overflow-hidden">
   <video
     src="/33415-396631693_small.mp4"
     autoPlay

@@ -41,89 +41,172 @@ export default function WebDevelopment() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
-        <div className="bg-gradient-to-tr from-yellow-50 via-orange-50 to-white py-16 px-6 rounded-2xl shadow-lg">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-orange-900">What You’ll Learn</h2>
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-lg text-blue-700">
-              {[
-                "HTML5, CSS3, and modern JavaScript (ES6+)",
-                "Responsive and accessible web design",
-                "Frontend frameworks — React.js & Vue.js",
-                "Backend development using Node.js and Express",
-                "Working with RESTful APIs and GraphQL",
-                "Authentication, authorization, and JWT",
-                "Databases — SQL (PostgreSQL) and NoSQL (MongoDB)",
-                "Version control and Git workflows",
-                "CI/CD pipelines and cloud deployment",
-                "Testing, debugging, and optimization"
-              ].map((item, i) => (
-                <div key={i} className="flex items-start space-x-2 hover:text-blue-900 transition-colors">
-            <span className="text-blue-900 font-bold">•</span>
-            <span>{item}</span>
+      {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Build modern, scalable web applications — mastering front-end, back-end, and deployment with real-world projects.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "HTML5, CSS3, and modern JavaScript (ES6+)",
+          "Responsive and accessible web design",
+          "Frontend frameworks — React.js & Vue.js",
+          "Backend development using Node.js and Express",
+          "Working with RESTful APIs and GraphQL",
+          "Authentication and JWT Authorization",
+          "Databases — SQL (PostgreSQL) & NoSQL (MongoDB)",
+          "Version control and Git workflows",
+          "CI/CD pipelines and cloud deployment", // Removed "Testing, debugging, and optimization" to make it 9 points
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+  {i + 1}
+</div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {item}
+              </p></div>
           </div>
         ))}
       </div>
-          </div>
-        </div>
-      </ScrollAnimation>
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Tools Section */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6 text-orange-900">Tools & Frameworks Covered</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-orange-800">
-            {[
-              "HTML5", "CSS3", "JavaScript", "React.js",
-              "Node.js", "Express", "MongoDB", "PostgreSQL",
-              "Git & GitHub", "Docker", "AWS / Vercel / Netlify", "CI/CD Tools"
-            ].map((tool, i) => (
-              <div key={i} className="rounded-xl border p-4 bg-gradient-to-tr from-white to-yellow-50 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                {tool}
-              </div>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* TOOLS & FRAMEWORKS */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="py-24 bg-gradient-to-b from-white via-yellow-50/50 to-orange-50/30">
+    <div className="max-w-6xl mx-auto px-6 text-center">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+        Tools & Frameworks Covered
+      </h2>
+      <p className="text-slate-600 max-w-3xl mx-auto mb-12">
+        Work with modern tools and frameworks used in professional web development stacks.
+      </p>
 
-      {/* Why Choose Us */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
-        <div className="bg-gradient-to-r from-white to-orange-50 py-16 px-6 rounded-2xl shadow-lg">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-orange-900">Why Learn Web Development at Data Artisans</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-orange-700">
-              {[
-                "Expert trainers with real-world project experience",
-                "Learn both front-end and backend skills",
-                "Project-based learning — build 3+ live applications",
-                "Interview preparation and portfolio building",
-                "Internship and placement support",
-                "Career mentorship & resume guidance"
-              ].map((item, i) => (
-                <li key={i} className="p-4 rounded-lg border bg-white shadow-sm hover:shadow-lg hover:bg-yellow-50 transition transform hover:-translate-y-1">✅ {item}</li>
-              ))}
-            </ul>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        {[
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "React.js",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "PostgreSQL",
+          "Git & GitHub",
+          "Docker",
+          "AWS / Vercel / Netlify",
+          "CI/CD Tools",
+        ].map((tool, i) => (
+          <div
+            key={i}
+            className="p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all"
+          >
+            <p className="font-semibold text-slate-800">{tool}</p>
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Career Opportunities */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6 text-orange-900">Career Opportunities</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-            {[
-              "Frontend Developer", "Backend Developer", "Full-Stack Developer",
-              "UI Developer", "Web App Engineer", "React Developer"
-            ].map((role, i) => (
-              <div key={i} className="rounded-2xl border bg-gradient-to-tr from-white to-orange-50 p-6 font-semibold shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                {role}
-              </div>
-            ))}
+{/* WHY LEARN WEB DEVELOPMENT */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="relative py-24 bg-gradient-to-r from-orange-700 via-orange-800 to-slate-900 text-white">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          Why Learn Web Development at Data Artisans
+        </h2>
+        <p className="text-orange-100 max-w-2xl mx-auto">
+          Learn through live projects, mentorship, and career guidance — designed to make you job-ready as a full-stack developer.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Expert Trainers",
+            desc: "Learn from professionals working in top tech companies with years of real-world experience.",
+          },
+          {
+            title: "Hands-on Learning",
+            desc: "Gain confidence through projects that simulate real production environments.",
+          },
+          {
+            title: "Full-Stack Mastery",
+            desc: "Build both front-end and back-end skills with deep practical exposure.",
+          },
+          {
+            title: "Career Support",
+            desc: "Get guidance on interview prep, portfolios, and resume building.",
+          },
+          {
+            title: "Internship Assistance",
+            desc: "Access internship programs and placement opportunities post training.",
+          },
+          {
+            title: "Community Learning",
+            desc: "Collaborate and grow with a network of mentors and developers.",
+          },
+        ].map((feature, i) => (
+          <div
+            key={i}
+            className="bg-white/10 rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-lg"
+          >
+            <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+            <p className="text-orange-100 text-sm leading-relaxed">{feature.desc}</p>
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* CAREER OPPORTUNITIES */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="py-24 bg-gradient-to-b from-white via-yellow-50/50 to-orange-50/30 text-center">
+    <div className="max-w-6xl mx-auto px-6">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+        Career Opportunities
+      </h2>
+      <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">
+        Open doors to high-demand careers in full-stack and modern web development.
+      </p>
+
+      <div className="flex flex-wrap justify-center gap-5">
+        {[
+          "Frontend Developer",
+          "Backend Developer",
+          "Full-Stack Developer",
+          "UI Developer",
+          "Web App Engineer",
+          "React Developer",
+        ].map((role, i) => (
+          <div
+            key={i}
+            className="px-8 py-4 rounded-full bg-white border border-slate-200 shadow-md text-slate-800 font-semibold hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all"
+          >
+            {role}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>

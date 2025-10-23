@@ -88,7 +88,7 @@ const Navbar = () => {
           >
             <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
               onClick={() => { setAboutOpen(!aboutOpen); setOurServicesOpen(false); }}>
-              About DA
+              About DA <ChevronDown className="ml-0.2 h-5 w-5" />
             </Button>
             {aboutOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide">
@@ -110,7 +110,7 @@ const Navbar = () => {
           >
             <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
               onClick={() => { setOurServicesOpen(!ourServicesOpen); setAboutOpen(false); }}>
-              Our Services <ChevronDown className="ml-1 h-5 w-5" />
+              Our Services <ChevronDown className="ml-0.2 h-5 w-5" />
             </Button>
             {ourServicesOpen && (
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide max-h-96 overflow-y-auto">

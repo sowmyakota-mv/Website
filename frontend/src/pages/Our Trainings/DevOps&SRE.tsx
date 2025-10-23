@@ -28,139 +28,164 @@ export default function DevOpsSRE() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="bg-slate-50 py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">What you’ll learn</h2>
-            <ul className="space-y-3 text-lg text-slate-700">
-              <li>• Continuous Integration & Continuous Deployment (CI/CD)</li>
-              <li>• Containerization (Docker) and orchestration (Kubernetes)</li>
-              <li>• Infrastructure as Code (Terraform, CloudFormation)</li>
-              <li>• Observability: metrics, logs, tracing, dashboards</li>
-              <li>• Incident management, on-call, runbooks</li>
-              <li>• SRE practices: SLIs, SLOs, error budgets</li>
-              <li>• Monitoring & alerting strategies for reliability</li>
-              <li>• Automated testing, blue-green & canary deployments</li>
+      {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
+  <section className="relative py-12 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Gain expertise in building and maintaining reliable, scalable, and automated systems using modern DevOps & SRE practices.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Continuous Integration & Continuous Deployment (CI/CD)",
+          "Containerization (Docker) and orchestration (Kubernetes)",
+          "Infrastructure as Code (Terraform, CloudFormation)",
+          "Observability: metrics, logs, tracing, dashboards",
+          "Incident management, on-call, runbooks",
+          "SRE practices: SLIs, SLOs, error budgets",
+          "Monitoring & alerting strategies for reliability",
+          "Automated testing, blue-green & canary deployments",
+          "Collaboration & version control with Git/GitHub"
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+  {i + 1}
+</div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {item}
+              </p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* COURSE MODULES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 text-center">Course Modules</h2>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+      {[
+        {
+          title: "Module 1 — DevOps Foundations",
+          desc: "DevOps culture, version control, CI/CD basics.",
+          points: ["Git & Git workflows", "CI pipelines (GitHub Actions, GitLab CI)", "Automated testing strategies"]
+        },
+        {
+          title: "Module 2 — Containerization & Orchestration",
+          desc: "Docker, Kubernetes basics, deployment patterns.",
+          points: ["Docker images, volumes, networking", "Kubernetes pods, services, deployments", "Helm charts & config management"]
+        },
+        {
+          title: "Module 3 — Infrastructure as Code",
+          desc: "Automate provisioning and configuration.",
+          points: ["Terraform basics & modules", "CloudFormation or ARM templates", "Multi-environment deployments"]
+        },
+        {
+          title: "Module 4 — Observability & Reliability",
+          desc: "Monitoring, metrics, alerting, and incident response.",
+          points: ["Prometheus, Grafana, ELK stack", "Alerting strategies & runbooks", "SLIs, SLOs, and error budgets"]
+        }
+      ].map((mod, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.1}>
+          <article className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-2 text-yellow-600">{mod.title}</h3>
+            <p className="text-slate-700 mb-2">{mod.desc}</p>
+            <ul className="list-disc list-inside text-slate-700">
+              {mod.points.map((p, idx) => <li key={idx}>{p}</li>)}
             </ul>
-          </div>
-        </div>
-      </ScrollAnimation>
+          </article>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Modules */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Course Modules (Sample)</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                title: "Module 1 — DevOps Foundations",
-                desc: "DevOps culture, version control, CI/CD basics.",
-                points: ["Git & Git workflows", "CI pipelines (GitHub Actions, GitLab CI)", "Automated testing strategies"]
-              },
-              {
-                title: "Module 2 — Containerization & Orchestration",
-                desc: "Docker, Kubernetes basics, deployment patterns.",
-                points: ["Docker images, volumes, networking", "Kubernetes pods, services, deployments", "Helm charts & config management"]
-              },
-              {
-                title: "Module 3 — Infrastructure as Code",
-                desc: "Automate provisioning and configuration.",
-                points: ["Terraform basics & modules", "CloudFormation or ARM templates", "Multi-environment deployments"]
-              },
-              {
-                title: "Module 4 — Observability & Reliability",
-                desc: "Monitoring, metrics, alerting, and incident response.",
-                points: ["Prometheus, Grafana, ELK stack", "Alerting strategies & runbooks", "SLIs, SLOs, and error budgets"]
-              }
-            ].map((mod, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.2}>
-                <article className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                  <h3 className="text-xl font-semibold mb-2">{mod.title}</h3>
-                  <p className="text-slate-700 mb-2">{mod.desc}</p>
-                  <ul className="list-disc list-inside text-slate-700">
-                    {mod.points.map((p, idx) => (
-                      <li key={idx}>{p}</li>
-                    ))}
-                  </ul>
-                </article>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* PROJECTS */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
+  <section className="max-w-6xl mx-auto px-6 py-16 bg-slate-50 rounded-2xl">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Hands-on Projects</h2>
+    <ul className="grid gap-6 md:grid-cols-2">
+      {[
+        "Full CI/CD pipeline with automated testing and deployment.",
+        "Containerized microservices deployment on Kubernetes.",
+        "Infrastructure provisioning using Terraform across multiple environments.",
+        "End-to-end SRE workflow: monitoring, incident handling, reliability metrics."
+      ].map((p, i) => (
+        <li key={i} className="rounded-2xl p-6 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
+          <strong>{i === 3 ? "Capstone:" : "Project:"}</strong> {p}
+        </li>
+      ))}
+    </ul>
+  </section>
+</ScrollAnimation>
 
-      {/* Projects */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16 bg-slate-50 rounded-2xl">
-          <h2 className="text-3xl font-bold mb-6">Hands-on Projects</h2>
-          <ul className="grid gap-4 md:grid-cols-2 text-slate-700">
-            <li className="rounded-lg p-4 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-              <strong>Project:</strong> Full CI/CD pipeline with automated testing and deployment.
-            </li>
-            <li className="rounded-lg p-4 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-              <strong>Project:</strong> Containerized microservices deployment on Kubernetes.
-            </li>
-            <li className="rounded-lg p-4 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-              <strong>Project:</strong> Infrastructure provisioning using Terraform across multiple environments.
-            </li>
-            <li className="rounded-lg p-4 border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-              <strong>Capstone:</strong> End-to-end SRE workflow: monitoring, incident handling, reliability metrics.
-            </li>
-          </ul>
-        </div>
-      </ScrollAnimation>
+{/* TOOLS & TECHNOLOGIES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
+  <section className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-b from-yellow-50 via-white to-yellow-100 rounded-2xl">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Tools & Technologies</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {["Git", "Docker", "Kubernetes", "Terraform", "Jenkins", "Prometheus", "Grafana", "ELK Stack"].map((t, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.1}>
+          <div className="rounded-2xl border p-6 text-center bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">{t}</div>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Tools */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Tools & Technologies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Git", "Docker", "Kubernetes", "Terraform", "Jenkins", "Prometheus", "Grafana", "ELK Stack"].map((t, i) => (
-              <div key={i} className="rounded-lg border p-4 text-center bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">{t}</div>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* CAREER PATHS */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 text-center">Career Paths</h2>
+    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {["DevOps Engineer","Site Reliability Engineer","Cloud Engineer","Automation Engineer","Release Manager","Platform Engineer"].map((role, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.1}>
+          <div className="rounded-2xl border p-6 bg-white shadow-md text-center font-semibold hover:shadow-xl hover:scale-105 transition transform">{role}</div>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Career Opportunities */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Career paths</h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {["DevOps Engineer","Site Reliability Engineer","Cloud Engineer","Automation Engineer","Release Manager","Platform Engineer"].map((role, i) => (
-              <div key={i} className="rounded-2xl border p-6 bg-white shadow-md text-center font-semibold hover:shadow-xl hover:scale-105 transition transform">{role}</div>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
-
-      {/* FAQ */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-yellow-50 via-white to-yellow-100 rounded-2xl">
-          <h2 className="text-3xl font-bold mb-8 text-slate-900 text-center">FAQ</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              { q: "Do I need prior DevOps experience?", a: "Basic Linux and programming knowledge recommended. Course provides bridging modules." },
-              { q: "Hands-on labs?", a: "Yes, including pipelines, containerized deployments, monitoring, and incident simulations." },
-              { q: "Certification?", a: "Certificate upon completion with capstone project showcase." },
-              { q: "Course duration?", a: "Typically 12 weeks with a mix of live sessions and labs." },
-              { q: "Is mentorship provided?", a: "Yes, mentors guide learners throughout hands-on projects." },
-              { q: "Job support?", a: "Career guidance, resume review, and interview prep included." },
-              { q: "Can I join remotely?", a: "Yes, sessions and labs are available online." },
-              { q: "Prerequisites?", a: "No formal prerequisites; basic computer skills helpful." },
-              { q: "Tools covered?", a: "Git, Docker, Kubernetes, Terraform, Jenkins, Prometheus, Grafana, ELK Stack." }
-            ].map((faq, i) => (
-              <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.1}>
-                <details className="p-4 bg-white rounded border shadow-md hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
-                  <summary className="font-semibold text-slate-900">{faq.q}</summary>
-                  <p className="mt-2 text-slate-700">{faq.a}</p>
-                </details>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* FAQ */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.2}>
+  <section className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-r from-yellow-50 via-white to-yellow-100 rounded-2xl">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 text-center">FAQ</h2>
+    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {[
+        { q: "Do I need prior DevOps experience?", a: "Basic Linux and programming knowledge recommended. Course provides bridging modules." },
+        { q: "Hands-on labs?", a: "Yes, including pipelines, containerized deployments, monitoring, and incident simulations." },
+        { q: "Certification?", a: "Certificate upon completion with capstone project showcase." },
+        { q: "Course duration?", a: "Typically 12 weeks with a mix of live sessions and labs." },
+        { q: "Is mentorship provided?", a: "Yes, mentors guide learners throughout hands-on projects." },
+        { q: "Job support?", a: "Career guidance, resume review, and interview prep included." },
+        { q: "Can I join remotely?", a: "Yes, sessions and labs are available online." },
+        { q: "Prerequisites?", a: "No formal prerequisites; basic computer skills helpful." },
+        { q: "Tools covered?", a: "Git, Docker, Kubernetes, Terraform, Jenkins, Prometheus, Grafana, ELK Stack." }
+      ].map((faq, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={i * 0.1}>
+          <details className="p-6 bg-white rounded-2xl border shadow-md hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
+            <summary className="font-semibold text-slate-900">{faq.q}</summary>
+            <p className="mt-2 text-slate-700">{faq.a}</p>
+          </details>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.4}>

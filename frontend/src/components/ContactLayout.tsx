@@ -4,7 +4,7 @@ import ScrollAnimation from "@/animation/ScrollAnimation";
 
 export default function ContactLayout() {
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-gray-50 -mb-12">
+    <div className="flex flex-col items-center justify-center w-full bg-gray-50 -mb-16">
       {/* Outer container with 80% width */}
       <div className="w-[80%] mx-auto p-6">
         {/* Get in Touch section */}

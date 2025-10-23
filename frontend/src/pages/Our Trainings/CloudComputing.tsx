@@ -39,88 +39,111 @@ export default function CloudComputing() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
-        <div className="bg-gradient-to-tr from-blue-50 via-indigo-50 to-white text-center py-16 px-6 rounded-2xl shadow-lg">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-blue-900">What You’ll Learn</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 gap-4 text-lg text-blue-700">
-              {[
-                "Cloud computing concepts and deployment models",
-                "AWS, Azure, and Google Cloud fundamentals",
-                "Serverless architecture and containerization (Docker, Kubernetes)",
-                "Infrastructure as Code using Terraform",
-                "Networking, load balancing, and security groups",
-                "Identity and Access Management (IAM)",
-                "Monitoring, logging, and automation",
-                "Disaster recovery and backup strategies",
-                "Cost optimization and performance tuning",
-                "CI/CD and DevOps integration in cloud"
-              ].map((item, i) => (
-                <div key={i} className="flex items-start space-x-2 hover:text-blue-900 transition-colors">
-            <span className="text-blue-900 font-bold">•</span>
-            <span>{item}</span></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </ScrollAnimation>
+      {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
+  <section className="relative py-12 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Build expertise in cloud computing, DevOps, and multi-cloud deployment strategies.
+        </p>
+      </div>
 
-      {/* Tools Section */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6 text-blue-900">Platforms & Tools Covered</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-blue-800">
-            {[
-              "AWS", "Microsoft Azure", "Google Cloud Platform", "Docker",
-              "Kubernetes", "Terraform", "Ansible", "CloudWatch",
-              "Jenkins", "GitHub Actions", "Linux Admin", "Prometheus & Grafana"
-            ].map((tool, i) => (
-              <div key={i} className="rounded-xl border p-4 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                {tool}
-              </div>
-            ))}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Cloud computing concepts and deployment models",
+          "AWS, Azure, and Google Cloud fundamentals",
+          "Serverless architecture and containerization (Docker, Kubernetes)",
+          "Infrastructure as Code using Terraform",
+          "Networking, load balancing, and security groups",
+          "Identity and Access Management (IAM)",
+          "Monitoring, logging, and automation",
+          "Disaster recovery and backup strategies",
+          "Cost optimization and performance tuning"
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+  {i + 1}
+</div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {item}
+              </p></div>
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Why Choose Us */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
-        <div className="bg-gradient-to-r from-white to-blue-50 py-16 px-6 rounded-2xl shadow-lg">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-blue-900">Why Learn Cloud Computing at Data Artisans</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-blue-700">
-              {[
-                "Learn multi-cloud strategy with real-world labs",
-                "Hands-on experience with AWS, Azure & GCP",
-                "Projects covering autoscaling & high availability",
-                "Training aligned with global certifications",
-                "Placement & career guidance",
-                "Real-time mentors from top IT companies"
-              ].map((item, i) => (
-                <li key={i} className="p-4 rounded-lg border bg-white shadow-sm hover:shadow-lg hover:bg-blue-50 transition transform hover:-translate-y-1">✅ {item}</li>
-              ))}
-            </ul>
+{/* TOOLS & FRAMEWORKS */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-blue-900 text-center">Platforms & Tools Covered</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {[
+        "AWS", "Microsoft Azure", "Google Cloud Platform", "Docker",
+        "Kubernetes", "Terraform", "Ansible", "CloudWatch",
+        "Jenkins", "GitHub Actions", "Linux Admin", "Prometheus & Grafana"
+      ].map((tool, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <div className="rounded-2xl border p-6 text-center bg-gradient-to-tr from-white to-blue-50 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+            {tool}
           </div>
-        </div>
-      </ScrollAnimation>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Career Opportunities */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6 text-blue-900">Career Opportunities</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-            {[
-              "Cloud Engineer", "DevOps Engineer", "Site Reliability Engineer (SRE)",
-              "Cloud Solutions Architect", "Systems Administrator", "Infrastructure Engineer"
-            ].map((role, i) => (
-              <div key={i} className="rounded-2xl border bg-gradient-to-tr from-white to-blue-50 p-6 font-semibold shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                {role}
-              </div>
-            ))}
+{/* WHY CHOOSE US */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.6}>
+  <section className="bg-gradient-to-r from-white to-blue-50 py-16 px-6 rounded-2xl shadow-lg">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-blue-900 text-center">Why Learn Cloud Computing at Data Artisans</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          "Learn multi-cloud strategy with real-world labs",
+          "Hands-on experience with AWS, Azure & GCP",
+          "Projects covering autoscaling & high availability",
+          "Training aligned with global certifications",
+          "Placement & career guidance",
+          "Real-time mentors from top IT companies"
+        ].map((item, i) => (
+          <div key={i} className="p-6 rounded-2xl border bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+            ✅ {item}
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* CAREER OPPORTUNITIES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.8}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-blue-900 text-center">Career Opportunities</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+      {[
+        "Cloud Engineer", "DevOps Engineer", "Site Reliability Engineer (SRE)",
+        "Cloud Solutions Architect", "Systems Administrator", "Infrastructure Engineer"
+      ].map((role, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <div className="rounded-2xl border p-6 bg-gradient-to-tr from-white to-blue-50 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300 font-semibold">
+            {role}
+          </div>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>

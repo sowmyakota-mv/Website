@@ -129,23 +129,29 @@ function WhyDataArtisan() {
           </div></ScrollAnimation>
         )}
 
-        {/* === FLOW SECTION === */}
+         {/* === FLOW SECTION === */}
         <ScrollAnimation direction="up">
-        <div className="mb-8 py-5 transition-all duration-500" ref={flowchartRef}>
-          <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 gap-4 ">
-            <FlowStep text="Course Training" targetId="training" />
-            <FlowStep text="CV Preparation" targetId="cv-preparation" />
-            <FlowStep text="CV Marketing" targetId="cv-marketing" />
-            <FlowStep text="Mock Interviews" targetId="mock-interviews" />
-            <FlowStep text="Job Placement" targetId="job-placement" />
+          <div className="mb-12 py-5 transition-all duration-500" ref={flowchartRef}>
+            <div className="flex flex-col md:flex-row items-center justify-center md:gap-10 gap-6 relative">
+              <FlowStep text="Course Training" targetId="training" gradient="from-blue-400 to-cyan-300" />
+              <Arrow />
+              <FlowStep text="CV Preparation" targetId="cv-preparation" gradient="from-green-400 to-emerald-300" />
+              <Arrow />
+              <FlowStep text="CV Marketing" targetId="cv-marketing" gradient="from-yellow-400 to-orange-300" />
+              <Arrow />
+              <FlowStep text="Mock Interviews" targetId="mock-interviews" gradient="from-pink-400 to-rose-300" />
+              <Arrow />
+              <FlowStep text="Job Placement" targetId="job-placement" gradient="from-purple-400 to-indigo-300" />
+            </div>
           </div>
-        </div></ScrollAnimation>
+        </ScrollAnimation>
 
         {/* === CAREER STEPS === */}
         <ScrollAnimation direction="up">
-        <div className="relative z-10 mb-">
-          <CareerSteps />
-        </div></ScrollAnimation>
+          <div className="relative z-10">
+            <CareerSteps />
+          </div>
+        </ScrollAnimation>
 
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Our Comprehensive Career Support Services
@@ -173,45 +179,60 @@ function WhyDataArtisan() {
 }
 
 /* --- FLOW STEP --- */
-function FlowStep({ text, targetId }) {
+function FlowStep({ text, targetId, gradient }) {
   const scrollToSection = () => {
     const element = document.getElementById(targetId);
     if (element) {
-      const headerOffset = 100;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      const offset = element.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: "smooth" });
     }
   };
 
   return (
     <div
       onClick={scrollToSection}
-      className="relative group cursor-pointer bg-blue-50 border border-blue-300 flex items-center justify-center text-center shadow-sm text-sm font-medium text-blue-800 w-48 h-[100px] hover:bg-blue-100 transition-all duration-300"
+      className={`relative group cursor-pointer bg-gradient-to-r ${gradient} 
+      border border-transparent rounded-xl flex items-center justify-center text-center 
+      shadow-lg text-sm font-semibold text-white w-48 h-[110px] 
+      transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:scale-105`}
     >
-      {/* Wrapper for centering title and hover movement */}
-      <div className="flex flex-col items-center justify-center transition-all duration-300 transform md:group-hover:-translate-y-4">
-        {/* Title - perfectly centered initially */}
-        <span className="block mt-2 mb-1.2">{text}</span>
-
-        {/* Desktop-only hover button */}
+      <div className="flex flex-col items-center justify-center transition-all duration-300">
+        <span className="block mt-2 mb-2 drop-shadow-md">{text}</span>
         <button
           onClick={scrollToSection}
-          className="hidden md:block text-xs bg-blue-600 text-white px-3 py-1 rounded transition-all duration-300 opacity-0 group-hover:opacity-100"
+          className="hidden md:block text-xs bg-white text-gray-800 px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 shadow"
         >
           Click Here →
         </button>
-
-        {/* Mobile: button always visible */}
         <button
           onClick={scrollToSection}
-          className="md:hidden mt-3 text-xs bg-blue-600 text-white px-3 py-1 rounded"
+          className="md:hidden mt-3 text-xs bg-white text-gray-800 px-3 py-1 rounded-md shadow"
         >
           Click Here →
         </button>
       </div>
     </div>
+  );
+}
+
+/* --- FLOW ARROW --- */
+function Arrow() {
+  return (
+    <>
+      {/* Desktop horizontal arrow */}
+      <div className="hidden md:flex items-center justify-center">
+        <div className="w-10 h-[4px] bg-gradient-to-r from-gray-300 to-gray-500 relative">
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-5 h-5 rotate-45 bg-gray-500 animate-pulse"></div>
+        </div>
+      </div>
+
+      {/* Mobile vertical arrow */}
+      <div className="md:hidden flex flex-col items-center justify-center">
+        <div className="w-[4px] h-10 bg-gradient-to-b from-gray-300 to-gray-500 relative">
+          <div className="absolute left-1/2 -bottom-2 -translate-x-1/2 w-5 h-5 rotate-45 bg-gray-500 animate-pulse"></div>
+        </div>
+      </div>
+    </>
   );
 }
 

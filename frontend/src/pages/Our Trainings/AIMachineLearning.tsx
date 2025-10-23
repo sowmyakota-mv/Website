@@ -38,71 +38,101 @@ export default function AIMachineLearning() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
-        <div className="bg-gradient-to-tr from-sky-50 via-white to-slate-50 py-16 px-6 rounded-2xl shadow-lg">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-sky-900">What You’ll Learn</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-lg text-sky-700">
-              {[
-                "Probability, linear algebra and statistics fundamentals for ML",
-                "Data cleaning, feature engineering and pipeline design",
-                "Supervised learning: regression, classification, ensembles",
-                "Unsupervised learning: clustering, dimensionality reduction",
-                "Deep learning: CNNs, RNNs, Transformers basics",
-                "Natural Language Processing: tokenization, embeddings, simple transformers",
-                "Model evaluation, cross-validation and bias/variance tradeoffs",
-                "MLOps: pipelines, reproducibility, model serving, monitoring",
-                "Ethical AI, fairness, privacy, and model governance"
-              ].map((item, i) => (
-                <div key={i} className="flex items-start space-x-2 hover:text-sky-900 transition-colors">
-            <span className="text-sky-900 font-bold">•</span>
-            <span>{item}</span>
-          </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </ScrollAnimation>
+     {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.2}>
+  <section className="relative py-12 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Gain hands-on, industry-ready web development skills — front-end, back-end, database integration, and deployment.
+        </p>
+      </div>
 
-      {/* Modules */}
-      <ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6 text-sky-900">Course Modules (Sample)</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                title: "Module 1 — Foundations",
-                desc: "Python for data science, statistics, probability, linear algebra basics.",
-                points: ["NumPy, Pandas, EDA","Data visualization and reporting","Experiment design & metrics"]
-              },
-              {
-                title: "Module 2 — Classical ML",
-                desc: "Supervised & unsupervised algorithms, feature engineering and tuning.",
-                points: ["Linear/Logistic Regression, Trees, Random Forests, XGBoost","Clustering & PCA/t-SNE","Hyperparameter search & pipelines"]
-              },
-              {
-                title: "Module 3 — Deep Learning",
-                desc: "Neural network fundamentals and modern architectures.",
-                points: ["CNNs for images, RNNs & Transformers for sequences","Transfer learning, fine-tuning, augmentation","Using PyTorch / TensorFlow"]
-              },
-              {
-                title: "Module 4 — MLOps & Production",
-                desc: "From models-in-notebook to models-in-production with observability.",
-                points: ["Model versioning, CI for ML, pipelines (Airflow / Prefect)","Containerization, serving models (FastAPI / TorchServe)","Monitoring, drift detection, retraining strategies"]
-              }
-            ].map((mod, i) => (
-              <article key={i} className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
-                <h3 className="text-xl font-semibold mb-2 text-sky-900">{mod.title}</h3>
-                <p className="text-sky-700 mb-2">{mod.desc}</p>
-                <ul className="list-disc list-inside text-sky-700">
-                  {mod.points.map((p, idx) => <li key={idx}>{p}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Frontend development with React (hooks, context, SSR/SSG)",
+          "Backend development with Node.js, Express, and REST/GraphQL APIs",
+          "Database integration: SQL & NoSQL (MongoDB, PostgreSQL)",
+          "Authentication & Authorization strategies",
+          "Testing: unit, integration, E2E",
+          "Deployment: containerization with Docker, CI/CD pipelines",
+          "Performance optimization and security best practices",
+          "Responsive and accessible web design",
+          "Version control and Git workflows"
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+  {i + 1}
+</div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {item}
+              </p>
+              </div>
+              </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* COURSE MODULES */}
+<ScrollAnimation animation="fadeInUp" duration={0.8} delay={0.4}>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-sky-900 text-center">Course Modules</h2>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        {
+          title: "Module 1 — Frontend Mastery",
+          desc: "React, JSX, state management, context, hooks, SSR/SSG.",
+          points: ["Components & Props","React Router & SPA","Responsive Design & CSS frameworks"]
+        },
+        {
+          title: "Module 2 — Backend & APIs",
+          desc: "Node.js, Express, REST & GraphQL APIs, authentication.",
+          points: ["Express server setup","Routing & middleware","JWT auth & OAuth"]
+        },
+        {
+          title: "Module 3 — Databases",
+          desc: "SQL and NoSQL databases integration and CRUD operations.",
+          points: ["PostgreSQL fundamentals","MongoDB & Mongoose","Schema design & indexing"]
+        },
+        {
+          title: "Module 4 — Testing & Deployment",
+          desc: "Unit testing, integration, containerization, and CI/CD pipelines.",
+          points: ["Jest & Testing Library","Docker setup & deployment","CI/CD with GitHub Actions"]
+        },
+        {
+          title: "Module 5 — Advanced Topics",
+          desc: "Performance optimization, security, and cloud deployment.",
+          points: ["Web performance best practices","Security & HTTPS","AWS / Vercel / Netlify deployment"]
+        },
+        {
+          title: "Module 6 — Capstone Project",
+          desc: "Build a full-stack application end-to-end using learned technologies.",
+          points: ["Front-end + Back-end integration","Database & Auth implementation","Deployment to cloud"]
+        }
+      ].map((mod, i) => (
+        <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
+          <article className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-2 text-sky-900">{mod.title}</h3>
+            <p className="text-sky-700 mb-2">{mod.desc}</p>
+            <ul className="list-disc list-inside text-sky-700">
+              {mod.points.map((p, idx) => <li key={idx}>{p}</li>)}
+            </ul>
+          </article>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1}>

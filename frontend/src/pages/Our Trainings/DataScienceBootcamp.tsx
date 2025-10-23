@@ -44,121 +44,167 @@ export default function DataScienceBootcamp() {
         </div>
       </ScrollAnimation>
 
-      {/* What You'll Learn */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="bg-slate-50 py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-slate-900">
-              What You’ll Learn
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-lg text-blue-700">
-                {[
-              "Python programming for data analysis and automation",
-              "Statistics, probability, and hypothesis testing for insights",
-              "Data wrangling and cleaning using Pandas & NumPy",
-              "Data visualization using Matplotlib, Seaborn, and Plotly",
-               "Machine learning algorithms — supervised & unsupervised",
-              "Model evaluation, optimization, and tuning",
-              "Feature engineering and dimensionality reduction",
-            "End-to-end ML project pipeline and MLOps concepts",
-              "Deployment using Flask, FastAPI, and cloud platforms",
-            ].map((item, i) => (<div key={i} className="flex items-start space-x-2 hover:text-blue-900 transition-colors">
-            <span className="text-blue-900 font-bold">•</span>
-            <span>{item}</span>
+      {/* WHAT YOU’LL LEARN */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.15),transparent_60%)]" />
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
+          What You’ll Learn
+        </h2>
+        <p className="text-slate-400 max-w-2xl mx-auto">
+          Master the complete data science journey — from coding to AI deployment — 
+          through interactive, project-driven training.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Python for Data Science",
+          "Statistics & Probability Essentials",
+          "Data Wrangling & Cleaning",
+          "Data Visualization (Seaborn, Plotly)",
+          "Machine Learning & AI Models",
+          "End-to-End Project Deployment",
+          "Feature Engineering & Tuning",
+          "MLOps & Cloud Concepts",
+          "Real-World Capstone Projects",
+        ].map((topic, i) => (
+          <div
+            key={i}
+            className="relative p-6 bg-white/5 border border-white/10 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/10 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white">
+                {i + 1}
+              </div>
+              <p className="text-slate-200 font-medium group-hover:text-white">
+                {topic}
+              </p>
+            </div>
           </div>
         ))}
       </div>
-          </div>
-        </div>
-      </ScrollAnimation>
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Tools and Technologies */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Tools & Technologies Covered</h2>
-          <p className="text-slate-700 mb-6 text-lg">
-            You’ll gain hands-on experience with a wide range of industry-grade tools
-            and frameworks used by data science teams worldwide:
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-slate-800">
-            {[
-              "Python",
-              "NumPy",
-              "Pandas",
-              "Matplotlib",
-              "Seaborn",
-              "Scikit-Learn",
-              "TensorFlow",
-              "SQL",
-              "Flask",
-              "AWS / GCP",
-              "Jupyter Notebooks",
-              "Git & GitHub",
-            ].map((tool, i) => (
-              <div
-                key={i}
-                className="rounded-xl border bg-white p-4 shadow-sm hover:shadow-md transition"
-              >
-                {tool}
-              </div>
-            ))}
-          </div>
-        </div>
-      </ScrollAnimation>
+{/* TOOLS & TECHNOLOGIES */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="py-24 bg-gradient-to-b from-white via-blue-50 to-slate-50">
+    <div className="max-w-6xl mx-auto px-6 text-center">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-slate-900">
+        Tools & Technologies
+      </h2>
+      <p className="text-slate-600 max-w-3xl mx-auto mb-12">
+        Learn and apply the tools used by top data science and AI professionals worldwide.
+      </p>
 
-      {/* Why Choose Data Artisans */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="bg-gradient-to-r from-slate-50 to-white py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900">
-              Why Choose Data Artisans for Data Science
-            </h2>
-            <p className="text-slate-700 text-lg mb-6">
-              Our training is not just about learning — it’s about transformation.
-              Data Artisans helps you build real projects, gain practical exposure,
-              and become confident enough to face real-world challenges.
-            </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-700 text-lg">
-              <li>✅ Instructor-led live sessions with real-time Q&A</li>
-              <li>✅ Hands-on projects using real datasets</li>
-              <li>✅ Regular quizzes and assignments to track progress</li>
-              <li>✅ 1-on-1 mentorship and placement guidance</li>
-              <li>✅ Access to recorded sessions and materials</li>
-              <li>✅ Resume and LinkedIn profile building workshops</li>
-            </ul>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        {[
+          "Python", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "Matplotlib",
+          "SQL", "Power BI", "AWS", "GCP", "Flask", "GitHub",
+        ].map((tool, i) => (
+          <div
+            key={i}
+            className="p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all"
+          >
+            <p className="font-semibold text-slate-800">{tool}</p>
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
 
-      {/* Career Path */}
-      <ScrollAnimation animation="fadeInUp">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold mb-6">Career Outcomes</h2>
-          <p className="text-slate-700 text-lg mb-8">
-            After completing this program, you’ll be prepared for roles such as:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-slate-800">
-            {[
-              "Data Analyst",
-              "Machine Learning Engineer",
-              "Data Scientist",
-              "Business Intelligence Analyst",
-              "AI Engineer",
-              "Data Engineer (entry-level)",
-            ].map((role, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border bg-slate-50 p-6 text-center font-semibold shadow-sm hover:shadow-md transition"
-              >
-                {role}
-              </div>
-            ))}
+{/* WHY CHOOSE DATA ARTISANS */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="relative py-24 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-3">
+          Why Choose Data Artisans
+        </h2>
+        <p className="text-indigo-200 max-w-2xl mx-auto">
+          We craft a hands-on, mentor-driven learning path designed to transform learners into industry-ready data experts.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Expert Mentorship",
+            desc: "Learn directly from seasoned professionals with real-world experience.",
+          },
+          {
+            title: "Hands-on Projects",
+            desc: "Build confidence with practical, job-oriented project work.",
+          },
+          {
+            title: "Career Support",
+            desc: "Get placement prep, resume reviews, and mock interviews.",
+          },
+          {
+            title: "Flexible Access",
+            desc: "Access your content anytime with lifetime updates.",
+          },
+          {
+            title: "Global Community",
+            desc: "Join a network of mentors, peers, and alumni for continuous growth.",
+          },
+          {
+            title: "Future-Ready Skills",
+            desc: "Stay ahead with the latest in AI, data science, and cloud tech.",
+          },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="bg-white/10 rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-lg"
+          >
+            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+            <p className="text-indigo-100 text-sm leading-relaxed">{item.desc}</p>
           </div>
-        </div>
-      </ScrollAnimation>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
+
+{/* CAREER OUTCOMES */}
+<ScrollAnimation animation="fadeInUp">
+  <section className="py-24 bg-gradient-to-b from-white via-blue-50/50 to-indigo-50 text-center">
+    <div className="max-w-6xl mx-auto px-6">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+        Career Outcomes
+      </h2>
+      <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">
+        Step confidently into data-driven careers across industries worldwide.
+      </p>
+
+      <div className="flex flex-wrap justify-center gap-5">
+        {[
+          "Data Analyst",
+          "Data Scientist",
+          "ML Engineer",
+          "BI Developer",
+          "AI Engineer",
+          "Data Engineer",
+        ].map((role, i) => (
+          <div
+            key={i}
+            className="px-8 py-4 rounded-full bg-white border border-slate-200 shadow-md text-slate-800 font-semibold hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all"
+          >
+            {role}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ScrollAnimation>
 
       {/* CTA */}
-      <div className="bg-indigo-600 text-white text-center py-20">
+      <div className="bg-indigo-200 text-white text-center py-20">
         <h3 className="text-3xl font-bold mb-4">Start Your Data Science Journey Today!</h3>
         <p className="text-lg mb-8 max-w-2xl mx-auto">
           Learn the tools, build the skills, and launch your career with confidence.
