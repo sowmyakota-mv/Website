@@ -76,20 +76,18 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 font-sans font-semibold text-gray-700 text-lg md:text-xl tracking-wide">
-          <Link to="/" className="flex items-center hover:text-blue-500 transition-all duration-300">Home</Link>
+        <nav className="hidden md:flex items-center font-sans font-semibold text-gray-700 text-lg md:text-xl tracking-wide">
+  <Link to="/" className="mx-3 hover:text-blue-500 transition-all duration-300">Home</Link>
 
-          {/* About Dropdown */}
-          <div
-            className="relative"
-            ref={aboutRef}
-            onMouseEnter={() => { setAboutOpen(true); setOurServicesOpen(false); }}
-            onMouseLeave={() => setAboutOpen(false)}
-          >
-            <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
-              onClick={() => { setAboutOpen(!aboutOpen); setOurServicesOpen(false); }}>
-              About DA <ChevronDown className="ml-0.2 h-5 w-5" />
-            </Button>
+  <div
+    className="relative mx-1.5"
+    ref={aboutRef}
+    onMouseEnter={() => { setAboutOpen(true); setOurServicesOpen(false); }}
+    onMouseLeave={() => setAboutOpen(false)}
+  >
+    <Button className="flex items-center hover:text-blue-500 text-lg md:text-xl transition-all duration-300">
+      About DA <ChevronDown className="h-5 w-5" />
+    </Button>
             {aboutOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide">
                 <Link to="/training" className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200" onClick={closeAllMenus}>Hands-On Course Training</Link>
@@ -103,15 +101,14 @@ const Navbar = () => {
 
           {/* Our Services Dropdown */}
           <div
-            className="relative"
-            ref={servicesRef}
-            onMouseEnter={() => { setOurServicesOpen(true); setAboutOpen(false); }}
-            onMouseLeave={() => setOurServicesOpen(false)}
-          >
-            <Button className="flex items-center font-sans font-semibold hover:text-blue-500 text-lg md:text-xl transition-all duration-300"
-              onClick={() => { setOurServicesOpen(!ourServicesOpen); setAboutOpen(false); }}>
-              Our Services <ChevronDown className="ml-0.2 h-5 w-5" />
-            </Button>
+    className="relative mx-1.6"
+    ref={servicesRef}
+    onMouseEnter={() => { setOurServicesOpen(true); setAboutOpen(false); }}
+    onMouseLeave={() => setOurServicesOpen(false)}
+  >
+    <Button className="flex items-center hover:text-blue-500 text-lg md:text-xl transition-all duration-300">
+      Our Services <ChevronDown className="h-5 w-5" />
+    </Button>
             {ourServicesOpen && (
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md border z-50 text-sm font-sans font-medium tracking-wide max-h-96 overflow-y-auto">
                 {courses.map((course) => (
@@ -127,11 +124,16 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
-          <Link to="/graduate-internship" className="flex items-center hover:text-blue-500 transition-all duration-300">Graduate Internship</Link>
-          <Link to="/career" className="flex items-center hover:text-blue-500 transition-all duration-300">Career</Link>
-          <button className="flex items-center hover:text-blue-500 transition-all duration-300" onClick={() => { handleScrollTo("success"); closeAllMenus(); }}>Stories</button>
-        </nav>
+          <Link to="/graduate-internship" className="mx-5 hover:text-blue-500 transition-all duration-300">
+    Graduate Internship
+  </Link>
+  <Link to="/career" className="mx-4.5 hover:text-blue-500 transition-all duration-300">
+    Career
+  </Link>
+  <button className="mx-4.5 hover:text-blue-500 transition-all duration-300" onClick={() => { handleScrollTo("success"); closeAllMenus(); }}>
+    Stories
+  </button>
+</nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex space-x-4">

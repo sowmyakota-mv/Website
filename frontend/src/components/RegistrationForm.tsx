@@ -155,7 +155,7 @@ function RegistrationForm() {
                   Contact Number
                 </label>
                 <PhoneInput
-                  country={" "} 
+                  country={"gb"} 
                   value={fullContact}
                   onChange={(value, country) => {
                     setFullContact(value);

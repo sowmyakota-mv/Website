@@ -16,7 +16,7 @@ const stories = [
   { name: "Gautam Singh", degree: "MSc in Computer Vision", university: "University of Manchester", review: "Excellent mentorship and preparation helped me land my dream job at Adobe.", rating: 4.8 },
   { name: "Meera Joshi", degree: "Master in Business Analytics", university: "London Business School", review: "Fantastic journey and team support helped me bag a position at Deloitte.", rating: 4.8 },
   { name: "Sidharth Reddy", degree: "Master in Information Security", university: "University of Glasgow", review: "Expert instructors and practical labs made interviews easy; placed at Cisco.", rating: 4.7 },
-  { name: "Ayesha Khan", degree: "MSc in Robotics", university: "University of Bristol", review: "Robotics specialization was unique and led me to Boston Dynamics.", rating: 4.9 },
+  { name: "Ayesha Khan", degree: "MSc in Robotics", university: "University of London", review: "Robotics specialization was unique and led me to Boston Dynamics.", rating: 4.9 },
   { name: "Hari Kumar", degree: "Master in Software Engineering", university: "University of Birmingham", review: "Mock interviews and career guidance prepped me well for IBM.", rating: 4.7 },
   { name: "Tanvi Jain", degree: "MSc in Big Data", university: "University of Warwick", review: "Focus on projects helped me land a job at Oracle.", rating: 4.8 },
   { name: "Rehan Malik", degree: "Master in Cloud Security", university: "Cardiff University", review: "Supportive environment and motivation helped me secure my position at SAP.", rating: 4.8 },

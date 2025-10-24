@@ -30,11 +30,11 @@ function StatsSection() {
       <div className="max-w-6xl mx-auto px-15">
         {/* Removed rounded-xl for square edges */}
         <div className="bg-white shadow-lg p-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center">
-          <StatBox title="Placement" targetNumber={400} isVisible={isVisible} suffix="+" />
+          <StatBox title="Placement" targetNumber={4000} isVisible={isVisible} suffix="+" />
           <Divider />
-          <StatBox title="Sponsored Jobs" targetNumber={250} isVisible={isVisible} suffix="+" />
+          <StatBox title="Sponsored Jobs" targetNumber={2500} isVisible={isVisible} suffix="+" />
           <Divider />
-          <StatBox title="Interviews" targetNumber={600} isVisible={isVisible} suffix="+" />
+          <StatBox title="Interviews" targetNumber={6000} isVisible={isVisible} suffix="+" />
         </div>
       </div>
     </section></ScrollAnimation>
