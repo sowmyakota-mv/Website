@@ -6,23 +6,22 @@ const stories = [
   { name: "Arjun Kumar", degree: "Master in AI & ML", university: "Imperial College London", review: "Hands-on training and placement assistance helped me land a Machine Learning role at Google.", rating: 4.9 },
   { name: "Priya Sharma", degree: "MSc in Data Analytics", university: "University of Edinburgh", review: "Comprehensive program prepared me fully, and I got placed at Facebook successfully.", rating: 4.8 },
   { name: "Rohan Verma", degree: "Master in AI", university: "University of Oxford", review: "Amazing instructors ensured a seamless learning experience, resulting in a role at Apple.", rating: 4.9 },
-  { name: "Sneha Gupta", degree: "MSc in Cloud Computing", university: "University of Cambridge", review: "Loved the hands-on approach and career support, leading to a position at IBM.", rating: 4.7 },
+  { name: "Sophia Turner", degree: "MSc in Cloud Computing", university: "University of Cambridge", review: "The practical learning and support system were outstanding, helping me get placed at IBM.", rating: 4.8 },
   { name: "Vikram Singh", degree: "Master in Data Engineering", university: "King's College London", review: "Excellent mentorship and practical assignments helped me get placed at Tesla.", rating: 4.8 },
   { name: "Ananya Roy", degree: "MSc in Machine Learning", university: "Imperial College London", review: "Supportive environment and detailed feedback enabled my job at Netflix.", rating: 4.9 },
   { name: "Karan Mehta", degree: "Master in AI & Data Science", university: "University of London", review: "Career guidance gave me confidence to get placed at Amazon successfully.", rating: 4.8 },
-  { name: "Isha Patel", degree: "MSc in Cloud Computing", university: "King's College London", review: "Great curriculum and placement support helped secure my role at Microsoft.", rating: 4.7 },
+  { name: "Olivia Bennett", degree: "MSc in Cyber Security", university: "King's College London", review: "Strong hands-on sessions and mentoring helped me land a role at Microsoft.", rating: 4.7 },
   { name: "Rahul Desai", degree: "MSc in AI & ML", university: "Imperial College London", review: "Hands-on projects and guidance helped me get placed at Google efficiently.", rating: 4.9 },
   { name: "Neha Kapoor", degree: "Master in Data Analytics", university: "University of Edinburgh", review: "Great learning experience & placement support led to my role at Facebook.", rating: 4.8 },
-  { name: "Gautam Singh", degree: "MSc in Computer Vision", university: "University of Manchester", review: "Excellent mentorship and preparation helped me land my dream job at Adobe.", rating: 4.8 },
+  { name: "James Miller", degree: "MSc in Computer Vision", university: "University of Manchester", review: "The program’s practical modules and mentorship helped me land my dream job at Adobe.", rating: 4.8 },
   { name: "Meera Joshi", degree: "Master in Business Analytics", university: "London Business School", review: "Fantastic journey and team support helped me bag a position at Deloitte.", rating: 4.8 },
   { name: "Sidharth Reddy", degree: "Master in Information Security", university: "University of Glasgow", review: "Expert instructors and practical labs made interviews easy; placed at Cisco.", rating: 4.7 },
   { name: "Ayesha Khan", degree: "MSc in Robotics", university: "University of London", review: "Robotics specialization was unique and led me to Boston Dynamics.", rating: 4.9 },
-  { name: "Hari Kumar", degree: "Master in Software Engineering", university: "University of Birmingham", review: "Mock interviews and career guidance prepped me well for IBM.", rating: 4.7 },
+  { name: "Ethan Clark", degree: "Master in Software Engineering", university: "University of Birmingham", review: "In-depth modules and mock interviews prepared me well for IBM.", rating: 4.7 },
   { name: "Tanvi Jain", degree: "MSc in Big Data", university: "University of Warwick", review: "Focus on projects helped me land a job at Oracle.", rating: 4.8 },
   { name: "Rehan Malik", degree: "Master in Cloud Security", university: "Cardiff University", review: "Supportive environment and motivation helped me secure my position at SAP.", rating: 4.8 },
-  { name: "Divya Saxena", degree: "MSc in Analytics", university: "University of Liverpool", review: "Great instructors and guidance allowed me to place at Accenture.", rating: 4.9 },
+  { name: "Emma Wilson", degree: "MSc in Analytics", university: "University of Liverpool", review: "The instructors’ expertise and clear guidance helped me get placed at Accenture.", rating: 4.9 },
 ];
-
 
 function SuccessStories() {
   const DURATION = 20; 
@@ -56,7 +55,7 @@ function SuccessStories() {
           Inspiring Success Stories
         </h2>
         <p className="text-lg text-center text-blue-700 mb-10">
-          Our students have achieved remarkable milestones—here are some of their journeys!
+          Our students have achieved remarkable milestones here are some of their journeys!
         </p>
 
         {/* Row 1: left-to-right scroll */}

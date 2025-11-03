@@ -74,7 +74,7 @@ export default function Career() {
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Career D
+            Career 
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             At <span className="font-semibold text-blue-600">Data Artisans</span>, we don’t just train - we
@@ -144,7 +144,7 @@ export default function Career() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 ">
           <h3 className="text-2xl font-semibold text-gray-800 mb-3">
             Ready to Start Your Career Journey?
           </h3>

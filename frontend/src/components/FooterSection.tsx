@@ -107,7 +107,7 @@ function FooterSection() {
 
         {/* Footer Bottom */}
         <ScrollAnimation direction="right" delay={0.8}>
-          <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+          <div className="border-t border-gray-700 mt-4 -mb-4 pt-4 text-center text-gray-400 text-sm">
             <p>&copy; {new Date().getFullYear()} Data Artisans Consultancy. All rights reserved.</p>
           </div>
         </ScrollAnimation>

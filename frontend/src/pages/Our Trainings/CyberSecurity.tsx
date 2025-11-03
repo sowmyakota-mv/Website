@@ -8,12 +8,31 @@ export default function CyberSecurityCourse() {
 
       {/* Hero */}
       <ScrollAnimation animation="fadeInDown">
-        <div className="bg-gradient-to-r from-emerald-50 via-white to-slate-100 py-20 text-center">
-          <h1 className="text-5xl font-extrabold text-slate-900 mb-4">Cyber Security</h1>
-          <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
+      <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/cyber-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+           Cyber Security
+          </h1>
+          <p className="max-w-3xl mx-auto text-sm text-white leading-relaxed">
             Learn defensive & offensive cybersecurity fundamentals, detection and
             incident response, and hands-on red/blue team techniques to protect systems.
           </p>
+        </div>
         </div>
       </ScrollAnimation>
 

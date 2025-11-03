@@ -36,7 +36,7 @@ export default function JobOrientedHighlight() {
                         <span className="text-xl text-white font-bold tracking-widest">OCTOBER</span>
                       </div>
                       <div className="flex-grow flex items-center justify-center">
-                        <span className="text-7xl font-extrabold text-gray-900">20</span>
+                        <span className="text-7xl font-extrabold text-gray-900">27</span>
                       </div>
                       <div className="absolute top-[-12px] left-6 w-4 h-4 border-2 border-gray-400 rounded-full bg-white shadow-inner"></div>
                       <div className="absolute top-[-12px] right-6 w-4 h-4 border-2 border-gray-400 rounded-full bg-white shadow-inner"></div>
@@ -55,7 +55,7 @@ export default function JobOrientedHighlight() {
                 {/* Description */}
                 <ScrollAnimation direction="up" delay={0.8}>
                   <p className="font-medium mb-6 text-lg">
-                    Next batch starts <span className="font-bold underline">20th October</span>.
+                    Next batch starts <span className="font-bold underline">27th October</span>.
                     <br />
                     Timings: <span className="font-semibold">6:45 PM – 8:15 PM</span>
                   </p>

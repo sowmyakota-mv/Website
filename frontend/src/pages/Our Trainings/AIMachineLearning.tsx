@@ -8,15 +8,32 @@ export default function AIMachineLearning() {
 
       {/* Hero */}
       <ScrollAnimation animation="fadeInDown">
-        <div className="bg-gradient-to-r from-sky-50 via-white to-slate-50 py-20 text-center">
-          <h1 className="text-5xl font-extrabold text-sky-900 mb-4">
+      <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/aiml-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
             AI & Machine Learning
           </h1>
-          <p className="max-w-3xl mx-auto text-lg text-sky-700 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-sm text-white leading-relaxed">
             Deep dive into machine learning algorithms, model building, MLOps and
             production AI. Learn to design, train, evaluate, and deploy real-world
             models and pipelines.
           </p>
+        </div>
         </div>
       </ScrollAnimation>
 
@@ -121,7 +138,7 @@ export default function AIMachineLearning() {
         }
       ].map((mod, i) => (
         <ScrollAnimation key={i} animation="fadeInUp" delay={0.1*i}>
-          <article className="rounded-2xl border p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
+          <article className="rounded-2xl border h-full p-6 bg-white shadow-md hover:shadow-xl hover:scale-105 transition transform">
             <h3 className="text-xl font-bold mb-2 text-sky-900">{mod.title}</h3>
             <p className="text-sky-700 mb-2">{mod.desc}</p>
             <ul className="list-disc list-inside text-sky-700">

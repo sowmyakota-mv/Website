@@ -66,11 +66,30 @@ export default function MobileAppDevelopment() {
     <section id="our-services/mobile-app" className="w-full bg-white text-gray-900 -mb-12">
 
       {/* Hero */}
-      <div className="bg-gradient-to-r from-cyan-50 via-white to-slate-50 py-20 text-center">
-        <h1 className="text-5xl font-extrabold text-slate-900 mb-4">Mobile App Development</h1>
-        <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-          Learn to build high-performance iOS and Android apps using native and cross-platform frameworks like React Native and Flutter.
+       <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/mobile-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
+           Mobile App Development
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg text-white leading-relaxed">
+            Learn to build high-performance iOS and Android apps using native and cross-platform frameworks like React Native and Flutter.
         </p>
+      </div>
       </div>
 
       {/* About */}
@@ -218,7 +237,7 @@ export default function MobileAppDevelopment() {
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.2}>
-        <div className="bg-gradient-to-r from-cyan-100 to-blue-400 text text-center py-20 rounded-2xl">
+        <div className="bg-gradient-to-r from-cyan-100 to-blue-400 text text-center py-20 rounded-2xl mt-16">
           <h3 className="text-3xl font-bold mb-4">Become a Mobile App Developer</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">Master mobile app development from scratch and deploy production-ready apps to app stores.</p>
           <Link to="/register" className="px-8 py-3 bg-white text-cyan-600 font-semibold rounded-full hover:bg-cyan-50 hover:scale-105 transition transform duration-300">Enroll Now</Link>

@@ -51,11 +51,30 @@ export default function UXUIDesign() {
 
       {/* Hero */}
       <ScrollAnimation animation="fadeInDown">
-        <div className="bg-gradient-to-r from-pink-100 via-purple-50 to-indigo-100 py-20 text-center">
-          <h1 className="text-5xl font-extrabold text-indigo-900 mb-4">UX / UI Design</h1>
-          <p className="max-w-3xl mx-auto text-lg text-indigo-700 leading-relaxed">
+ <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/uxui-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+          UX-UI Design
+          </h1>
+          <p className="max-w-3xl mx-auto text-sm text-white leading-relaxed">
             Master human-centered design, wireframing, prototyping, and usability testing to create seamless digital experiences.
           </p>
+        </div>
         </div>
       </ScrollAnimation>
 
@@ -197,7 +216,7 @@ export default function UXUIDesign() {
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.4}>
-        <div className="bg-gradient-to-r from-pink-100 via-purple-200 to-indigo-300 text-black text-center py-20 rounded-2xl">
+        <div className="bg-gradient-to-r from-pink-100 via-purple-200 to-indigo-300 text-black text-center py-20 rounded-2xl mt-16">
           <h3 className="text-3xl font-bold mb-4">Build Your UX/UI Career</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">Learn design thinking, prototyping, and user-centered design to create seamless experiences.</p>
           <Link to="/register" className="px-8 py-3 bg-white text-pink-600 font-semibold rounded-full hover:bg-pink-50 transition transform hover:scale-105 duration-300">Enroll Now</Link>

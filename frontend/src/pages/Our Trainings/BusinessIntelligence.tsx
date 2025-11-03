@@ -8,11 +8,30 @@ export default function BusinessIntelligence() {
 
       {/* Hero */}
       <ScrollAnimation animation="fadeInDown">
-        <div className="bg-gradient-to-r from-indigo-50 via-white to-slate-100 py-20 text-center">
-          <h1 className="text-5xl font-extrabold text-slate-900 mb-4">Business Intelligence</h1>
-          <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
+         <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/business-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+           Business Intelligence
+          </h1>
+          <p className="max-w-3xl mx-auto text-sm text-white leading-relaxed">
             Transform data into actionable insights. Learn to design data models, build dashboards, and implement ETL pipelines for enterprise analytics.
           </p>
+        </div>
         </div>
       </ScrollAnimation>
 
@@ -189,7 +208,7 @@ export default function BusinessIntelligence() {
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.4}>
-        <div className="bg-indigo-100 text text-center py-20 rounded-2xl shadow-lg">
+        <div className="bg-indigo-100 text text-center py-20 rounded-2xl shadow-lg mt-12">
           <h3 className="text-3xl font-bold mb-4">Advance Your Career in BI</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             Join live labs, hands-on projects, and mentorship to become a skilled BI professional.

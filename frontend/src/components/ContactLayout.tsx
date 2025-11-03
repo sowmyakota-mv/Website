@@ -27,13 +27,22 @@ export default function ContactLayout() {
             </div>
 
             {/* Right: Info Section (40%) */}
-            <div className="w-full md:w-[40%] bg-cyan-500 text-white flex flex-col justify-center items-center p-10">
-              <h2 className="text-4xl font-extrabold mb-6 text-center">Data Artisans</h2>
+            <div className="w-full md:w-[40%] bg-cyan-500 text-white flex flex-col justify-center items-center p-10 mt-12">
+              {/* ✅ Added Logo above title */}
+              <img
+                src="/da-logo-removebg-preview.png"
+                alt="Data Artisans Logo"
+                className="w-72 h-48 mb-4 object-contain -ml-12"
+              />
+
+              <h2 className="text-4xl font-extrabold mb-6 text-center">
+                Data Artisans
+              </h2>
               <p className="text-lg text-center leading-relaxed">
-                Data Artisans is dedicated to crafting innovative, precise, and scalable
-                solutions that empower businesses with data-driven insights. Our
-                expertise bridges technology and creativity, ensuring impactful
-                transformations in every project.
+                Data Artisans is dedicated to crafting innovative, precise, and
+                scalable solutions that empower businesses with data-driven
+                insights. Our expertise bridges technology and creativity,
+                ensuring impactful transformations in every project.
               </p>
             </div>
           </section>
@@ -42,35 +51,55 @@ export default function ContactLayout() {
         {/* Three Info Cards */}
         <ScrollAnimation direction="up" delay={0.7}>
           <section className="flex flex-col sm:flex-row gap-6 justify-between mb-12">
-            <div className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3">
+            {/* 📞 Phone clickable */}
+            <a
+              href="tel:+441234567890"
+              className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3 hover:bg-cyan-200 transition"
+            >
               <Phone className="text-cyan-800 mr-4" size={28} />
               <div>
-                <h3 className="font-bold text-cyan-900 mb-2">+44 123 456 7890</h3>
+                <h3 className="font-bold text-cyan-900 mb-2">
+                  +44 123 456 7890
+                </h3>
                 <p className="text-cyan-700 text-sm">
                   Reach us easily anytime with friendly support.
                 </p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3">
+            {/* 📧 Email clickable */}
+            <a
+              href="mailto:info@dataartisans.com"
+              className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3 hover:bg-cyan-200 transition"
+            >
               <Mail className="text-cyan-800 mr-4" size={28} />
               <div>
-                <h3 className="font-bold text-cyan-900 mb-2">info@dataartisans.com</h3>
+                <h3 className="font-bold text-cyan-900 mb-2">
+                  info@dataartisans.com
+                </h3>
                 <p className="text-cyan-700 text-sm">
                   Send us an email and get quick responses.
                 </p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3">
+            {/* 📍 Location clickable */}
+            <a
+              href="https://www.google.com/maps/place/Data+Artisans+Limited/@51.5425872,0.0501553,17z/data=!4m6!3m5!1s0x47d8a64cf556024d:0xb5166f312fa4276f!8m2!3d51.5426215!4d0.0499273!16s%2Fg%2F11s490lkwj?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D, United Kingdom"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center bg-cyan-100 rounded-lg p-6 shadow-md w-full sm:w-1/3 hover:bg-cyan-200 transition"
+            >
               <MapPin className="text-cyan-800 mr-4" size={28} />
               <div>
-                <h3 className="font-bold text-cyan-900 mb-2">London, United Kingdom</h3>
+                <h3 className="font-bold text-cyan-900 mb-2">
+                  London, United Kingdom
+                </h3>
                 <p className="text-cyan-700 text-sm">
                   Visit our head office for personalized service.
                 </p>
               </div>
-            </div>
+            </a>
           </section>
         </ScrollAnimation>
 

@@ -10,8 +10,8 @@ function RegistrationForm() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [nameError, setNameError] = useState("");
   const [formError, setFormError] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [fullName, setFullName] = useState("");
   const [location, setLocation] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -24,21 +24,39 @@ function RegistrationForm() {
     : fullContact;
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setFormError("");
+    setEmailError("");
+    setPhoneError("");
+    setNameError("");
 
-    if (!fullName || !email || !fullContact || !location) {
-      setFormError("Please fill in all details");
-      return;
+    let valid = true;
+
+    // Name validation
+    if (!fullName.trim()) {
+      setNameError("Please enter your full name");
+      valid = false;
     }
-    if (!dialCode) {
-      setPhoneError("Please enter the correct country code");
-      return;
+
+    // Email validation
+    if (!email.trim()) {
+      setEmailError("Please enter your email address");
+      valid = false;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if (!emailRegex.test(email)) {
+        setEmailError("Please enter a valid email address");
+        valid = false;
+      }
     }
-    if (emailError || phoneError) {
-      alert("Fix errors before submitting");
-      return;
+
+    // Contact validation
+    if (!fullContact.trim()) {
+      setPhoneError("Please enter your contact number");
+      valid = false;
     }
+
+    if (!valid) return;
 
     setLoading(true);
 
@@ -51,11 +69,14 @@ function RegistrationForm() {
     };
 
     try {
-      const response = await fetch("https://websitebackend-dzgn.onrender.com/api/register", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formPayload),
-});
+      const response = await fetch(
+        "https://websitebackend-dzgn.onrender.com/api/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formPayload),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
@@ -74,23 +95,14 @@ function RegistrationForm() {
     }
   };
 
-  const validateEmail = (value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    if (!emailRegex.test(value)) {
-      setEmailError("Please enter a valid email address");
-    } else {
-      setEmailError("");
-    }
-  };
-
   const handleReturnHome = () => {
     setFullContact("");
     setDialCode("");
     setEmail("");
     setEmailError("");
     setPhoneError("");
+    setNameError("");
     setFormError("");
-    setShowPassword(false);
     setFullName("");
     setLocation("");
     setSuccessMessage("");
@@ -105,7 +117,7 @@ function RegistrationForm() {
           <div className="flex flex-col justify-center items-center text-center">
             <h2 className="text-4xl font-bold mb-4 text-gray-800">Thank You!</h2>
             <p className="text-lg text-gray-600 mb-2">
-              Your Submission has been successfully received.
+              Your submission has been successfully received.
             </p>
             <Button
               onClick={handleReturnHome}
@@ -122,26 +134,38 @@ function RegistrationForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {formError && <p className="text-red-500 text-sm">{formError}</p>}
 
+              {/* Full Name */}
               <div>
-                <label className="block text-gray-600 mb-2">Full Name</label>
+                <label className="block text-gray-600 mb-2">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
                 <input
                   type="text"
                   value={fullName}
                   placeholder="Enter your name"
-                  onChange={(e) => setFullName(e.target.value)}
+                  onChange={(e) => {
+                    setFullName(e.target.value);
+                    setNameError("");
+                  }}
                   className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
+                {nameError && (
+                  <p className="text-red-500 text-sm mt-1">{nameError}</p>
+                )}
               </div>
 
+              {/* Email */}
               <div>
-                <label className="block text-gray-600 mb-2">Email</label>
+                <label className="block text-gray-600 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
                 <input
                   type="email"
                   value={email}
                   placeholder="Enter your email"
                   onChange={(e) => {
                     setEmail(e.target.value);
-                    validateEmail(e.target.value);
+                    setEmailError("");
                   }}
                   className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
@@ -150,12 +174,13 @@ function RegistrationForm() {
                 )}
               </div>
 
+              {/* Phone */}
               <div>
                 <label className="block text-gray-600 mb-2">
-                  Contact Number
+                  Contact Number <span className="text-red-500">*</span>
                 </label>
                 <PhoneInput
-                  country={"gb"} 
+                  country={"gb"}
                   value={fullContact}
                   onChange={(value, country) => {
                     setFullContact(value);
@@ -174,13 +199,9 @@ function RegistrationForm() {
                 {phoneError && (
                   <p className="text-red-500 text-sm mt-1">{phoneError}</p>
                 )}
-                {dialCode && fullContact && (
-                  <p className="text-green-600 text-sm mt-1">
-                    {/* Formatted: {formattedPhone} */}
-                  </p>
-                )}
               </div>
 
+              {/* Location */}
               <div className="relative">
                 <label className="block text-gray-600 mb-2">Location</label>
                 <input
@@ -190,24 +211,9 @@ function RegistrationForm() {
                   placeholder="Enter Location"
                   className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
-                {/* <span
-                  className="absolute right-4 top-11 cursor-pointer text-gray-600"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
-                </span> */}
               </div>
-              {/* Message Field */}
-              {/* <div>
-                <label className="block text-gray-600 mb-2">Message</label>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Enter your message"
-                  rows="4"
-                  className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                ></textarea>
-              </div> */}
+
+              {/* Submit */}
               <Button
                 type="submit"
                 disabled={loading}

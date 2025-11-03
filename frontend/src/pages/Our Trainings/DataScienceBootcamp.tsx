@@ -6,17 +6,35 @@ import { Link } from "react-router-dom";
 export default function DataScienceBootcamp() {
   return (
     <section id="our-services/data-science" className="w-full bg-white text-gray-900 -mb-12">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-indigo-50 via-blue-50 to-white py-20 text-center">
-        <h1 className="text-5xl font-extrabold text-slate-900 mb-4">
-          Data Science Bootcamp
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-          Master the complete Data Science lifecycle from data wrangling to
-          machine learning and deployment through real-world projects and
-          guided mentorship by industry experts.
-        </p>
-      </div>
+
+ {/* HERO SECTION with background video */}
+      <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/data-science.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+      Data Science Bootcamp
+    </h1>
+    <p className="max-w-3xl mx-auto text-sm md:text-xl text-gray-200 leading-relaxed">
+      Master the complete Data Science lifecycle from data wrangling to
+      machine learning and deployment through real-world projects and guided
+      mentorship by industry experts.
+    </p>
+  </div>
+</div>
 
       {/* Overview */}
       <ScrollAnimation animation="fadeInUp">

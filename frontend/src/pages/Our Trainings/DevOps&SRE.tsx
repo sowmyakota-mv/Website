@@ -7,11 +7,30 @@ export default function DevOpsSRE() {
     <section id="our-services/devops" className="w-full bg-white text-gray-900 -mb-12">
 
       {/* Hero */}
-      <div className="bg-gradient-to-r from-yellow-50 via-white to-slate-50 py-20 text-center">
-        <h1 className="text-5xl font-extrabold text-slate-900 mb-4">DevOps & SRE</h1>
-        <p className="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-          Master automation, CI/CD, containerization, and site reliability practices to deliver software faster and more reliably.
+       <div className="relative w-full h-[70vh] flex flex-col justify-center items-center text-center overflow-hidden">
+
+  {/* Background Video */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
+    src="/devops-hero.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Semi-transparent overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40 z-[2]"></div>
+
+  {/* Foreground content (on top of everything) */}
+  <div className="relative z-[3] px-6">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+           DevOps & SRE
+          </h1>
+          <p className="max-w-3xl mx-auto text-sm text-white leading-relaxed">
+            Master automation, CI/CD, containerization, and site reliability practices to deliver software faster and more reliably.
         </p>
+      </div>
       </div>
 
       {/* About */}
@@ -189,7 +208,7 @@ export default function DevOpsSRE() {
 
       {/* CTA */}
       <ScrollAnimation animation="fadeInUp" duration={0.8} delay={1.4}>
-        <div className="bg-yellow-100 text-black text-center py-20 rounded-2xl">
+        <div className="bg-yellow-100 text-black text-center py-20 rounded-2xl mt-16">
           <h3 className="text-3xl font-bold mb-4">Accelerate Your DevOps Career</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">Join live labs, practical projects, and mentorship to become a proficient DevOps & SRE professional.</p>
           <Link to="/register" className="px-8 py-3 bg-white text-yellow-600 font-semibold rounded-full hover:bg-yellow-50 transition transform hover:scale-105">Enroll Now</Link>
